@@ -1,0 +1,23 @@
+{
+  "name": "engivato",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Engineering and Innovation for Local Businesses",
+  "author": "Dylan Alsobrooks",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "next": "^16.3.4",
+    "postcss": "^8.5.28",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3"
+  }
+}
