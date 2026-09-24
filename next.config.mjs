@@ -1,5 +1,8 @@
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig = {
-    output: 'export',
+    output: isDev ? undefined : 'export',
+    allowedDevOrigins: ['127.0.0.1'],
 };
 
-export default nextConfig
+export default nextConfig;

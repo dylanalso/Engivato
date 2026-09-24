@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
 
-  /* for SEO, I use Yoast */
+  /* for SEO */
   metadataBase: new URL('https://dylanalso.github.io/Engivato'), //whatever the landing page will be (engivato.com, not the github repo)
 
   title: 'Engivato | Engineering and Innovation',
