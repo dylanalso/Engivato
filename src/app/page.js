@@ -1,5 +1,13 @@
 import React from 'react';
 
+{/* meta */}
+export const metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
+
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-navy text-slate-100 font-sans selection:bg-orange selection:text-white">
@@ -8,7 +16,7 @@ export default function Home() {
         
         {/* logo */}
         <div className="text-2xl font-bold tracking-tighter text-white">
-          <a href="/">ENGIVATO</a><span className="text-orange">.</span>
+          <a href="#">ENGIVATO</a><span className="text-orange">.</span>
         </div>
 
         {/* nav links */}
