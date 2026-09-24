@@ -7,3 +7,8 @@ const isDev = process.env.NODE_ENV === 'development';
 export const { POST, GET } = isDev 
   ? makeRouteHandler({ config })
   : { POST: () => new Response('Not Found', { status: 404 }), GET: () => new Response('Not Found', { status: 404 }) };
+
+export const dynamic = 'force-static';
+export function generateStaticParams() {
+  return [{ params: ['keystatic'] }];
+}
