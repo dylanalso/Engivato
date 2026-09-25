@@ -4,7 +4,7 @@ export default async function Services() {
     const servicesData = await reader.collections.services.all();
     const services = servicesData.map(s => s.entry);
 
-    // Fallback to initial content if the collection is empty
+    // fallback content if collection is empty
     const displayServices = services.length > 0 ? services : [
       { title: 'Structural Design', desc: 'Robust and efficient structural engineering that stands the test of time.' },
       { title: 'System Innovation', desc: 'Integrating cutting-edge technology to streamline your core processes.' },

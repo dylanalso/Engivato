@@ -7,9 +7,9 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Engivato PLLC. All rights reserved.</p>
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="/privacy" className="hover:text-orange transition-colors">Privacy Policy</a>
-              <a href="/terms_of_service" className="hover:text-orange transition-colors">Terms of Service</a>
-              <a href="/accessibility" className="hover:text-orange transition-colors">Accessibility</a>
+              <Link href="/privacy" className="hover:text-orange transition-colors">Privacy Policy</Link>
+              <Link href="/terms_of_service" className="hover:text-orange transition-colors">Terms of Service</Link>
+              <Link href="/accessibility" className="hover:text-orange transition-colors">Accessibility</Link>
             </div>
             {/* CTA */}
             <button className="bg-orange/20 text-orange border border-orange px-5 py-2 rounded-full text-sm font-semibold hover:bg-orange hover:text-white transition-all duration-300">
