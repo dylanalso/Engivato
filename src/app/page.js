@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-navy text-slate-100 font-sans selection:bg-orange selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
     <Navbar />
     <Hero />
     <Services />

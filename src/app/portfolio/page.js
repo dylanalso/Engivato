@@ -11,14 +11,14 @@ export const metadata = {
 
 export default function Portfolio() {
     return (
-        <div className="min-h-screen bg-navy text-slate-100 font-sans selection:bg-orange selection:text-white">
+        <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
             <Navbar />
             <main>
                 <section id="portfolio">
                     <div className="max-w-6xl mx-auto py-24 px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold mb-4">Portfolio</h2>
-                            <p className="text-slate-400 max-w-xl mx-auto">Here are some examples of our work.</p>
+                            <p className="text-slate-600 max-w-xl mx-auto">Here are some examples of our work.</p>
                         </div>
                     </div>
                 </section>
