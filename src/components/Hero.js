@@ -11,7 +11,7 @@ export default function Hero() {
             src={blueOverlay} 
             alt="Engineering Background" 
             fill 
-            className="object-cover opacity-20"
+            className="object-cover opacity-20 contrast-200"
             unoptimized
           />
         </div>

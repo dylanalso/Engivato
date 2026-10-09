@@ -1,5 +1,5 @@
-import Navbar from '../../components/Navbar.js';
-import Footer from '../../components/Footer.js';
+import Navbar from '../../components/navbar.js';
+import Footer from '../../components/footer.js';
 
 export const metadata = {
     title: 'About Us | Engivato PLLC',
@@ -12,7 +12,7 @@ export const metadata = {
 export default function About() {
     return (
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
-        <Navbar />
+
 
         <main>
             <section id="about">
@@ -25,7 +25,6 @@ export default function About() {
             </section>
         </main>
 
-        <Footer />
       </div>
     );
 }
