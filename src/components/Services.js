@@ -12,7 +12,7 @@ export default async function Services() {
     ];
 
     return (
-      <section id="services" className="py-24 px-4 bg-white relative border-t border-slate-200">
+      <section id="services" className="py-24 px-4 bg-slate-50 relative border-t border-slate-200">
         <div className="max-w-6xl mx-auto">
 
           {/* section title */}
