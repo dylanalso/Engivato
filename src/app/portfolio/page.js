@@ -1,6 +1,3 @@
-import Navbar from "../../components/navbar.js";
-import Footer from "../../components/footer.js";
-
 export const metadata = {
     title: 'Portfolio | Engivato PLLC',
     description: 'View our portfolio of mechanical, electrical, and plumbing engineering projects.',
@@ -17,7 +14,6 @@ export default async function Portfolio() {
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
-            <Navbar />
             <main>
                 <section id="portfolio">
                     <div className="max-w-6xl mx-auto py-24 px-4">
@@ -41,7 +37,6 @@ export default async function Portfolio() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </div>
     );
 }

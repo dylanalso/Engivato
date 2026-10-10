@@ -1,6 +1,3 @@
-import Navbar from "../../components/navbar.js";
-import Footer from "../../components/footer.js";
-
 export const metadata = {
     title: 'Contact Us | Engivato PLLC',
     description: 'Contact us today for mechanical, electrical, and plumbing engineering solutions.',
@@ -12,7 +9,6 @@ export const metadata = {
 export default function Contact() {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
-            <Navbar />
             <main>
                 <section id="contact">
                     <div className="max-w-6xl mx-auto py-24 px-4">
@@ -23,7 +19,6 @@ export default function Contact() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </div>
     );
 }

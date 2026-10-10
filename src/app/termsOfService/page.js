@@ -1,34 +1,26 @@
-import Navbar from "../../components/navbar.js";
-import Footer from "../../components/footer.js";
+export const metadata = {
+    title: 'Terms of Service | Engivato PLLC',
+    description: 'Terms of Service.',
+    alternates: {
+        canonical: '/termsOfService',
+    },
+};
 
-export default function Terms() {
+export default function TermsOfService() {
     return (
-        <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white flex flex-col">
-            <Navbar />
+        <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
             
-            <main className="flex-grow pt-32 pb-24 px-4">
-                <section id="terms" className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-200">
-                    <div className="mb-10 border-b border-slate-100 pb-8 text-center md:text-left">
-                        <h1 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">Terms of Service</h1>
+            <main>
+                <section id="termsOfService">
+                    <div className="max-w-6xl mx-auto py-24 px-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-bold mb-4">Terms of Service</h2>
+                            <p className="text-slate-600 max-w-xl mx-auto">Learn more about our mechanical, electrical, and plumbing engineering solutions.</p>
                     </div>
-                    
-                    <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
-                        <p>
-                        Welcome to Engivato PLLC. These Terms of Service govern your use of our website, engivato.com. By accessing or using our website, you agree to be bound by these terms. 
-                        </p>
-                        
-                        <p>
-                        For the purposes of these terms, “we,” “us,” and “our” refer to Engivato PLLC, and “you” refers to the user or visitor of our website. 
-                        </p>
-                        
-                        <p>
-                        Please read these terms carefully before using our website. 
-                        </p>
-                    </div>
-                </section>
-            </main>
+                </div>
+            </section>
+        </main>
 
-            <Footer />
-        </div>
+      </div>
     );
 }

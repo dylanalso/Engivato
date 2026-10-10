@@ -1,6 +1,3 @@
-import Navbar from '../../components/navbar.js';
-import Footer from '../../components/footer.js';
-
 export const metadata = {
     title: 'About Us | Engivato PLLC',
     description: 'Learn more about our mechanical, electrical, and plumbing engineering solutions.',

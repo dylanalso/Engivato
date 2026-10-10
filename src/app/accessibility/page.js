@@ -1,10 +1,6 @@
-import Navbar from "../../components/navbar.js";
-import Footer from "../../components/footer.js";
-
 export default function Accessibility() {
     return (
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white flex flex-col">
-        <Navbar />
 
         <main className="flex-grow pt-32 pb-24 px-4">
             <section id="accessibility" className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-200">
@@ -52,8 +48,6 @@ export default function Accessibility() {
                 </div>
             </section>
         </main>
-        
-        <Footer />
       </div>
     );
 }
