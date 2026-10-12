@@ -15,19 +15,23 @@ export default function Footer() {
             </div>
           </div> */}
 
-          {/* CTA Section */}
-          <div className="flex flex-col items-center gap-6">
-              <Link 
-              className="text-2xl md:text-3xl font-bold tracking-tighter text-white hover:text-orange transition-colors text-center" 
-                href="/contact">
-                Ready to start your project?
-              </Link>
-
-              <Link href="/contact" 
-              className="whitespace-nowrap bg-orange/20 text-orange border border-orange px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-orange hover:text-white transition-all duration-300">
-                Contact Us
-              </Link>
+        {/* CTA Section */}
+        <section className="px-4 bg-corporate-blue text-white text-center" aria-labelledby="about-cta-title">
+          <div className="max-w-4xl mx-auto">
+            <h2 id="about-cta-title" className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Discuss Your Next Project?
+            </h2>
+            <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">
+              Whether you need preliminary consultation, complete MEP plans, or system renovation, our engineering team is here to help.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block bg-orange/20 text-orange border border-orange px-8 py-3.5 rounded-full text-base font-semibold hover:bg-orange hover:text-white transition-all duration-300"
+            >
+              Get In Touch With Us
+            </Link>
           </div>
+        </section>
 
           {/* Links and Copyright Section */}
           <div className="border-t border-slate-700/50 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">

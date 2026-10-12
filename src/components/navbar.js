@@ -10,18 +10,18 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <nav className="absolute top-0 w-full p-6 flex items-center z-50 hover:backdrop-blur-md hover:bg-white/60 transition-all duration-300">
+        <nav className="absolute top-0 w-full px-6 py-4 flex items-center z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/60 transition-all duration-300">
 
             {/* logo */}
             <div className="text-2xl font-bold tracking-tighter justify-start flex-grow text-corporate-blue">
-                <Link href="/">
-                    <Image className="w-10" src={logo} alt="ENGIVATO" />
+                <Link href="/" className="inline-flex items-center">
+                    <Image className="w-10 h-auto" src={logo} alt="ENGIVATO" priority />
                     {/* <span>Engivato</span> */}
                 </Link>
             </div>
 
             {/* nav links */}
-            <div className="hidden md:flex  space-x-8 p-4 text-sm font-medium text-slate-600">
+            <div className="hidden md:flex space-x-8 p-4 text-sm font-semibold text-slate-700">
                 <Link href="/" className="hover:text-corporate-blue transition-colors duration-300">Home</Link>
                 <Link href="/about" className="hover:text-corporate-blue transition-colors duration-300">About</Link>
                 <Link href="/projects" className="hover:text-corporate-blue transition-colors duration-300">Projects</Link>
@@ -37,7 +37,7 @@ export default function Navbar() {
 
                 {/* mobile menu button */}
                 <button
-                    className="md:hidden p-2 text-slate-600 hover:text-corporate-blue focus:outline-none"
+                    className="md:hidden p-2 text-slate-700 hover:text-corporate-blue focus:outline-none"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label="Toggle menu"
                 >
@@ -53,8 +53,8 @@ export default function Navbar() {
 
             {/* mobile navigation dropdown */}
             {isMobileMenuOpen && (
-                <div className="absolute top-full left-0 w-full bg-white shadow-lg py-4 px-6 flex flex-col gap-4 md:hidden text-base font-medium text-slate-600 border-t border-slate-100">
-                    <Link href="/src" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+                <div className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg py-4 px-6 flex flex-col gap-4 md:hidden text-base font-semibold text-slate-700 border-t border-slate-100">
+                    <Link href="/" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
                     <Link href="/about" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
                     <Link href="/projects" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Projects</Link>
                     <Link href="/services" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
