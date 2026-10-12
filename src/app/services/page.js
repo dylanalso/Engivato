@@ -556,36 +556,6 @@ export default function Services() {
               </div>
             </div>
           </section>
-
-          {/* Bottom Call to Action (CTA) */}
-          <section className="py-20 px-4 bg-corporate-blue text-white relative overflow-hidden" aria-labelledby="cta-heading">
-            <div className="max-w-4xl mx-auto text-center relative z-10">
-              <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
-                Ready to Collaborate?
-              </span>
-              <h2 id="cta-heading" className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6">
-                Let&apos;s Build Systems That Perform
-              </h2>
-              <p className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-                Send us your architectural plans or RFP. Our engineering team will review your scope and provide a detailed proposal and timeline.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link
-                  href="/contact"
-                  className="bg-orange hover:bg-orange-dark text-white px-8 py-4 rounded-full font-semibold text-base shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  Contact Our Engineering Team
-                </Link>
-                <Link
-                  href="/whoWeServe"
-                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 backdrop-blur-sm"
-                >
-                  See Who We Serve
-                </Link>
-              </div>
-            </div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
-          </section>
         </main>
       </div>
     </>
