@@ -29,7 +29,18 @@ export default config({
       format: { data: 'json' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        badge: fields.text({ label: 'Discipline Badge (e.g. Discipline 01)' }),
+        tagline: fields.text({ label: 'Short Tagline' }),
         desc: fields.text({ label: 'Description', multiline: true }),
+        anchor: fields.text({ label: 'Anchor ID on Services Page (e.g. mechanical, electrical, plumbing, fire-protection)' }),
+        deliverables: fields.array(
+          fields.text({ label: 'Deliverable' }),
+          {
+            label: 'Key Deliverables & Scope Highlights',
+            itemLabel: (props) => props.value || 'Deliverable',
+          }
+        ),
+        order: fields.integer({ label: 'Display Order (1-4)', defaultValue: 1 }),
       },
     }),
     projects: collection({
@@ -60,16 +71,6 @@ export default config({
         location: fields.text({ label: 'Location' }),
         scope: fields.text({ label: 'Scope of Work' }),
         year: fields.text({ label: 'Year Completed / Status' }),
-      },
-    }),
-    portfolio: collection({
-      label: 'Portfolio (Legacy)',
-      slugField: 'title',
-      path: 'src/content/portfolio/*',
-      format: { data: 'json' },
-      schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        desc: fields.text({ label: 'Description', multiline: true }),
       },
     }),
   },

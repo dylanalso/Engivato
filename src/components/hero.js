@@ -12,7 +12,7 @@ export default function Hero() {
             src={blueOverlay} 
             alt="Engineering Background" 
             fill 
-            className="object-cover opacity-20 contrast-200"
+            className="object-cover opacity-15 contrast-125"
             unoptimized
           />
         </div>
@@ -33,20 +33,20 @@ export default function Hero() {
           </h1>
           
           {/* subtitle */}
-          <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed tracking-tight">
+          <p className="text-lg md:text-xl font-medium text-slate-900 mb-10 max-w-2xl leading-relaxed tracking-tight">
             We deliver state-of-the-art engineering solutions and strategic innovation 
             to help local businesses scale efficiently and sustainably.
           </p>
           
           {/* buttons */}
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full sm:w-auto">
-            <Link href='../contact'>
+            <Link href="/contact">
               <button className="px-8 py-4 bg-orange text-white rounded-lg font-bold shadow-lg shadow-orange/30 hover:shadow-orange/50 hover:-translate-y-1 transition-all duration-300">
                 Start Your Project
               </button> 
             </Link>
             
-            <Link href='../whoWeServe'>
+            <Link href="/whoWeServe">
               <button className="px-8 py-4 bg-white text-corporate-blue rounded-lg font-bold border border-corporate-blue/30 hover:bg-corporate-light hover:-translate-y-1 transition-all duration-300 shadow-sm">
                 Learn More
               </button>

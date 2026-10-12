@@ -39,22 +39,7 @@ export default async function Projects() {
   // fallback if no projects exist in the collection yet
   let projects = projectsData.map((p) => p.entry);
 
-  if (projects.length === 0) {
-    try {
-      const legacyData = await reader.collections.portfolio.all();
-      projects = legacyData.map((p) => ({
-        ...p.entry,
-        category: 'Commercial & Retail',
-        location: 'Dallas-Fort Worth, TX',
-        scope: 'MEP Engineering',
-        year: '2025',
-      }));
-    } catch {
-      projects = [];
-    }
-  }
-
-  // Fallback demo projects with lorem ipsum if directory is empty
+  // fallback demo projects with lorem ipsum if directory is empty
   if (projects.length === 0) {
     projects = [
       {
@@ -146,7 +131,7 @@ export default async function Projects() {
         <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="projects-hero-title">
           <div className="max-w-6xl mx-auto text-center relative z-10">
             <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
-              Portfolio &amp; Case Studies
+              Featured Projects &amp; Case Studies
             </span>
             <h1 id="projects-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
               Engineered for Real-World Performance

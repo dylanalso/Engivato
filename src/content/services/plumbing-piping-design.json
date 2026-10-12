@@ -1,0 +1,13 @@
+{
+  "title": "Plumbing & Piping Design",
+  "badge": "Discipline 03",
+  "tagline": "Potable water & sanitary drainage",
+  "desc": "Sanitary, storm, potable water, and gas distribution systems guaranteeing public health, water conservation, and code compliance.",
+  "anchor": "plumbing",
+  "deliverables": [
+    "Domestic Water Systems",
+    "Sanitary Waste & Vent",
+    "Grease Interceptors"
+  ],
+  "order": 3
+}

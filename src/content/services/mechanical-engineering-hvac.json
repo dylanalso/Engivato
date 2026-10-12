@@ -1,0 +1,13 @@
+{
+  "title": "Mechanical Engineering & HVAC",
+  "badge": "Discipline 01",
+  "tagline": "Thermal comfort & energy compliance",
+  "desc": "Heating, ventilation, and air conditioning systems engineered for peak comfort, code compliance, and low lifecycle operating costs.",
+  "anchor": "mechanical",
+  "deliverables": [
+    "ASHRAE & Manual N Loads",
+    "VRF & Chilled Water",
+    "Kitchen Hood & DOAS"
+  ],
+  "order": 1
+}
