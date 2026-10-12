@@ -7,6 +7,9 @@ const nextConfig = {
     //github repo routing
     basePath: isDev ? '' : '/Engivato',
     trailingSlash: true,
+    images: {
+        unoptimized: true,
+    },
 };
 
 export default nextConfig;

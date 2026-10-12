@@ -1,14 +1,18 @@
-// src/app/api/keystatic/[...params]/route.ts
-import { makeRouteHandler } from '@keystatic/next/route-handler';
+import { makeGenericAPIRouteHandler } from '@keystatic/core/api/generic';
 import config from '../../../../../keystatic.config';
 
-const isDev = process.env.NODE_ENV === 'development';
+const handler = makeGenericAPIRouteHandler({ config }, {
+  slugEnvName: 'NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG',
+});
 
-export const { POST, GET } = isDev 
-  ? makeRouteHandler({ config })
-  : { POST: () => new Response('Not Found', { status: 404 }), GET: () => new Response('Not Found', { status: 404 }) };
+async function routeHandler(request: Request) {
+  const { body, headers, status } = await handler(request);
+  return new Response(body as BodyInit, { status, headers });
+}
 
-export const dynamic = 'force-static';
+export const GET = routeHandler;
+export const POST = routeHandler;
+
 export function generateStaticParams() {
   return [{ params: ['keystatic'] }];
 }

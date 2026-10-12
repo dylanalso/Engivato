@@ -5,9 +5,15 @@ import Image from 'next/image';
 import logo from '../img/logoIdea2.svg'; 
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    if (pathname?.startsWith('/keystatic')) {
+        return null;
+    }
 
     return (
         <nav className="absolute top-0 w-full px-6 py-4 flex items-center z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/60 transition-all duration-300">

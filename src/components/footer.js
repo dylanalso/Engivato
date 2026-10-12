@@ -1,6 +1,15 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+    const pathname = usePathname();
+
+    if (pathname?.startsWith('/keystatic')) {
+        return null;
+    }
+
     return (
       <footer className="bg-corporate-blue/100 pt-12 pb-8 px-4 text-slate-200 text-sm">
         <div className="max-w-7xl mx-auto flex flex-col gap-12">
