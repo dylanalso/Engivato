@@ -7,6 +7,14 @@ import logo from '../img/logoIdea2.svg';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+const NAV_LINKS = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/services', label: 'Services' },
+    { href: '/whoWeServe', label: 'Who We Serve' },
+];
+
 export default function Navbar() {
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,6 +37,16 @@ export default function Navbar() {
     if (pathname?.startsWith('/keystatic')) {
         return null;
     }
+
+    const normalizedPath = pathname?.replace(/\/$/, '') || '/';
+    const isActiveLink = (href) => {
+        if (href === '/') {
+            return normalizedPath === '/';
+        }
+        return normalizedPath === href || normalizedPath.startsWith(`${href}/`);
+    };
+
+    const isContactActive = isActiveLink('/contact');
 
     return (
         <nav
@@ -55,19 +73,38 @@ export default function Navbar() {
             </div>
 
             {/* nav links */}
-            <div className={`hidden md:flex items-center text-sm font-semibold text-slate-700 transition-all duration-300 ${isScrolled ? 'space-x-7' : 'space-x-8'}`}>
-                <Link href="/" className="hover:text-corporate-blue transition-colors duration-300">Home</Link>
-                <Link href="/about" className="hover:text-corporate-blue transition-colors duration-300">About</Link>
-                <Link href="/projects" className="hover:text-corporate-blue transition-colors duration-300">Projects</Link>
-                <Link href="/services" className="hover:text-corporate-blue transition-colors duration-300">Services</Link>
-                <Link href="/whoWeServe" className="pr-5 hover:text-corporate-blue transition-colors duration-300">Who We Serve</Link>
+            <div className={`hidden md:flex items-center text-sm font-semibold transition-all duration-300 ${isScrolled ? 'space-x-7' : 'space-x-8'}`}>
+                {NAV_LINKS.map((link, idx) => {
+                    const active = isActiveLink(link.href);
+                    const isLast = idx === NAV_LINKS.length - 1;
+                    return (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={`relative py-1 transition-colors duration-300 ${isLast ? 'pr-5' : ''} ${
+                                active
+                                    ? 'text-corporate-blue font-bold'
+                                    : 'text-slate-700 hover:text-corporate-blue'
+                            }`}
+                        >
+                            {link.label}
+                            {active && (
+                                <span className={`absolute bottom-0 left-0 h-0.5 bg-orange rounded-full ${isLast ? 'right-5' : 'right-0'}`} />
+                            )}
+                        </Link>
+                    );
+                })}
             </div>
 
             {/* CTA and mobile toggle */}
             <div className="flex items-center gap-4">
                 <Link
                     href="/contact"
-                    className={`bg-orange/20 text-orange border border-orange rounded-full font-semibold hover:bg-orange hover:text-white transition-all duration-300 inline-block text-center ${
+                    className={`rounded-full font-semibold transition-all duration-300 inline-block text-center border ${
+                        isContactActive
+                            ? 'bg-orange text-white border-orange shadow-md shadow-orange/30'
+                            : 'bg-orange/20 text-orange border-orange hover:bg-orange hover:text-white'
+                    } ${
                         isScrolled
                             ? 'px-4 py-1.5 text-xs sm:text-sm'
                             : 'px-5 py-2 text-sm'
@@ -94,12 +131,27 @@ export default function Navbar() {
 
             {/* mobile navigation dropdown */}
             {isMobileMenuOpen && (
-                <div className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg py-4 px-6 flex flex-col gap-4 md:hidden text-base font-semibold text-slate-700 border-t border-slate-100">
-                    <Link href="/" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-                    <Link href="/about" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-                    <Link href="/projects" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Projects</Link>
-                    <Link href="/services" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
-                    <Link href="/whoWeServe" className="hover:text-corporate-blue transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>Who We Serve</Link>
+                <div className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg py-4 px-6 flex flex-col gap-3 md:hidden text-base font-semibold text-slate-700 border-t border-slate-100">
+                    {NAV_LINKS.map((link) => {
+                        const active = isActiveLink(link.href);
+                        return (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={`flex items-center justify-between py-1 transition-colors duration-300 ${
+                                    active
+                                        ? 'text-corporate-blue font-bold'
+                                        : 'text-slate-700 hover:text-corporate-blue'
+                                }`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                <span>{link.label}</span>
+                                {active && (
+                                    <span className="w-2 h-2 rounded-full bg-orange" />
+                                )}
+                            </Link>
+                        );
+                    })}
                 </div>
             )}
         </nav>
