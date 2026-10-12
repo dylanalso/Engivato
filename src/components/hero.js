@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import blueOverlay from '../img/BlueOverlay.gif';
+import Link from 'next/link';
 
 export default function Hero() {
     return (
@@ -39,12 +40,17 @@ export default function Hero() {
           
           {/* buttons */}
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full sm:w-auto">
-            <button className="px-8 py-4 bg-orange text-white rounded-lg font-bold shadow-lg shadow-orange/30 hover:shadow-orange/50 hover:-translate-y-1 transition-all duration-300">
-              Start Your Project
-            </button>
-            <button className="px-8 py-4 bg-white text-corporate-blue rounded-lg font-bold border border-corporate-blue/30 hover:bg-corporate-light hover:-translate-y-1 transition-all duration-300 shadow-sm">
-              Learn More
-            </button>
+            <Link href='../contact'>
+              <button className="px-8 py-4 bg-orange text-white rounded-lg font-bold shadow-lg shadow-orange/30 hover:shadow-orange/50 hover:-translate-y-1 transition-all duration-300">
+                Start Your Project
+              </button> 
+            </Link>
+            
+            <Link href='../whoWeServe'>
+              <button className="px-8 py-4 bg-white text-corporate-blue rounded-lg font-bold border border-corporate-blue/30 hover:bg-corporate-light hover:-translate-y-1 transition-all duration-300 shadow-sm">
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
       </main>      
