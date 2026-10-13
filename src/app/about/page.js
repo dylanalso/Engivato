@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export const metadata = {
   title: 'About Us | Engivato PLLC - MEP Engineering Solutions',
   description: 'Learn about Engivato PLLC, a forward-thinking engineering firm providing mechanical, electrical, plumbing, and consulting solutions.',
@@ -114,7 +112,7 @@ export default function About() {
 
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         
-        {/* Header / Hero Section */}
+        {/* header */}
         <section className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="about-hero-title">
           <div className="max-w-6xl mx-auto text-center relative z-10">
             <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
@@ -130,7 +128,7 @@ export default function About() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
         </section>
 
-        {/* Company Narrative & Stats */}
+        {/* company narrative */}
         <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="story-title">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -151,7 +149,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Quick Stats Grid */}
+            {/* quick stats grid */}
             <div className="grid grid-cols-2 gap-6">
               {[
                 { label: 'Projects Completed', value: '150+' },
@@ -168,12 +166,12 @@ export default function About() {
           </div>
         </section>
 
-        {/* Core Disciplines (MEP Focus) */}
+        {/* core disciplines (MEP focus) */}
         <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="disciplines-title">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 id="disciplines-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Core Engineering Disciplines
+                core engineering disciplines
               </h2>
               <p className="text-slate-600 max-w-xl mx-auto">
                 Comprehensive, cross-disciplinary design designed to integrate seamlessly into modern construction.
@@ -194,7 +192,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* Core Values / Philosophy */}
+        {/* core values */}
         <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="values-title">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -218,7 +216,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* Leadership / Team Section */}
+        {/* leadership */}
         <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="team-title">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">

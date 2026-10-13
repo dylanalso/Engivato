@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Form from '../../components/form';
 import { COMPANY_EMAIL } from '../../lib/constants';
 
@@ -112,19 +111,19 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Main Form and Context Area */}
+        {/* main form and context */}
         <main className="py-20 px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            {/* Left: Interactive Web3Forms Component */}
+            {/* left: Web3Forms */}
             <div className="lg:col-span-7">
               <Form />
             </div>
 
-            {/* Right: What to Expect & Information */}
+            {/* right: additional information */}
             <div className="lg:col-span-5 space-y-8">
               
-              {/* Submission Process Steps Card */}
+              {/* submission process */}
               <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                   <span>How We Handle Inquiries</span>
@@ -169,7 +168,7 @@ export default function Contact() {
                 </ol>
               </div>
 
-              {/* Sending Plans / RFPs Card */}
+              {/* sending plans / RFPs */}
               <div className="bg-gradient-to-br from-corporate-light/80 to-blue-50/60 rounded-3xl p-8 border border-corporate-blue/20">
                 <div className="w-10 h-10 rounded-xl bg-corporate-blue text-white flex items-center justify-center mb-4">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -189,7 +188,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Quick Consultation FAQ */}
+              {/* consultation faq */}
               <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4">
                 <h4 className="text-base font-bold text-slate-900 mb-2">Frequently Asked</h4>
                 

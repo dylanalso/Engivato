@@ -291,7 +291,7 @@ export default function Services() {
 
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         
-        {/* Hero Section */}
+        {/* hero */}
         <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="services-hero-title">
           <div className="max-w-6xl mx-auto text-center relative z-10">
             <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
@@ -321,7 +321,7 @@ export default function Services() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
         </header>
 
-        {/* Value Proposition Strip */}
+        {/* value proposition */}
         <section className="bg-white border-b border-slate-200 py-12 px-4" aria-label="Key Differentiators">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="p-4">
@@ -343,7 +343,7 @@ export default function Services() {
           </div>
         </section>
 
-        {/* Primary MEP Disciplines */}
+        {/* MEP disciplines */}
         <main>
           <section id="mep-disciplines" className="py-24 px-4 bg-slate-50" aria-labelledby="disciplines-heading">
             <div className="max-w-6xl mx-auto">
@@ -418,7 +418,7 @@ export default function Services() {
             </div>
           </section>
 
-          {/* Specialized Capabilities Grid */}
+          {/* capabilities grid */}
           <section className="py-24 px-4 bg-white border-t border-b border-slate-200" aria-labelledby="specialized-heading">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -456,7 +456,7 @@ export default function Services() {
             </div>
           </section>
 
-          {/* Engineering Workflow / Delivery Lifecycle */}
+          {/* engineering workflow / delivery lifecycle */}
           <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="process-heading">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -497,7 +497,7 @@ export default function Services() {
             </div>
           </section>
 
-          {/* Technical Standards & Software Badges */}
+          {/* technical standards & software badges */}
           <section className="py-16 px-4 bg-white border-b border-slate-200" aria-label="Codes & Standards">
             <div className="max-w-6xl mx-auto text-center">
               <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
@@ -527,7 +527,7 @@ export default function Services() {
             </div>
           </section>
 
-          {/* FAQ Section */}
+          {/* FAQ */}
           <section className="py-24 px-4 bg-slate-50" aria-labelledby="faq-heading">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">

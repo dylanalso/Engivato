@@ -38,31 +38,6 @@ export default function ProjectShowcase({ initialProjects = [] }) {
   return (
     
     <div className="w-full">
-    {/* keystatic client notice banner
-      <div className="mb-10 p-4 md:p-5 rounded-2xl bg-corporate-light/60 border border-corporate-blue/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-corporate-blue text-white flex items-center justify-center flex-shrink-0 text-lg">
-            ⚡
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-corporate-blue">
-              Client Content Management Ready
-            </h4>
-            <p className="text-xs text-slate-600">
-              All projects below are dynamically sourced from Keystatic. Add new case studies or edit existing projects in the admin panel.
-            </p>
-          </div>
-        </div>
-        <Link
-          href="/keystatic"
-          className="inline-flex items-center text-xs font-semibold px-4 py-2 bg-corporate-blue hover:bg-blue-900 text-white rounded-full transition-colors whitespace-nowrap"
-        >
-          Open Keystatic Admin
-          <svg className="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </Link>
-      </div>
 
       {/* filter tabs and search bar */}
       <div className="mb-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">

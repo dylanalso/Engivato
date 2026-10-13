@@ -21,7 +21,7 @@ export default function Form() {
     if (accessKey) {
       formData.set('access_key', accessKey);
     } else {
-      // In development fallback, if no key is configured yet
+      // in-development fallback, if no key is configured yet
       formData.set('access_key', 'ff5a0044-6692-41cf-84d4-ca3971cc45d4');
     }
 

@@ -133,7 +133,7 @@ export default function WhoWeServe() {
 
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         
-        {/* Header / Hero Section */}
+        {/* hero */}
         <section className="pt-36 pb-20 bg-white border-b border-slate-200 px-4 relative overflow-hidden" aria-labelledby="whoweserve-hero-title">
           <div className="max-w-6xl mx-auto text-center relative z-10">
             <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
@@ -148,7 +148,7 @@ export default function WhoWeServe() {
           </div>
         </section>
 
-        {/* Geographic Coverage Section */}
+        {/* geographic coverage */}
         <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="territory-title">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -187,7 +187,7 @@ export default function WhoWeServe() {
               ))}
             </div>
 
-            {/* Local Compliance Callout */}
+            {/* local compliance callout */}
             <div className="mt-12 bg-corporate-blue text-white rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="max-w-2xl">
                 <h3 className="text-2xl font-bold mb-3">Mastery of North Texas Building Codes</h3>
@@ -205,7 +205,7 @@ export default function WhoWeServe() {
           </div>
         </section>
 
-        {/* Who We Partner With / Client Types */}
+        {/* partners/clients */}
         <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="clients-title">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -234,7 +234,7 @@ export default function WhoWeServe() {
           </div>
         </section>
 
-        {/* Why DFW Partners Choose Engivato */}
+        {/* why choose engivato */}
         <section className="py-24 px-4 bg-slate-50" aria-labelledby="why-dfw-title">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
