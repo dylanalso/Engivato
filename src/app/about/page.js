@@ -171,7 +171,7 @@ export default function About() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 id="disciplines-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                core engineering disciplines
+                Core Engineering Disciplines
               </h2>
               <p className="text-slate-600 max-w-xl mx-auto">
                 Comprehensive, cross-disciplinary design designed to integrate seamlessly into modern construction.
