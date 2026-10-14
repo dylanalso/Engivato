@@ -5,7 +5,6 @@ const nextConfig = {
     allowedDevOrigins: ['127.0.0.1'],
 
     //github repo routing
-    basePath: isDev ? '' : '/Engivato',
     trailingSlash: true,
     images: {
         unoptimized: true,
