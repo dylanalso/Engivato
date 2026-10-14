@@ -34,7 +34,7 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    if (pathname?.startsWith('/keystatic')) {
+    if (pathname?.startsWith('/keystatic') || pathname?.startsWith('/under-construction')) {
         return null;
     }
 
