@@ -12,29 +12,32 @@ export const metadata = {
   description: 'Engineering and Innovation for Local Businesses',
 };
 
+import { getSiteSettings } from '../lib/settings';
+
 // --------------------------------------------------------------------------
-// UNDER CONSTRUCTION SETTING
+// UNDER CONSTRUCTION MODE
 // --------------------------------------------------------------------------
-// Set UNDER_CONSTRUCTION = true to show the Under Construction page on the
-// live published website.
-// When you are ready to officially launch the full website, set this to false!
+// Controlled via Keystatic CMS singleton ("Site Settings & Construction Mode")
+// or directly in `src/content/settings/site.json`.
 //
-// In local development (`npm run dev`), your full site remains accessible so
-// you can continue building. To preview the Under Construction page locally,
-// visit: http://localhost:3000/under-construction/
+// - `underConstruction: true` activates the Under Construction screen for production.
+// - `previewInDev: true` also previews the Under Construction screen on localhost.
+// - You can always visit http://localhost:3000/under-construction/ to preview it.
 // --------------------------------------------------------------------------
-const UNDER_CONSTRUCTION = true;
 
 {/* root layout for the website 
   attributes for every page */}
-export default function RootLayout({ children }) {
-  const isUnderConstruction = UNDER_CONSTRUCTION && process.env.NODE_ENV === 'production';
+export default async function RootLayout({ children }) {
+  const siteSettings = await getSiteSettings();
+  const isUnderConstruction =
+    siteSettings.underConstruction &&
+    (process.env.NODE_ENV === 'production' || siteSettings.previewInDev);
 
   if (isUnderConstruction) {
     return (
       <html lang="en">
         <body className="min-h-screen bg-slate-950">
-          <UnderConstruction />
+          <UnderConstruction settings={siteSettings} />
         </body>
       </html>
     );

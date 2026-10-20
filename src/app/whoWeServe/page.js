@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getPageSections } from '../../lib/settings';
 
 export const metadata = {
   title: 'Who We Serve | Dallas-Fort Worth (DFW) MEP Engineering | Engivato PLLC',
@@ -25,7 +26,8 @@ export const metadata = {
   },
 };
 
-export default function WhoWeServe() {
+export default async function WhoWeServe() {
+  const { whoWeServe: sections } = await getPageSections();
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
@@ -134,142 +136,152 @@ export default function WhoWeServe() {
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         
         {/* hero */}
-        <section className="pt-36 pb-20 bg-white border-b border-slate-200 px-4 relative overflow-hidden" aria-labelledby="whoweserve-hero-title">
-          <div className="max-w-6xl mx-auto text-center relative z-10">
-            <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
-              Regional Engineering Leadership
-            </span>
-            <h1 id="whoweserve-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
-              Serving the <span className="text-corporate-blue">Dallas–Fort Worth</span> Metroplex & Beyond
-            </h1>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              Engivato PLLC provides specialized Mechanical, Electrical, and Plumbing (MEP) engineering solutions for architects, contractors, and owners navigating North Texas&apos;s dynamic building landscape.
-            </p>
-          </div>
-        </section>
+        {sections.showHero && (
+          <section className="pt-36 pb-20 bg-white border-b border-slate-200 px-4 relative overflow-hidden" aria-labelledby="whoweserve-hero-title">
+            <div className="max-w-6xl mx-auto text-center relative z-10">
+              <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                Regional Engineering Leadership
+              </span>
+              <h1 id="whoweserve-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
+                Serving the <span className="text-corporate-blue">Dallas–Fort Worth</span> Metroplex & Beyond
+              </h1>
+              <p className="text-slate-600 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+                Engivato PLLC provides specialized Mechanical, Electrical, and Plumbing (MEP) engineering solutions for architects, contractors, and owners navigating North Texas&apos;s dynamic building landscape.
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* geographic coverage */}
-        <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="territory-title">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
-                Local Presence, Proven Expertise
-              </span>
-              <h2 id="territory-title" className="text-3xl md:text-4xl font-bold text-corporate-blue mb-4">
-                Our DFW Service Coverage
-              </h2>
-              <p className="text-slate-600 max-w-2xl mx-auto text-base md:text-lg">
-                North Texas municipalities each maintain unique permitting processes, local amendments, and energy standards. We ensure your plans pass reviews swiftly.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {regions.map((region, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-4">
-                    <h3 className="text-2xl font-bold text-corporate-blue">{region.county}</h3>
-                    <span className="text-xs font-semibold px-3 py-1 bg-orange/10 text-orange rounded-full">
-                      Active Coverage
-                    </span>
-                  </div>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6">{region.desc}</p>
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Key Municipalities</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {region.cities.map((city, cIdx) => (
-                        <span key={cIdx} className="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-md">
-                          {city}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* local compliance callout */}
-            <div className="mt-12 bg-corporate-blue text-white rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="max-w-2xl">
-                <h3 className="text-2xl font-bold mb-3">Mastery of North Texas Building Codes</h3>
-                <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                  From Dallas Energy Code amendments and IECC standards to City of Fort Worth development guidelines, our team ensures complete plan compliance to expedite plan checks and avoid costly redlines.
+        {sections.showCoverage && (
+          <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="territory-title">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                  Local Presence, Proven Expertise
+                </span>
+                <h2 id="territory-title" className="text-3xl md:text-4xl font-bold text-corporate-blue mb-4">
+                  Our DFW Service Coverage
+                </h2>
+                <p className="text-slate-600 max-w-2xl mx-auto text-base md:text-lg">
+                  North Texas municipalities each maintain unique permitting processes, local amendments, and energy standards. We ensure your plans pass reviews swiftly.
                 </p>
               </div>
-              <Link
-                href="/contact"
-                className="whitespace-nowrap bg-orange text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-orange/90 transition-all duration-300 shadow-md"
-              >
-                Inquire for Your City
-              </Link>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {regions.map((region, idx) => (
+                  <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-4">
+                      <h3 className="text-2xl font-bold text-corporate-blue">{region.county}</h3>
+                      <span className="text-xs font-semibold px-3 py-1 bg-orange/10 text-orange rounded-full">
+                        Active Coverage
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-6">{region.desc}</p>
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Key Municipalities</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {region.cities.map((city, cIdx) => (
+                          <span key={cIdx} className="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-md">
+                            {city}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* local compliance callout */}
+              {sections.showComplianceCallout && (
+                <div className="mt-12 bg-corporate-blue text-white rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="max-w-2xl">
+                    <h3 className="text-2xl font-bold mb-3">Mastery of North Texas Building Codes</h3>
+                    <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                      From Dallas Energy Code amendments and IECC standards to City of Fort Worth development guidelines, our team ensures complete plan compliance to expedite plan checks and avoid costly redlines.
+                    </p>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="whitespace-nowrap bg-orange text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-orange/90 transition-all duration-300 shadow-md"
+                  >
+                    Inquire for Your City
+                  </Link>
+                </div>
+              )}
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* partners/clients */}
-        <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="clients-title">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
-                Target Industries & Partners
-              </span>
-              <h2 id="clients-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Tailored Solutions for Every Stakeholder
-              </h2>
-              <p className="text-slate-600 max-w-xl mx-auto text-base">
-                We engineer customized systems matching the exact constraints and goals of your project team.
-              </p>
-            </div>
+        {sections.showClientTypes && (
+          <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="clients-title">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                  Target Industries & Partners
+                </span>
+                <h2 id="clients-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  Tailored Solutions for Every Stakeholder
+                </h2>
+                <p className="text-slate-600 max-w-xl mx-auto text-base">
+                  We engineer customized systems matching the exact constraints and goals of your project team.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {clientTypes.map((client, idx) => (
-                <div key={idx} className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-corporate-blue/30 hover:bg-white transition-all duration-300 shadow-sm flex flex-col">
-                  <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6 flex-shrink-0">
-                    {client.icon}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {clientTypes.map((client, idx) => (
+                  <div key={idx} className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-corporate-blue/30 hover:bg-white transition-all duration-300 shadow-sm flex flex-col">
+                    <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6 flex-shrink-0">
+                      {client.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-corporate-blue mb-3">{client.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">{client.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-corporate-blue mb-3">{client.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">{client.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* why choose engivato */}
-        <section className="py-24 px-4 bg-slate-50" aria-labelledby="why-dfw-title">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 id="why-dfw-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                The Engivato DFW Advantage
-              </h2>
-              <p className="text-slate-600 max-w-xl mx-auto">
-                What sets our North Texas engineering practice apart from traditional consulting firms.
-              </p>
-            </div>
+        {sections.showAdvantage && (
+          <section className="py-24 px-4 bg-slate-50" aria-labelledby="why-dfw-title">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 id="why-dfw-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  The Engivato DFW Advantage
+                </h2>
+                <p className="text-slate-600 max-w-xl mx-auto">
+                  What sets our North Texas engineering practice apart from traditional consulting firms.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: 'Rapid Plan Permitting',
-                  desc: 'We know local DFW plan review standards inside out, helping you secure building permits without bureaucratic delays.',
-                },
-                {
-                  title: 'Direct Access to Principals',
-                  desc: 'Work directly with experienced engineers on every project phase, from preliminary load calculations to final punch walks.',
-                },
-                {
-                  title: 'Cost-Effective Constructibility',
-                  desc: 'We design systems that are practical to install in the field, reducing contractor markups and preventing unexpected change orders.',
-                },
-              ].map((adv, idx) => (
-                <div key={idx} className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                  <div className="text-orange text-2xl font-extrabold mb-3">0{idx + 1}</div>
-                  <h3 className="text-xl font-bold text-corporate-blue mb-2">{adv.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{adv.desc}</p>
-                </div>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: 'Rapid Plan Permitting',
+                    desc: 'We know local DFW plan review standards inside out, helping you secure building permits without bureaucratic delays.',
+                  },
+                  {
+                    title: 'Direct Access to Principals',
+                    desc: 'Work directly with experienced engineers on every project phase, from preliminary load calculations to final punch walks.',
+                  },
+                  {
+                    title: 'Cost-Effective Constructibility',
+                    desc: 'We design systems that are practical to install in the field, reducing contractor markups and preventing unexpected change orders.',
+                  },
+                ].map((adv, idx) => (
+                  <div key={idx} className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                    <div className="text-orange text-2xl font-extrabold mb-3">0{idx + 1}</div>
+                    <h3 className="text-xl font-bold text-corporate-blue mb-2">{adv.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{adv.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
       </div>
     </>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getPageSections } from '../../lib/settings';
 
 export const metadata = {
   title: 'MEP Engineering Services | Mechanical, Electrical & Plumbing | Engivato PLLC',
@@ -27,7 +28,8 @@ export const metadata = {
   },
 };
 
-export default function Services() {
+export default async function Services() {
+  const { services: sections } = await getPageSections();
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -292,60 +294,65 @@ export default function Services() {
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         
         {/* hero */}
-        <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="services-hero-title">
-          <div className="max-w-6xl mx-auto text-center relative z-10">
-            <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
-              Integrated Engineering Capabilities
-            </span>
-            <h1 id="services-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-              Full-Spectrum MEP Engineering Solutions
-            </h1>
-            <p className="text-slate-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed mb-8">
-              From initial load calculation through final construction administration, Engivato PLLC delivers innovative, energy-efficient, and constructible mechanical, electrical, and plumbing designs.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="bg-orange hover:bg-orange-dark text-white px-8 py-3.5 rounded-full font-semibold text-base shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 transition-all duration-300"
-              >
-                Request a Proposal
-              </Link>
-              <a
-                href="#mep-disciplines"
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-300 backdrop-blur-sm"
-              >
-                Explore Disciplines
-              </a>
+        {sections.showHero && (
+          <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="services-hero-title">
+            <div className="max-w-6xl mx-auto text-center relative z-10">
+              <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                Integrated Engineering Capabilities
+              </span>
+              <h1 id="services-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                Full-Spectrum MEP Engineering Solutions
+              </h1>
+              <p className="text-slate-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed mb-8">
+                From initial load calculation through final construction administration, Engivato PLLC delivers innovative, energy-efficient, and constructible mechanical, electrical, and plumbing designs.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  href="/contact"
+                  className="bg-orange hover:bg-orange-dark text-white px-8 py-3.5 rounded-full font-semibold text-base shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  Request a Proposal
+                </Link>
+                <a
+                  href="#mep-disciplines"
+                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-300 backdrop-blur-sm"
+                >
+                  Explore Disciplines
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
-        </header>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+          </header>
+        )}
 
         {/* value proposition */}
-        <section className="bg-white border-b border-slate-200 py-12 px-4" aria-label="Key Differentiators">
-          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="p-4">
-              <div className="text-3xl font-extrabold text-corporate-blue mb-1">Licensed P.E.</div>
-              <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Stamped & Sealed Plans</div>
+        {sections.showValueProps && (
+          <section className="bg-white border-b border-slate-200 py-12 px-4" aria-label="Key Differentiators">
+            <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="p-4">
+                <div className="text-3xl font-extrabold text-corporate-blue mb-1">Licensed P.E.</div>
+                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Stamped & Sealed Plans</div>
+              </div>
+              <div className="p-4">
+                <div className="text-3xl font-extrabold text-corporate-blue mb-1">100% BIM</div>
+                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Revit 3D Coordinated</div>
+              </div>
+              <div className="p-4">
+                <div className="text-3xl font-extrabold text-corporate-blue mb-1">Fast Permits</div>
+                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Proactive Plan Review</div>
+              </div>
+              <div className="p-4">
+                <div className="text-3xl font-extrabold text-corporate-blue mb-1">Optimized</div>
+                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Value-Engineered Savings</div>
+              </div>
             </div>
-            <div className="p-4">
-              <div className="text-3xl font-extrabold text-corporate-blue mb-1">100% BIM</div>
-              <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Revit 3D Coordinated</div>
-            </div>
-            <div className="p-4">
-              <div className="text-3xl font-extrabold text-corporate-blue mb-1">Fast Permits</div>
-              <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Proactive Plan Review</div>
-            </div>
-            <div className="p-4">
-              <div className="text-3xl font-extrabold text-corporate-blue mb-1">Optimized</div>
-              <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Value-Engineered Savings</div>
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* MEP disciplines */}
         <main>
-          <section id="mep-disciplines" className="py-24 px-4 bg-slate-50" aria-labelledby="disciplines-heading">
+          {sections.showDisciplines && (
+            <section id="mep-disciplines" className="py-24 px-4 bg-slate-50" aria-labelledby="disciplines-heading">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
@@ -417,8 +424,10 @@ export default function Services() {
               </div>
             </div>
           </section>
+        )}
 
-          {/* capabilities grid */}
+        {/* capabilities grid */}
+        {sections.showCapabilities && (
           <section className="py-24 px-4 bg-white border-t border-b border-slate-200" aria-labelledby="specialized-heading">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -455,8 +464,10 @@ export default function Services() {
               </div>
             </div>
           </section>
+        )}
 
-          {/* engineering workflow / delivery lifecycle */}
+        {/* engineering workflow / delivery lifecycle */}
+        {sections.showProcess && (
           <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="process-heading">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -496,8 +507,10 @@ export default function Services() {
               </div>
             </div>
           </section>
+        )}
 
-          {/* technical standards & software badges */}
+        {/* technical standards & software badges */}
+        {sections.showStandards && (
           <section className="py-16 px-4 bg-white border-b border-slate-200" aria-label="Codes & Standards">
             <div className="max-w-6xl mx-auto text-center">
               <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
@@ -526,8 +539,10 @@ export default function Services() {
               </div>
             </div>
           </section>
+        )}
 
-          {/* FAQ */}
+        {/* FAQ */}
+        {sections.showFaq && (
           <section className="py-24 px-4 bg-slate-50" aria-labelledby="faq-heading">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
@@ -556,8 +571,9 @@ export default function Services() {
               </div>
             </div>
           </section>
-        </main>
-      </div>
-    </>
-  );
+        )}
+      </main>
+    </div>
+  </>
+);
 }

@@ -1,3 +1,5 @@
+import { getPageSections } from '../../lib/settings';
+
 export const metadata = {
   title: 'About Us | Engivato PLLC - MEP Engineering Solutions',
   description: 'Learn about Engivato PLLC, a forward-thinking engineering firm providing mechanical, electrical, plumbing, and consulting solutions.',
@@ -23,7 +25,9 @@ export const metadata = {
   },
 };
 
-export default function About() {
+export default async function About() {
+  const { about: sections } = await getPageSections();
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
@@ -113,137 +117,147 @@ export default function About() {
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         
         {/* header */}
-        <section className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="about-hero-title">
-          <div className="max-w-6xl mx-auto text-center relative z-10">
-            <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
-              About Engivato PLLC
-            </span>
-            <h1 id="about-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-              Engineering Innovation for Built Environments
-            </h1>
-            <p className="text-slate-300 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-              We provide cutting-edge Mechanical, Electrical, and Plumbing (MEP) engineering solutions that balance functionality, efficiency, and architectural vision.
-            </p>
-          </div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
-        </section>
+        {sections.showHero && (
+          <section className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="about-hero-title">
+            <div className="max-w-6xl mx-auto text-center relative z-10">
+              <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                About Engivato PLLC
+              </span>
+              <h1 id="about-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                Engineering Innovation for Built Environments
+              </h1>
+              <p className="text-slate-300 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+                We provide cutting-edge Mechanical, Electrical, and Plumbing (MEP) engineering solutions that balance functionality, efficiency, and architectural vision.
+              </p>
+            </div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+          </section>
+        )}
 
         {/* company narrative */}
-        <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="story-title">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 id="story-title" className="text-3xl md:text-4xl font-bold text-corporate-blue mb-6">
-                Our Story & Commitment
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-6 text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel egestas sapien, eu tristique risus. 
-                Founded on the belief that modern engineering should be both resilient and forward-thinking, Engivato PLLC combines 
-                decades of industry expertise with agile problem-solving.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                Nullam tristique sem in odio euismod, nec laoreet urna fermentum. Vestibulum id est ac velit pharetra posuere. 
-                We partner with architects, developers, and facility owners to engineer complex systems that deliver reliable long-term performance.
-              </p>
-              <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-orange text-slate-700 italic">
-                &ldquo;Engineering is not just about meeting code—it is about designing systems that elevate building longevity and human comfort.&rdquo;
+        {sections.showStory && (
+          <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="story-title">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 id="story-title" className="text-3xl md:text-4xl font-bold text-corporate-blue mb-6">
+                  Our Story & Commitment
+                </h2>
+                <p className="text-slate-600 leading-relaxed mb-6 text-lg">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel egestas sapien, eu tristique risus. 
+                  Founded on the belief that modern engineering should be both resilient and forward-thinking, Engivato PLLC combines 
+                  decades of industry expertise with agile problem-solving.
+                </p>
+                <p className="text-slate-600 leading-relaxed mb-6">
+                  Nullam tristique sem in odio euismod, nec laoreet urna fermentum. Vestibulum id est ac velit pharetra posuere. 
+                  We partner with architects, developers, and facility owners to engineer complex systems that deliver reliable long-term performance.
+                </p>
+                <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-orange text-slate-700 italic">
+                  &ldquo;Engineering is not just about meeting code—it is about designing systems that elevate building longevity and human comfort.&rdquo;
+                </div>
+              </div>
+
+              {/* quick stats grid */}
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { label: 'Projects Completed', value: '150+' },
+                  { label: 'Combined Experience', value: '25+ Yrs' },
+                  { label: 'Code Compliance', value: '100%' },
+                  { label: 'Client Satisfaction', value: '99%' },
+                ].map((stat, idx) => (
+                  <div key={idx} className="p-8 rounded-2xl bg-slate-50 border border-slate-200 text-center hover:border-orange transition-all duration-300">
+                    <div className="text-3xl md:text-4xl font-extrabold text-corporate-blue mb-2">{stat.value}</div>
+                    <div className="text-slate-600 font-medium text-sm">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
-
-            {/* quick stats grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { label: 'Projects Completed', value: '150+' },
-                { label: 'Combined Experience', value: '25+ Yrs' },
-                { label: 'Code Compliance', value: '100%' },
-                { label: 'Client Satisfaction', value: '99%' },
-              ].map((stat, idx) => (
-                <div key={idx} className="p-8 rounded-2xl bg-slate-50 border border-slate-200 text-center hover:border-orange transition-all duration-300">
-                  <div className="text-3xl md:text-4xl font-extrabold text-corporate-blue mb-2">{stat.value}</div>
-                  <div className="text-slate-600 font-medium text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* core disciplines (MEP focus) */}
-        <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="disciplines-title">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 id="disciplines-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Core Engineering Disciplines
-              </h2>
-              <p className="text-slate-600 max-w-xl mx-auto">
-                Comprehensive, cross-disciplinary design designed to integrate seamlessly into modern construction.
-              </p>
-            </div>
+        {sections.showDisciplines && (
+          <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="disciplines-title">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 id="disciplines-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  Core Engineering Disciplines
+                </h2>
+                <p className="text-slate-600 max-w-xl mx-auto">
+                  Comprehensive, cross-disciplinary design designed to integrate seamlessly into modern construction.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {disciplines.map((item, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6">
-                    {item.icon}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {disciplines.map((item, idx) => (
+                  <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-corporate-blue mb-3">{item.title}</h3>
+                    <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-corporate-blue mb-3">{item.title}</h3>
-                  <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* core values */}
-        <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="values-title">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 id="values-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Our Guiding Principles
-              </h2>
-              <p className="text-slate-600 max-w-xl mx-auto">
-                The standards and values that inform every drawing, calculation, and site inspection we perform.
-              </p>
-            </div>
+        {sections.showValues && (
+          <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="values-title">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 id="values-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  Our Guiding Principles
+                </h2>
+                <p className="text-slate-600 max-w-xl mx-auto">
+                  The standards and values that inform every drawing, calculation, and site inspection we perform.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((val, idx) => (
-                <div key={idx} className="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                  <span className="text-orange font-mono text-sm font-bold block mb-2">0{idx + 1}</span>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{val.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{val.desc}</p>
-                </div>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {values.map((val, idx) => (
+                  <div key={idx} className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-orange font-mono text-sm font-bold block mb-2">0{idx + 1}</span>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">{val.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{val.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* leadership */}
-        <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="team-title">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 id="team-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Leadership & Expertise
-              </h2>
-              <p className="text-slate-600 max-w-xl mx-auto">
-                Meet the experienced professionals behind Engivato&apos;s innovative engineering designs.
-              </p>
-            </div>
+        {sections.showTeam && (
+          <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="team-title">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 id="team-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                  Leadership & Expertise
+                </h2>
+                <p className="text-slate-600 max-w-xl mx-auto">
+                  Meet the experienced professionals behind Engivato&apos;s innovative engineering designs.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {team.map((member, idx) => (
-                <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col">
-                  <div className="h-48 bg-slate-200 flex items-center justify-center text-slate-400 font-medium">
-                    [Photo Placeholder]
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {team.map((member, idx) => (
+                  <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col">
+                    <div className="h-48 bg-slate-200 flex items-center justify-center text-slate-400 font-medium">
+                      [Photo Placeholder]
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col">
+                      <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
+                      <span className="text-orange text-sm font-semibold mb-4 block">{member.role}</span>
+                      <p className="text-slate-600 text-sm leading-relaxed flex-grow">{member.bio}</p>
+                    </div>
                   </div>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
-                    <span className="text-orange text-sm font-semibold mb-4 block">{member.role}</span>
-                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">{member.bio}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
       </div>
     </>
