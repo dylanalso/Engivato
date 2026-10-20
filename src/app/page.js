@@ -1,6 +1,7 @@
 import Hero from '../components/hero.js';
 import Services from '../components/services.js';
-import { getPageSections } from '../lib/settings.js';
+import UnderConstruction from '../components/UnderConstruction.js';
+import { getPageSections, getSiteSettings } from '../lib/settings.js';
 
 export const metadata = {
   title: 'Engivato | Top-Tier Engineering & Innovation Solutions',
@@ -24,8 +25,15 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const { home: sections } = await getPageSections();
-  
+  const [siteSettings, { home: sections }] = await Promise.all([
+    getSiteSettings(),
+    getPageSections(),
+  ]);
+
+  const isUnderConstruction =
+    siteSettings.underConstruction &&
+    (process.env.NODE_ENV === 'production' || siteSettings.previewInDev);
+
   // JSON-LD data for SEO results
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -39,6 +47,18 @@ export default async function Home() {
       'https://www.linkedin.com/company/engivato' 
     ]
   };
+
+  if (isUnderConstruction) {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <UnderConstruction settings={siteSettings} />
+      </>
+    );
+  }
 
   return (
     <>

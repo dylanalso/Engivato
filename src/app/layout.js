@@ -33,29 +33,14 @@ export default async function RootLayout({ children }) {
     siteSettings.underConstruction &&
     (process.env.NODE_ENV === 'production' || siteSettings.previewInDev);
 
-  if (isUnderConstruction) {
-    return (
-      <html lang="en">
-        <body className="min-h-screen bg-slate-950">
-          <UnderConstruction settings={siteSettings} />
-        </body>
-      </html>
-    );
-  }
-
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-
         <main className="flex-grow">
-
-          <Navbar />
-
+          <Navbar isUnderConstruction={isUnderConstruction} />
           {children}
-
         </main>
-
-        <Footer />
+        <Footer isUnderConstruction={isUnderConstruction} />
       </body>
     </html>
   );
