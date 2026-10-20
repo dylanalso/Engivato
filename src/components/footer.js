@@ -3,10 +3,15 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function Footer() {
+export default function Footer({ isUnderConstruction = false }) {
     const pathname = usePathname();
+    const isHomePage = pathname === '/' || pathname === '' || pathname === '/index.html';
 
-    if (pathname?.startsWith('/keystatic') || pathname?.startsWith('/under-construction')) {
+    if (
+        pathname?.startsWith('/keystatic') ||
+        pathname?.startsWith('/under-construction') ||
+        (isUnderConstruction && isHomePage)
+    ) {
         return null;
     }
 

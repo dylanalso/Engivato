@@ -15,7 +15,7 @@ const NAV_LINKS = [
     { href: '/whoWeServe', label: 'Who We Serve' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ isUnderConstruction = false }) {
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -34,7 +34,13 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    if (pathname?.startsWith('/keystatic') || pathname?.startsWith('/under-construction')) {
+    const isHomePage = pathname === '/' || pathname === '' || pathname === '/index.html';
+
+    if (
+        pathname?.startsWith('/keystatic') ||
+        pathname?.startsWith('/under-construction') ||
+        (isUnderConstruction && isHomePage)
+    ) {
         return null;
     }
 
