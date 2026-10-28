@@ -8,8 +8,8 @@ export const metadata = {
   /* for SEO */
   metadataBase: new URL('https://dylanalso.github.io/Engivato'), // whatever the landing page will be (engivato.com, not the github repo)
 
-  title: 'Engivato | Engineering and Innovation',
-  description: 'Engineering and Innovation for Local Businesses',
+  title: 'Engivato PLLC | Texas MEP Engineering & Innovation',
+  description: 'Texas-based engineering firm delivering innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) solutions.',
 };
 
 import { getSiteSettings } from '../lib/settings';

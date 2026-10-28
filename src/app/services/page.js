@@ -3,13 +3,13 @@ import { getPageSections } from '../../lib/settings';
 
 export const metadata = {
   title: 'MEP Engineering Services | Mechanical, Electrical & Plumbing | Engivato PLLC',
-  description: 'Comprehensive MEP engineering solutions by Engivato PLLC. Specializing in mechanical (HVAC), electrical, plumbing, fire protection, energy modeling, and Revit BIM design.',
+  description: 'Comprehensive MEP engineering solutions by Engivato PLLC. Specializing in mechanical (HVAC), electrical, plumbing, engineering consulting, energy modeling, and Revit BIM design.',
   keywords: [
     'MEP engineering services',
     'mechanical engineering HVAC',
     'electrical systems design',
     'plumbing engineering',
-    'fire protection engineering',
+    'engineering consulting and project support',
     'energy modeling IECC ASHRAE',
     'Revit BIM coordination',
     'commercial MEP engineer',
@@ -51,28 +51,28 @@ export default async function Services() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Mechanical Engineering (HVAC & Ventilation)',
+            name: 'Mechanical Engineering (HVAC & Energy Systems)',
           },
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Electrical Systems Engineering & Power Distribution',
+            name: 'Electrical Engineering & Power Distribution',
           },
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Plumbing & Piping Design',
+            name: 'Plumbing Engineering & Sanitary Systems',
           },
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Fire Protection & Life Safety Coordination',
+            name: 'Engineering Consulting & Project Support',
           },
         },
         {
@@ -86,7 +86,7 @@ export default async function Services() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'BIM 3D Clash Coordination & Construction Administration',
+            name: 'BIM 3D Clash Coordination & Constructability Review',
           },
         },
       ],
@@ -97,17 +97,17 @@ export default async function Services() {
     {
       id: 'mechanical',
       badge: 'Discipline 01',
-      title: 'Mechanical Engineering & HVAC',
-      tagline: 'Precision thermal comfort, ventilation control, and optimized life-cycle efficiency.',
+      title: 'Mechanical Engineering (HVAC)',
+      tagline: 'Practical HVAC design, heating & cooling load calculations, and energy optimization.',
       description:
-        'We engineer heating, ventilation, and air conditioning systems that balance peak comfort, rigorous energy codes, and low operating costs. From complex VRF and chilled water designs to high-performance ventilation for commercial kitchens and clean environments, our mechanical packages are constructible and clash-free.',
+        'We engineer heating, ventilation, and air conditioning systems that balance thermal comfort, energy efficiency, and operational constructability. From load calculations and equipment sizing to ductwork and mechanical construction documents, our designs deliver practical, long-term performance.',
       features: [
-        'Detailed Heating & Cooling Load Calculations (Manual N / ASHRAE)',
-        'Central Chilled Water, Boiler & Heat Pump Plant Design',
-        'Variable Refrigerant Flow (VRF) & Multi-Zone Ductless Systems',
-        'Dedicated Outdoor Air Systems (DOAS) & Energy Recovery (ERV/HRV)',
-        'Commercial Kitchen Hood Exhaust, Make-Up Air & Grease Duct Routing',
-        'Building Automation Systems (BAS) & Smart Temperature Controls',
+        'HVAC System Design & Engineering Layouts',
+        'Heating & Cooling Load Calculations (ASHRAE / Manual N)',
+        'Equipment Selection, Sizing & Performance Specification',
+        'Ductwork & Hydronic Piping System Design & Routing',
+        'Energy Efficiency & System Performance Considerations',
+        'Mechanical Construction Document Preparation & Design Coordination',
       ],
       icon: (
         <svg className="w-8 h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,17 +118,17 @@ export default async function Services() {
     {
       id: 'electrical',
       badge: 'Discipline 02',
-      title: 'Electrical Systems Engineering',
-      tagline: 'Reliable power distribution, backup resilience, and intelligent lighting architecture.',
+      title: 'Electrical Engineering',
+      tagline: 'Safe, reliable power distribution, lighting design, and cross-discipline coordination.',
       description:
-        'Our electrical engineers deliver safe, scalable, and code-compliant power infrastructure. We handle everything from main utility service entrance calculations and emergency generator integration to photometric lighting calculations that meet current IECC and energy efficiency mandates.',
+        'Our electrical engineers deliver safe, scalable, and code-compliant electrical power systems. We provide comprehensive power distribution design, interior and exterior lighting, lighting controls, and thorough coordination with mechanical, plumbing, architectural, and structural building elements.',
       features: [
-        'Service Entrance Sizing & Medium / Low-Voltage Power Distribution',
-        'Panelboard Schedules, Feeder Sizing & Single-Line Diagrams',
-        'Standby / Emergency Diesel & Gas Generators with Automatic Transfer Switches',
-        'Architectural & Site Photometric Lighting Design with Daylight Harvesting',
-        'Short-Circuit, Overcurrent Protection Coordination & Arc Flash Studies',
-        'Low-Voltage Infrastructure: Telecommunications, Access Control & Fire Alarm',
+        'Electrical Power Distribution Design & Service Sizing',
+        'Lighting Layouts & Intelligent Lighting Controls',
+        'Electrical Load Calculations & Equipment Coordination',
+        'Coordination with Mechanical, Plumbing, Architectural & Structural Systems',
+        'Emergency Power, Standby Generators & Automatic Transfer Switches',
+        'Low-Voltage Infrastructure & Code-Compliant Panelboard Schedules',
       ],
       icon: (
         <svg className="w-8 h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,17 +139,17 @@ export default async function Services() {
     {
       id: 'plumbing',
       badge: 'Discipline 03',
-      title: 'Plumbing & Piping Design',
-      tagline: 'Safe, sustainable water supply, sanitary drainage, and specialized gas piping.',
+      title: 'Plumbing Engineering',
+      tagline: 'Domestic water distribution, sanitary waste systems, and specialized piping.',
       description:
-        'We design sanitary, storm, and potable water systems that guarantee public health, water conservation, and long-term durability. Our plumbing designs address high-demand fixture units, commercial grease interceptor sizing, booster pumps, and complex gas piping distribution.',
+        'We design sanitary, waste, vent, and domestic water systems that ensure public health, water conservation, and long-term operating durability. Our designs cover domestic water distribution, commercial kitchen grease interceptors, natural gas piping, and multi-discipline building coordination.',
       features: [
-        'Domestic Cold & Hot Water Distribution with Recirculation Loops',
-        'Sanitary Waste, Soil, Vent & Sump Pump Ejector Systems',
-        'Roof Stormwater Drainage & Detention Integration',
-        'Commercial Grease Interceptors, Sand-Oil Separators & Acid Waste',
-        'Natural Gas & Propane Piping Isometric Layouts & Sizing',
-        'Backflow Prevention Devices & City Water Meter Vault Coordination',
+        'Domestic Water Distribution Systems & Recirculation Loops',
+        'Sanitary Waste & Vent Systems Layout & Sizing',
+        'Plumbing Fixture & Commercial Equipment Selection',
+        'Plumbing Hydraulic Calculations, Isometrics & Construction Documents',
+        'Commercial Grease Interceptors, Sand-Oil Separators & Gas Piping',
+        'Multi-Discipline Building Systems Coordination & Utility Connections',
       ],
       icon: (
         <svg className="w-8 h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,23 +158,23 @@ export default async function Services() {
       ),
     },
     {
-      id: 'fire-protection',
+      id: 'consulting',
       badge: 'Discipline 04',
-      title: 'Fire Protection & Life Safety',
-      tagline: 'Life safety systems engineered to safeguard occupants and protect capital assets.',
+      title: 'Engineering Consulting & Project Support',
+      tagline: 'Design reviews, MEP coordination, clash resolution, and quality assurance.',
       description:
-        'We coordinate comprehensive fire suppression and life safety infrastructure in strict compliance with NFPA standards and local fire marshal requirements. Our plans ensure reliable integration between alarm systems, water supply infrastructure, and building layout.',
+        'We provide specialized engineering consulting, design reviews, and responsive project support to help contractors, architects, and owners solve complex technical challenges. From clash-resolution support to value engineering and quality assurance, we ensure building systems are practical, coordinated, and constructible.',
       features: [
-        'Wet-Pipe, Dry-Pipe, and Pre-Action Fire Sprinkler Performance Criteria',
-        'Standpipe Riser Systems & Fire Department Connection (FDC) Layout',
-        'Fire Pump Sizing & Dedicated Water Service Vault Coordination',
-        'Life Safety & Egress Path Lighting / Exit Sign Integration',
-        'Smoke Control & Stairwell Pressurization Fan Coordination',
-        'Local Fire Marshal Plan Review Submissions & Expedited Approvals',
+        'Engineering Design Review & Detailed Technical Assessments',
+        'MEP Coordination & 3D Clash-Resolution Support',
+        'Construction Document Review & Quality Assurance (QA/QC)',
+        'Design Optimization & Practical Value Engineering',
+        'Project Coordination & Responsive Technical Problem-Solving',
+        'Additional Design Capacity & Project-Based Partner Support',
       ],
       icon: (
         <svg className="w-8 h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
     },
@@ -280,7 +280,7 @@ export default async function Services() {
     },
     {
       question: 'What building sectors and project types do you work on?',
-      answer: 'We work across commercial offices, retail centers, restaurants, industrial warehouses, educational facilities, healthcare clinics, multi-family developments, and custom high-end residential projects.',
+      answer: 'Our core project focus is on restaurants, commercial office finish-outs, and multifamily developments, alongside retail fit-outs, medical suites, and commercial facility upgrades throughout Texas.',
     },
   ];
 
@@ -327,24 +327,26 @@ export default async function Services() {
 
         {/* value proposition */}
         {sections.showValueProps && (
-          <section className="bg-white border-b border-slate-200 py-12 px-4" aria-label="Key Differentiators">
-            <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div className="p-4">
-                <div className="text-3xl font-extrabold text-corporate-blue mb-1">Licensed P.E.</div>
-                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Stamped & Sealed Plans</div>
-              </div>
-              <div className="p-4">
-                <div className="text-3xl font-extrabold text-corporate-blue mb-1">100% BIM</div>
-                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Revit 3D Coordinated</div>
-              </div>
-              <div className="p-4">
-                <div className="text-3xl font-extrabold text-corporate-blue mb-1">Fast Permits</div>
-                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Proactive Plan Review</div>
-              </div>
-              <div className="p-4">
-                <div className="text-3xl font-extrabold text-corporate-blue mb-1">Optimized</div>
-                <div className="text-xs md:text-sm font-medium text-slate-600 uppercase tracking-wide">Value-Engineered Savings</div>
-              </div>
+          <section className="bg-white border-b border-slate-200 py-8 sm:py-12 px-4 overflow-hidden" aria-label="Key Differentiators">
+            <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 text-center">
+              {[
+                { title: 'Engineering-Led', desc: 'Holistic Problem-Solving' },
+                { title: 'Constructible', desc: 'Practical & Build-Ready' },
+                { title: 'Modern BIM', desc: '3D Clash-Free Workflows' },
+                { title: 'Responsive', desc: 'Collaborative Partnership' },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-3 sm:p-4 rounded-xl bg-slate-50/70 md:bg-transparent border border-slate-100 md:border-0 flex flex-col justify-center min-w-0"
+                >
+                  <div className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold text-corporate-blue mb-1 tracking-tight break-words">
+                    {item.title}
+                  </div>
+                  <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-slate-600 uppercase tracking-wider leading-snug">
+                    {item.desc}
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
         )}

@@ -3,39 +3,39 @@ import { reader } from '../lib/keystatic';
 
 const DEFAULT_SERVICES = [
   {
-    title: 'Mechanical Engineering & HVAC',
+    title: 'Mechanical Engineering (HVAC)',
     badge: 'Discipline 01',
-    tagline: 'Thermal comfort & energy compliance',
-    desc: 'Heating, ventilation, and air conditioning systems engineered for peak comfort, code compliance, and low lifecycle operating costs.',
+    tagline: 'HVAC design & load calculations',
+    desc: 'Heating and cooling load calculations, equipment selection and sizing, ductwork and piping design, energy efficiency, and mechanical construction documents.',
     anchor: 'mechanical',
-    deliverables: ['ASHRAE & Manual N Loads', 'VRF & Chilled Water', 'Kitchen Hood & DOAS'],
+    deliverables: ['HVAC Design & Sizing', 'Heating & Cooling Loads', 'Ductwork & Piping Layouts'],
     order: 1,
   },
   {
-    title: 'Electrical Systems Engineering',
+    title: 'Electrical Engineering',
     badge: 'Discipline 02',
-    tagline: 'Power distribution & smart lighting',
-    desc: 'Safe, scalable, and code-compliant electrical infrastructure from utility service entrance calculations to standby generator integration.',
+    tagline: 'Power distribution & lighting design',
+    desc: 'Electrical power distribution design, lighting and lighting controls, load calculations, and cross-system equipment coordination.',
     anchor: 'electrical',
-    deliverables: ['Service Entrance & One-Line', 'Emergency Standby Power', 'IECC Lighting Calculations'],
+    deliverables: ['Power Distribution Design', 'Lighting & Controls', 'Load Calculations & Coordination'],
     order: 2,
   },
   {
-    title: 'Plumbing & Piping Design',
+    title: 'Plumbing Engineering',
     badge: 'Discipline 03',
-    tagline: 'Potable water & sanitary drainage',
-    desc: 'Sanitary, storm, potable water, and gas distribution systems guaranteeing public health, water conservation, and code compliance.',
+    tagline: 'Domestic water & sanitary drainage',
+    desc: 'Domestic water distribution, sanitary waste and vent systems, fixture and equipment selection, plumbing layouts, and construction documents.',
     anchor: 'plumbing',
-    deliverables: ['Domestic Water Systems', 'Sanitary Waste & Vent', 'Grease Interceptors'],
+    deliverables: ['Domestic Water Systems', 'Sanitary Waste & Vent', 'Plumbing Calculations & Layouts'],
     order: 3,
   },
   {
-    title: 'Fire Protection & Life Safety',
+    title: 'Engineering Consulting & Project Support',
     badge: 'Discipline 04',
-    tagline: 'Sprinklers & life safety plans',
-    desc: 'Comprehensive fire suppression and life safety infrastructure coordinated in strict compliance with NFPA standards and local fire marshals.',
-    anchor: 'fire-protection',
-    deliverables: ['Sprinkler System Criteria', 'Standpipe Risers & FDC', 'Life Safety Plan Review'],
+    tagline: 'Design review & clash coordination',
+    desc: 'Engineering design review, MEP coordination, clash-resolution support, construction document QA, design optimization, and value engineering.',
+    anchor: 'consulting',
+    deliverables: ['Design Review & Assessments', 'MEP Clash-Resolution Support', 'QA & Value Engineering'],
     order: 4,
   },
 ];
@@ -61,6 +61,13 @@ function getDisciplineIcon(anchor = '', title = '') {
     return (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+      </svg>
+    );
+  }
+  if (normalized.includes('consult') || normalized.includes('support') || normalized.includes('review') || normalized.includes('coord')) {
+    return (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     );
   }
@@ -98,7 +105,7 @@ export default async function Services() {
             Our Services
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Comprehensive mechanical, electrical, and plumbing engineering solutions tailored for commercial, industrial, and institutional facilities.
+            Innovative, practical, and reliable mechanical, electrical, and plumbing engineering solutions along with dedicated project consulting support.
           </p>
         </div>
 
@@ -108,7 +115,7 @@ export default async function Services() {
             const anchor = service.anchor || (
               service.title.toLowerCase().includes('mech') ? 'mechanical' :
               service.title.toLowerCase().includes('elec') ? 'electrical' :
-              service.title.toLowerCase().includes('plumb') ? 'plumbing' : 'fire-protection'
+              service.title.toLowerCase().includes('plumb') ? 'plumbing' : 'consulting'
             );
             const badge = service.badge || `Discipline ${String(index + 1).padStart(2, '0')}`;
             const targetUrl = `/services#${anchor}`;

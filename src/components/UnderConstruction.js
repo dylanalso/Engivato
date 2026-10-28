@@ -97,9 +97,9 @@ export default function UnderConstruction({ settings = {} }) {
               <div className="w-8 h-8 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-bold text-sm mb-3">
                 02
               </div>
-              <h2 className="font-semibold text-white text-base mb-1">Permit Drawings</h2>
+              <h2 className="font-semibold text-white text-base mb-1">Consulting &amp; Review</h2>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Texas-licensed stamped plans ready for expedited municipal review and building department approval.
+                MEP coordination, 3D clash-resolution support, constructability design reviews, and quality assurance.
               </p>
             </div>
 
@@ -107,9 +107,9 @@ export default function UnderConstruction({ settings = {} }) {
               <div className="w-8 h-8 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-bold text-sm mb-3">
                 03
               </div>
-              <h2 className="font-semibold text-white text-base mb-1">Tenant Fit-Outs</h2>
+              <h2 className="font-semibold text-white text-base mb-1">Commercial Fit-Outs</h2>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Agile turnarounds for retail, commercial, and multi-tenant improvement projects.
+                Agile turnarounds for restaurants, commercial office finish-outs, and multifamily projects across Texas.
               </p>
             </div>
           </div>

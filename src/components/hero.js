@@ -21,7 +21,7 @@ export default function Hero() {
 
           {/* badge */}
           <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-corporate-blue/20 bg-corporate-light text-xs font-medium text-corporate-blue uppercase tracking-widest shadow-sm">
-            Engineering for Local Businesses
+            Texas MEP Engineering Firm
           </div>
 
           {/* title */}
@@ -34,8 +34,7 @@ export default function Hero() {
           
           {/* subtitle */}
           <p className="text-lg md:text-xl font-medium text-slate-900 mb-10 max-w-2xl leading-relaxed tracking-tight">
-            We deliver state-of-the-art engineering solutions and strategic innovation 
-            to help local businesses scale efficiently and sustainably.
+            We provide innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions to help clients develop high-performing, efficient, and sustainable building systems.
           </p>
           
           {/* buttons */}

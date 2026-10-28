@@ -1,13 +1,13 @@
 {
-  "title": "Electrical Systems Engineering",
+  "title": "Electrical Engineering",
   "badge": "Discipline 02",
-  "tagline": "Power distribution & smart lighting",
-  "desc": "Safe, scalable, and code-compliant electrical infrastructure from utility service entrance calculations to standby generator integration.",
+  "tagline": "Power distribution & lighting design",
+  "desc": "Electrical power distribution design, lighting and lighting controls, load calculations, and cross-system equipment coordination.",
   "anchor": "electrical",
   "deliverables": [
-    "Service Entrance & One-Line",
-    "Emergency Standby Power",
-    "IECC Lighting Calculations"
+    "Electrical Power Distribution",
+    "Lighting & Lighting Controls",
+    "Load Calculations & Coordination"
   ],
   "order": 2
 }

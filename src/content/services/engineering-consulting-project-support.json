@@ -1,0 +1,13 @@
+{
+  "title": "Engineering Consulting & Project Support",
+  "badge": "Discipline 04",
+  "tagline": "Design review & clash coordination",
+  "desc": "Engineering design review, MEP coordination and clash-resolution support, construction document QA, design optimization, and value engineering.",
+  "anchor": "consulting",
+  "deliverables": [
+    "Design Review & Assessments",
+    "MEP Clash-Resolution Support",
+    "QA & Value Engineering"
+  ],
+  "order": 4
+}

@@ -1,13 +1,13 @@
 {
-  "title": "Plumbing & Piping Design",
+  "title": "Plumbing Engineering",
   "badge": "Discipline 03",
-  "tagline": "Potable water & sanitary drainage",
-  "desc": "Sanitary, storm, potable water, and gas distribution systems guaranteeing public health, water conservation, and code compliance.",
+  "tagline": "Domestic water & sanitary drainage",
+  "desc": "Domestic water distribution, sanitary waste and vent systems, fixture and equipment selection, plumbing layouts, and construction documents.",
   "anchor": "plumbing",
   "deliverables": [
-    "Domestic Water Systems",
-    "Sanitary Waste & Vent",
-    "Grease Interceptors"
+    "Domestic Water Distribution",
+    "Sanitary Waste & Vent Systems",
+    "Plumbing Calculations & Layouts"
   ],
   "order": 3
 }

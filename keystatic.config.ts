@@ -137,7 +137,7 @@ export default config({
             }),
             showDisciplines: fields.checkbox({
               label: 'MEP Core Disciplines Cards',
-              description: '⚠️ Hiding removes detailed scope lists for mechanical, electrical, plumbing & fire protection.',
+              description: '⚠️ Hiding removes detailed scope lists for mechanical, electrical, plumbing & engineering consulting.',
               defaultValue: true,
             }),
             showCapabilities: fields.checkbox({
@@ -268,7 +268,7 @@ export default config({
         badge: fields.text({ label: 'Discipline Badge (e.g. Discipline 01)' }),
         tagline: fields.text({ label: 'Short Tagline' }),
         desc: fields.text({ label: 'Description', multiline: true }),
-        anchor: fields.text({ label: 'Anchor ID on Services Page (e.g. mechanical, electrical, plumbing, fire-protection)' }),
+        anchor: fields.text({ label: 'Anchor ID on Services Page (e.g. mechanical, electrical, plumbing, consulting)' }),
         deliverables: fields.array(
           fields.text({ label: 'Deliverable' }),
           {
