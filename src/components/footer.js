@@ -50,7 +50,7 @@ export default function Footer({
   };
 
   return (
-    <footer className="bg-corporate-blue/100 pt-12 pb-8 px-4 text-slate-200 text-sm">
+    <footer className="bg-corporate-blue pt-12 pb-8 px-4 text-slate-200 text-sm">
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
         {ctaBanner.enabled !== false && (
           <section className="py-20 px-4 bg-corporate-blue text-white relative overflow-hidden" aria-labelledby="cta-heading">
@@ -87,7 +87,7 @@ export default function Footer({
                 )}
               </div>
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
           </section>
         )}
 

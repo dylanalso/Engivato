@@ -67,12 +67,12 @@ export default function Navbar({ isUnderConstruction = false, pageVisibility = {
       }`}
     >
       {/* Brand Logo */}
-      <div className="font-bold tracking-tighter justify-start flex-grow text-corporate-blue">
+      <div className="font-bold tracking-tighter justify-start grow text-corporate-blue">
         <Link href="/" className="inline-flex items-center gap-2.5 group">
           <Image
             className={`h-auto transition-all duration-300 ${isScrolled ? 'w-8' : 'w-10'}`}
             src={logo}
-            alt="ENGIVATO"
+            alt=""
             priority
           />
           <span

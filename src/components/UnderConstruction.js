@@ -45,18 +45,18 @@ export default function UnderConstruction({ settings = {} }) {
     <div className="min-h-screen bg-slate-950 text-white flex flex-col justify-between relative overflow-hidden font-sans selection:bg-orange selection:text-white">
       {/* Background Decorative Grids and Gradients */}
       <div
-        className="absolute inset-0 opacity-15 pointer-events-none bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]"
+        className="absolute inset-0 opacity-15 pointer-events-none bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]"
       />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] bg-corporate-blue/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[18rem] h-[18rem] bg-orange/15 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-140 h-140 bg-corporate-blue/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-orange/15 rounded-full blur-2xl pointer-events-none" />
 
       {/* Top Header / Branding Bar */}
       <header className="relative z-10 w-full max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-white/10 rounded-xl p-1.5 backdrop-blur-md border border-white/15 shadow-inner">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 shrink-0 bg-white/10 rounded-xl p-1.5 backdrop-blur-md border border-white/15 shadow-inner">
             <Image
               src={logo}
-              alt="Engivato PLLC Logo"
+              alt=""
               fill
               className="object-contain p-1"
               priority
@@ -114,7 +114,7 @@ export default function UnderConstruction({ settings = {} }) {
             {cardsToDisplay.map((card, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm hover:border-orange/40 transition-colors"
+                className="p-5 rounded-2xl bg-white/4 border border-white/10 backdrop-blur-sm hover:border-orange/40 transition-colors"
               >
                 <div className="w-8 h-8 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-bold text-sm mb-3">
                   {card.badge || String(idx + 1).padStart(2, '0')}
@@ -128,7 +128,7 @@ export default function UnderConstruction({ settings = {} }) {
 
         {/* Action Card */}
         {showContactCard && (
-          <div className="w-full max-w-xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/15 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl">
+          <div className="w-full max-w-xl bg-linear-to-b from-white/8 to-white/2 border border-white/15 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl">
             <h2 className="text-lg sm:text-xl font-bold text-white mb-2">
               {contactCardHeading}
             </h2>

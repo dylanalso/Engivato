@@ -82,6 +82,23 @@ function getDisciplineIcon(anchor = '', title = '') {
   );
 }
 
+function getDisciplineLinkLabel(anchor = '', title = '') {
+  const normalized = (anchor || title).toLowerCase();
+  if (normalized.includes('mech') || normalized.includes('hvac')) {
+    return 'Explore Mechanical Services';
+  }
+  if (normalized.includes('elec') || normalized.includes('power')) {
+    return 'Explore Electrical Services';
+  }
+  if (normalized.includes('plumb') || normalized.includes('pip')) {
+    return 'Explore Plumbing Services';
+  }
+  if (normalized.includes('consult') || normalized.includes('support') || normalized.includes('review') || normalized.includes('coord')) {
+    return 'Explore Consulting Services';
+  }
+  return `Explore ${title}`;
+}
+
 export default async function Services({ sectionData = {} }) {
   const {
     eyebrow = 'Core Engineering Disciplines',
@@ -149,7 +166,7 @@ export default async function Services({ sectionData = {} }) {
                 <div>
                   {/* Card Header: Icon & Discipline Badge */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-corporate-light flex items-center justify-center text-corporate-blue group-hover:bg-orange/10 group-hover:text-orange transition-colors flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-corporate-light flex items-center justify-center text-corporate-blue group-hover:bg-orange/10 group-hover:text-orange transition-colors shrink-0">
                       {getDisciplineIcon(anchor, service.title)}
                     </div>
                     <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider px-2.5 py-1 bg-slate-100 rounded-full font-mono">
@@ -158,21 +175,21 @@ export default async function Services({ sectionData = {} }) {
                   </div>
 
                   {/* Discipline Title */}
-                  <h3 className="text-lg font-bold text-corporate-blue mb-1 leading-snug min-h-[3.25rem] flex items-start">
+                  <h3 className="text-lg font-bold text-corporate-blue mb-1 leading-snug min-h-13 flex items-start">
                     {service.title}
                   </h3>
 
                   {/* Discipline Tagline */}
                   {service.tagline ? (
-                    <p className="text-xs font-semibold text-orange mb-2.5 min-h-[1.25rem] flex items-center">
+                    <p className="text-xs font-semibold text-orange mb-2.5 min-h-5 flex items-center">
                       {service.tagline}
                     </p>
                   ) : (
-                    <div className="mb-2.5 min-h-[1.25rem]" />
+                    <div className="mb-2.5 min-h-5" />
                   )}
 
                   {/* Discipline Summary */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 min-h-[4.25rem]">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 min-h-17">
                     {service.desc}
                   </p>
 
@@ -197,8 +214,8 @@ export default async function Services({ sectionData = {} }) {
                     href={targetUrl}
                     className="inline-flex items-center text-sm font-semibold text-corporate-blue group-hover:text-orange transition-colors"
                   >
-                    <span>Learn more</span>
-                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span>{getDisciplineLinkLabel(anchor, service.title)}</span>
+                    <svg className="w-4 h-4 ml-1 shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>

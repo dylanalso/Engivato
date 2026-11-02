@@ -211,11 +211,11 @@ export default async function WhoWeServe() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {(clientTypes.items || []).map((client, idx) => (
                   <div key={idx} className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-corporate-blue/30 hover:bg-white transition-all duration-300 shadow-sm flex flex-col">
-                    <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6 flex-shrink-0">
+                    <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6 shrink-0">
                       {CLIENT_ICONS[idx % CLIENT_ICONS.length]}
                     </div>
                     <h3 className="text-xl font-bold text-corporate-blue mb-3">{client.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">{client.desc}</p>
+                    <p className="text-slate-600 text-sm leading-relaxed grow">{client.desc}</p>
                   </div>
                 ))}
               </div>

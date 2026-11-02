@@ -107,7 +107,9 @@ export default config({
             }),
             secondaryCtaText: fields.text({
               label: 'Secondary Button Text',
-              defaultValue: 'Learn More',
+              description:
+                '🔍 SEO Note: Use descriptive link text (e.g., "See Who We Serve") rather than generic phrases like "Learn More".',
+              defaultValue: 'See Who We Serve',
             }),
             secondaryCtaHref: fields.text({
               label: 'Secondary Button Link',

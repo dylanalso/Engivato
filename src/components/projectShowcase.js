@@ -61,7 +61,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
         </div>
 
         {/* Keyword Search Input */}
-        <div className="relative min-w-[260px] md:min-w-[320px]">
+        <div className="relative min-w-65 md:min-w-80">
           <input
             type="text"
             value={searchQuery}
@@ -108,7 +108,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
               className="group bg-white rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-corporate-blue/40 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
             >
               {/* Decorative Grid Accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity pointer-events-none overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-3 group-hover:opacity-7 transition-opacity pointer-events-none overflow-hidden">
                 <svg className="w-full h-full text-corporate-blue" viewBox="0 0 100 100" fill="currentColor">
                   <path d="M0 0h20v20H0zm40 0h20v20H40zm40 0h20v20H80zM20 20h20v20H20zm40 0h20v20H60zm-60 20h20v20H0zm40 0h20v20H40zm40 0h20v20H80zM20 60h20v20H20zm40 0h20v20H60zm-60 20h20v20H0zm40 0h20v20H40zm40 0h20v20H80z" />
                 </svg>
@@ -137,8 +137,8 @@ export default function ProjectShowcase({ initialProjects = [] }) {
                     />
                   </div>
                 ) : (
-                  <div className="relative w-full h-28 mb-5 rounded-2xl bg-gradient-to-br from-corporate-light to-blue-50 border border-corporate-blue/15 flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#0033a0_1.5px,transparent_1.5px)] [background-size:12px_12px]" />
+                  <div className="relative w-full h-28 mb-5 rounded-2xl bg-linear-to-br from-corporate-light to-blue-50 border border-corporate-blue/15 flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#0033a0_1.5px,transparent_1.5px)] bg-size-[12px_12px]" />
                     <div className="flex items-center gap-2 text-corporate-blue/70 text-xs font-semibold uppercase tracking-wider z-10">
                       <svg className="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -156,7 +156,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
                 {/* Project Location */}
                 {project.location && (
                   <div className="flex items-center text-xs text-slate-500 mb-3 font-medium">
-                    <svg className="w-3.5 h-3.5 mr-1 text-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 mr-1 text-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>

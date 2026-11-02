@@ -153,7 +153,7 @@ export default async function Services() {
                 )}
               </div>
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
           </header>
         )}
 
@@ -166,7 +166,7 @@ export default async function Services() {
                   key={idx}
                   className="p-3 sm:p-4 rounded-xl bg-slate-50/70 md:bg-transparent border border-slate-100 md:border-0 flex flex-col justify-center min-w-0"
                 >
-                  <div className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold text-corporate-blue mb-1 tracking-tight break-words">
+                  <div className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold text-corporate-blue mb-1 tracking-tight wrap-break-word">
                     {item.title}
                   </div>
                   <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-slate-600 uppercase tracking-wider leading-snug">
@@ -247,7 +247,7 @@ export default async function Services() {
                           <ul className="space-y-3">
                             {(discipline.features || []).map((feature, fIdx) => (
                               <li key={fIdx} className="flex items-start text-sm text-slate-700">
-                                <svg className="w-5 h-5 text-orange flex-shrink-0 mr-2.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5 text-orange shrink-0 mr-2.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                                 </svg>
                                 <span>{feature}</span>

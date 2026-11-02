@@ -10,7 +10,7 @@ export default function Hero({ data = {} }) {
     subtitle = 'We provide innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions to help clients develop high-performing, efficient, and sustainable building systems.',
     primaryCtaText = 'Start Your Project',
     primaryCtaHref = '/contact',
-    secondaryCtaText = 'Learn More',
+    secondaryCtaText = 'See Who We Serve',
     secondaryCtaHref = '/whoWeServe',
   } = data;
 
@@ -20,7 +20,7 @@ export default function Hero({ data = {} }) {
       <div className="absolute inset-0 z-0">
         <Image
           src={blueOverlay}
-          alt="Engineering Background"
+          alt=""
           fill
           className="object-cover opacity-15 contrast-125"
           unoptimized
@@ -38,7 +38,7 @@ export default function Hero({ data = {} }) {
         {/* Primary Headline */}
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-slate-900 drop-shadow-sm">
           {headingLine1} <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-corporate-blue to-blue-700">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-corporate-blue to-blue-700">
             {headingHighlight}
           </span>
         </h1>
@@ -53,18 +53,20 @@ export default function Hero({ data = {} }) {
         {/* Call-to-Action Buttons */}
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full sm:w-auto">
           {primaryCtaText && (
-            <Link href={primaryCtaHref || '/contact'}>
-              <button className="px-8 py-4 bg-orange text-white rounded-lg font-bold shadow-lg shadow-orange/30 hover:shadow-orange/50 hover:-translate-y-1 transition-all duration-300">
-                {primaryCtaText}
-              </button>
+            <Link
+              href={primaryCtaHref || '/contact'}
+              className="inline-block px-8 py-4 bg-orange hover:bg-orange-dark text-white rounded-lg font-bold shadow-lg shadow-orange/30 hover:shadow-orange/50 hover:-translate-y-1 transition-all duration-300"
+            >
+              {primaryCtaText}
             </Link>
           )}
 
           {secondaryCtaText && (
-            <Link href={secondaryCtaHref || '/whoWeServe'}>
-              <button className="px-8 py-4 bg-white text-corporate-blue rounded-lg font-bold border border-corporate-blue/30 hover:bg-corporate-light hover:-translate-y-1 transition-all duration-300 shadow-sm">
-                {secondaryCtaText}
-              </button>
+            <Link
+              href={secondaryCtaHref || '/whoWeServe'}
+              className="inline-block px-8 py-4 bg-white text-corporate-blue rounded-lg font-bold border border-corporate-blue/30 hover:bg-corporate-light hover:-translate-y-1 transition-all duration-300 shadow-sm"
+            >
+              {secondaryCtaText}
             </Link>
           )}
         </div>

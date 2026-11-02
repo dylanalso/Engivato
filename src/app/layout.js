@@ -27,7 +27,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <main className="flex-grow">
+        <main className="grow">
           <Navbar isUnderConstruction={isUnderConstruction} pageVisibility={pageVisibility} />
           {children}
         </main>

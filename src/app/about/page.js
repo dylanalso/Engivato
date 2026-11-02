@@ -113,7 +113,7 @@ export default async function About() {
                 </p>
               )}
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
           </section>
         )}
 
@@ -123,7 +123,7 @@ export default async function About() {
             <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {(highlights.items || []).map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-orange/10 flex items-center justify-center flex-shrink-0 text-orange">
+                  <div className="w-11 h-11 rounded-xl bg-orange/10 flex items-center justify-center shrink-0 text-orange">
                     {HIGHLIGHT_ICONS[idx % HIGHLIGHT_ICONS.length]}
                   </div>
                   <div>
@@ -162,7 +162,7 @@ export default async function About() {
               </div>
 
               {/* Practice Manifesto Card */}
-              <div className="relative rounded-3xl bg-gradient-to-br from-corporate-blue to-blue-950 text-white p-8 md:p-10 shadow-lg border border-blue-900/40 overflow-hidden">
+              <div className="relative rounded-3xl bg-linear-to-br from-corporate-blue to-blue-950 text-white p-8 md:p-10 shadow-lg border border-blue-900/40 overflow-hidden">
                 <div className="relative z-10">
                   {story.manifestoEyebrow && (
                     <span className="text-orange font-semibold tracking-wider uppercase text-xs mb-3 inline-block">
@@ -181,7 +181,7 @@ export default async function About() {
                   <div className="space-y-3 pt-4 border-t border-white/10 text-xs md:text-sm text-slate-200">
                     {(story.manifestoBullets || []).map((bullet, idx) => (
                       <div key={idx} className="flex items-center gap-2.5">
-                        <span className="w-2 h-2 rounded-full bg-orange flex-shrink-0" />
+                        <span className="w-2 h-2 rounded-full bg-orange shrink-0" />
                         <span>{bullet}</span>
                       </div>
                     ))}
@@ -281,7 +281,7 @@ export default async function About() {
 
               <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-8 md:p-12 hover:shadow-md transition-shadow">
                 <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                  <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl bg-slate-100 border-2 border-corporate-blue/20 flex flex-col items-center justify-center flex-shrink-0 text-center p-4">
+                  <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl bg-slate-100 border-2 border-corporate-blue/20 flex flex-col items-center justify-center shrink-0 text-center p-4">
                     <div className="w-14 h-14 rounded-full bg-corporate-blue text-white flex items-center justify-center font-bold text-xl mb-2 shadow-inner">
                       {team.leaderInitials}
                     </div>
@@ -289,7 +289,7 @@ export default async function About() {
                     <span className="text-[11px] text-slate-500 font-medium">{team.leaderShortRole}</span>
                   </div>
 
-                  <div className="flex-grow text-center md:text-left">
+                  <div className="grow text-center md:text-left">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                       <div>
                         <h3 className="text-2xl font-bold text-slate-900">{team.leaderName}</h3>
@@ -316,7 +316,7 @@ export default async function About() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-slate-100 text-sm text-slate-700">
                       {(team.highlights || []).map((hl, idx) => (
                         <div key={idx} className="flex items-center gap-2.5">
-                          <svg className="w-5 h-5 text-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-5 h-5 text-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{hl}</span>

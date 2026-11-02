@@ -129,7 +129,7 @@ export default async function Home() {
                 )}
               </div>
               <div className="md:w-1/2 w-full">
-                <div className="relative h-80 sm:h-96 md:h-[420px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
+                <div className="relative h-80 sm:h-96 md:h-105 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
                   <Image
                     src={workstationImage}
                     alt={overview.imageAlt || 'Engivato PLLC - MEP Engineering Design Workstation'}
@@ -138,7 +138,7 @@ export default async function Home() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-center justify-between text-white text-xs z-10 backdrop-blur-md bg-slate-950/40 p-3 rounded-2xl border border-white/10">
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-orange animate-pulse" />
@@ -203,7 +203,7 @@ export default async function Home() {
                 <ul className="space-y-4">
                   {(whyUs.bulletPoints || []).map((item, idx) => (
                     <li key={idx} className="flex items-center text-slate-100">
-                      <svg className="w-6 h-6 text-orange mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 text-orange mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                       <span>{item}</span>

@@ -136,7 +136,7 @@ export default async function Projects() {
                 )}
               </div>
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
           </header>
         )}
 
@@ -215,7 +215,7 @@ export default async function Projects() {
                         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-between">
                           <div className="lg:w-7/12">
                             <div className="flex items-center gap-3 mb-4">
-                              <div className="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center flex-shrink-0">
+                              <div className="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
                                 {SECTOR_ICONS[idx % SECTOR_ICONS.length]}
                               </div>
                               {sector.badge && (
@@ -256,7 +256,7 @@ export default async function Projects() {
                             <ul className="space-y-3 mb-6">
                               {(sector.scopes || []).map((scope, sIdx) => (
                                 <li key={sIdx} className="flex items-start text-xs md:text-sm text-slate-700">
-                                  <span className="text-orange font-bold mr-2.5 flex-shrink-0">•</span>
+                                  <span className="text-orange font-bold mr-2.5 shrink-0">•</span>
                                   <span>{scope}</span>
                                 </li>
                               ))}
@@ -278,7 +278,7 @@ export default async function Projects() {
 
               {/* Sample Drawing Packages & Confidentiality Callout */}
               {confidentialityCallout?.enabled !== false && (
-                <div className="mt-16 bg-gradient-to-br from-corporate-blue to-blue-900 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div className="mt-16 bg-linear-to-br from-corporate-blue to-blue-900 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
                   <div className="max-w-3xl relative z-10">
                     {confidentialityCallout.eyebrow && (
                       <span className="text-orange font-semibold tracking-wider uppercase text-xs mb-2 block">

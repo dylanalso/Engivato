@@ -93,7 +93,7 @@ export default async function Contact() {
                 </p>
               )}
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
           </header>
         )}
 
@@ -102,7 +102,7 @@ export default async function Contact() {
           <section className="bg-white border-b border-slate-200 py-8 px-4" aria-label="Direct Communication Channels">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-4 p-3">
-                <div className="w-12 h-12 rounded-2xl bg-corporate-light flex items-center justify-center text-corporate-blue flex-shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-corporate-light flex items-center justify-center text-corporate-blue shrink-0">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
@@ -118,7 +118,7 @@ export default async function Contact() {
               </div>
 
               <div className="flex items-center justify-center md:justify-start gap-4 p-3">
-                <div className="w-12 h-12 rounded-2xl bg-corporate-light flex items-center justify-center text-corporate-blue flex-shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-corporate-light flex items-center justify-center text-corporate-blue shrink-0">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -135,7 +135,7 @@ export default async function Contact() {
               </div>
 
               <div className="flex items-center justify-center md:justify-start gap-4 p-3">
-                <div className="w-12 h-12 rounded-2xl bg-corporate-light flex items-center justify-center text-corporate-blue flex-shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-corporate-light flex items-center justify-center text-corporate-blue shrink-0">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -176,7 +176,7 @@ export default async function Contact() {
                     <ol className="space-y-6">
                       {(sidebar.processSteps || []).map((step, idx) => (
                         <li key={idx} className="flex items-start gap-4">
-                          <div className="w-8 h-8 rounded-full bg-corporate-light text-corporate-blue font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <div className="w-8 h-8 rounded-full bg-corporate-light text-corporate-blue font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                             {String(idx + 1).padStart(2, '0')}
                           </div>
                           <div>
@@ -189,7 +189,7 @@ export default async function Contact() {
                   </div>
 
                   {/* Architectural Plan & RFP Submission Instructions */}
-                  <div className="bg-gradient-to-br from-corporate-light/80 to-blue-50/60 rounded-3xl p-8 border border-corporate-blue/20">
+                  <div className="bg-linear-to-br from-corporate-light/80 to-blue-50/60 rounded-3xl p-8 border border-corporate-blue/20">
                     <div className="w-10 h-10 rounded-xl bg-corporate-blue text-white flex items-center justify-center mb-4">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />

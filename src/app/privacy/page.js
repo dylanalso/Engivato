@@ -22,7 +22,7 @@ export default async function Privacy() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white flex flex-col">
-      <main className="flex-grow pt-32 pb-24 px-4">
+      <main className="grow pt-32 pb-24 px-4">
         <section id="privacy" className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-200">
           <div className="mb-10 border-b border-slate-100 pb-8 text-center md:text-left">
             <h1 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
