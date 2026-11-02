@@ -1,42 +1,65 @@
 import Form from '../../components/form';
 import { COMPANY_EMAIL } from '../../lib/constants';
-import { getPageSections } from '../../lib/settings';
+import { getContactPage } from '../../lib/settings';
+import PageUnavailable from '../../components/PageUnavailable';
 
-export const metadata = {
-  title: 'Contact Us | MEP Engineering Consultation & Proposals | Engivato PLLC',
-  description: 'Connect with Engivato PLLC for expert mechanical, electrical, and plumbing engineering consulting, stamped permit drawings, and fast-track tenant fit-out proposals across Dallas-Fort Worth.',
-  keywords: [
-    'contact MEP engineer',
-    'DFW engineering proposal',
-    'Dallas mechanical electrical plumbing consulting',
-    'tenant improvement engineering quote',
-    'stamped permit drawings Texas',
-    'Engivato PLLC contact'
-  ],
-  openGraph: {
-    title: 'Contact Us | MEP Engineering Consultation & Proposals | Engivato PLLC',
-    description: 'Get in touch with Engivato PLLC for constructible, clash-free MEP engineering solutions and rapid proposal turnaround.',
-    url: 'https://dylanalso.github.io/Engivato/contact',
-    siteName: 'Engivato PLLC',
-    type: 'website',
-  },
-  alternates: {
-    canonical: '/contact',
-  },
-};
+export async function generateMetadata() {
+  const contactData = await getContactPage();
+  const title =
+    contactData.seo?.metaTitle ||
+    'Contact Us | MEP Engineering Consultation & Proposals | Engivato PLLC';
+  const description =
+    contactData.seo?.metaDescription ||
+    'Connect with Engivato PLLC for expert mechanical, electrical, and plumbing engineering consulting, stamped permit drawings, and fast-track tenant fit-out proposals across Dallas-Fort Worth.';
+
+  return {
+    title,
+    description,
+    keywords: [
+      'contact MEP engineer',
+      'DFW engineering proposal',
+      'Dallas mechanical electrical plumbing consulting',
+      'tenant improvement engineering quote',
+      'stamped permit drawings Texas',
+      'Engivato PLLC contact',
+    ],
+    openGraph: {
+      title,
+      description,
+      url: 'https://dylanalso.github.io/Engivato/contact',
+      siteName: 'Engivato PLLC',
+      type: 'website',
+    },
+    alternates: {
+      canonical: '/contact',
+    },
+    ...(contactData.pageEnabled === false ? { robots: { index: false, follow: false } } : {}),
+  };
+}
 
 export default async function Contact() {
-  const { contact: sections } = await getPageSections();
+  const contactData = await getContactPage();
+  if (contactData.pageEnabled === false) {
+    return <PageUnavailable pageName="Contact Us" />;
+  }
+  const { hero, channels, formSection, sidebar } = contactData;
+  const emailAddress = channels?.emailAddress || COMPANY_EMAIL;
+
+  const showForm = formSection?.enabled !== false;
+  const showSidebar = sidebar?.enabled !== false;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: 'Contact Engivato PLLC',
-    description: 'Request a proposal or schedule an engineering consultation with Engivato PLLC.',
+    description:
+      contactData.seo?.metaDescription ||
+      'Request a proposal or schedule an engineering consultation with Engivato PLLC.',
     url: 'https://dylanalso.github.io/Engivato/contact',
     mainEntity: {
       '@type': 'EngineeringBusiness',
       name: 'Engivato PLLC',
-      email: COMPANY_EMAIL,
+      email: emailAddress,
       areaServed: {
         '@type': 'State',
         name: 'Texas',
@@ -52,27 +75,30 @@ export default async function Contact() {
       />
 
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
-        
-        {/* hero section */}
-        {sections.showHero && (
+        {/* Page Header */}
+        {hero?.enabled !== false && (
           <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="contact-hero-title">
             <div className="max-w-6xl mx-auto text-center relative z-10">
-              <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
-                Get In Touch
-              </span>
+              {hero.eyebrow && (
+                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                  {hero.eyebrow}
+                </span>
+              )}
               <h1 id="contact-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-                Let&apos;s Build Systems That Perform
+                {hero.heading}
               </h1>
-              <p className="text-slate-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
-                Whether you need full MEP construction documents, a fast-track commercial tenant fit-out, or code compliance review, our team is ready to assist.
-              </p>
+              {hero.description && (
+                <p className="text-slate-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
+                  {hero.description}
+                </p>
+              )}
             </div>
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
           </header>
         )}
 
-        {/* quick contact and credentials bar */}
-        {sections.showChannels && (
+        {/* Direct Contact & Coverage Bar */}
+        {channels?.enabled !== false && (
           <section className="bg-white border-b border-slate-200 py-8 px-4" aria-label="Direct Communication Channels">
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-4 p-3">
@@ -82,9 +108,11 @@ export default async function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Direct Inquiries</div>
-                  <a href={`mailto:${COMPANY_EMAIL}`} className="text-base font-bold text-corporate-blue hover:text-orange transition-colors">
-                    {COMPANY_EMAIL}
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                    {channels.emailLabel}
+                  </div>
+                  <a href={`mailto:${emailAddress}`} className="text-base font-bold text-corporate-blue hover:text-orange transition-colors">
+                    {emailAddress}
                   </a>
                 </div>
               </div>
@@ -97,8 +125,12 @@ export default async function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Service Coverage</div>
-                  <div className="text-base font-bold text-slate-900">Dallas–Fort Worth &amp; North Texas</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                    {channels.coverageLabel}
+                  </div>
+                  <div className="text-base font-bold text-slate-900">
+                    {channels.coverageValue}
+                  </div>
                 </div>
               </div>
 
@@ -109,128 +141,98 @@ export default async function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Response Commitment</div>
-                  <div className="text-base font-bold text-slate-900">&lt; 24 Hour Initial Proposal Review</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                    {channels.responseLabel}
+                  </div>
+                  <div className="text-base font-bold text-slate-900">
+                    {channels.responseValue}
+                  </div>
                 </div>
               </div>
             </div>
           </section>
         )}
 
-        {/* main form and context */}
-        {(sections.showForm || sections.showSidebar) && (
+        {/* Inquiry Form & Consultation Sidebar */}
+        {(showForm || showSidebar) && (
           <main className="py-20 px-4">
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-              
-              {/* left: Web3Forms */}
-              {sections.showForm && (
-                <div className={sections.showSidebar ? "lg:col-span-7" : "lg:col-span-12 max-w-2xl mx-auto w-full"}>
-                  <Form />
+              {/* Left Column: Project Inquiry Form */}
+              {showForm && (
+                <div className={showSidebar ? 'lg:col-span-7' : 'lg:col-span-12 max-w-2xl mx-auto w-full'}>
+                  <Form formConfig={formSection} emailAddress={emailAddress} />
                 </div>
               )}
 
-              {/* right: additional information */}
-              {sections.showSidebar && (
-                <div className={sections.showForm ? "lg:col-span-5 space-y-8" : "lg:col-span-12 max-w-2xl mx-auto w-full space-y-8"}>
-                  
-                  {/* submission process */}
+              {/* Right Column: Process, Plan Submissions & FAQs */}
+              {showSidebar && (
+                <div className={showForm ? 'lg:col-span-5 space-y-8' : 'lg:col-span-12 max-w-2xl mx-auto w-full space-y-8'}>
+                  {/* Inquiry Review Process */}
                   <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
                     <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                      <span>How We Handle Inquiries</span>
+                      <span>{sidebar.processHeading}</span>
                     </h3>
 
                     <ol className="space-y-6">
-                      <li className="flex items-start gap-4">
-                        <div className="w-8 h-8 rounded-full bg-corporate-light text-corporate-blue font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                          01
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 mb-1">Scope &amp; Drawing Review</h4>
-                          <p className="text-xs text-slate-600 leading-relaxed">
-                            We analyze your architectural backgrounds, existing MEP conditions, and jurisdiction requirements to scope exact deliverables.
-                          </p>
-                        </div>
-                      </li>
-
-                      <li className="flex items-start gap-4">
-                        <div className="w-8 h-8 rounded-full bg-corporate-light text-corporate-blue font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                          02
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 mb-1">Clear, Itemized Proposal</h4>
-                          <p className="text-xs text-slate-600 leading-relaxed">
-                            You receive a transparent engineering proposal outlining phases, milestones, permit coordination fees, and completion dates.
-                          </p>
-                        </div>
-                      </li>
-
-                      <li className="flex items-start gap-4">
-                        <div className="w-8 h-8 rounded-full bg-corporate-light text-corporate-blue font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                          03
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 mb-1">Kick-off &amp; BIM Coordination</h4>
-                          <p className="text-xs text-slate-600 leading-relaxed">
-                            Upon authorization, our engineering team initiates load calculations, equipment sizing, and clash-free 3D Revit modeling.
-                          </p>
-                        </div>
-                      </li>
+                      {(sidebar.processSteps || []).map((step, idx) => (
+                        <li key={idx} className="flex items-start gap-4">
+                          <div className="w-8 h-8 rounded-full bg-corporate-light text-corporate-blue font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+                            {String(idx + 1).padStart(2, '0')}
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-slate-900 mb-1">{step.title}</h4>
+                            <p className="text-xs text-slate-600 leading-relaxed">{step.desc}</p>
+                          </div>
+                        </li>
+                      ))}
                     </ol>
                   </div>
 
-                  {/* sending plans / RFPs */}
+                  {/* Architectural Plan & RFP Submission Instructions */}
                   <div className="bg-gradient-to-br from-corporate-light/80 to-blue-50/60 rounded-3xl p-8 border border-corporate-blue/20">
                     <div className="w-10 h-10 rounded-xl bg-corporate-blue text-white flex items-center justify-center mb-4">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                       </svg>
                     </div>
-                    <h4 className="text-base font-bold text-corporate-blue mb-2">Have Architectural Plans Ready?</h4>
+                    <h4 className="text-base font-bold text-corporate-blue mb-2">
+                      {sidebar.plansBoxHeading}
+                    </h4>
                     <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                      If you have CAD files, Revit models, or PDF architectural drawings, you can email them directly to{' '}
-                      <a href={`mailto:${COMPANY_EMAIL}`} className="font-semibold text-corporate-blue hover:text-orange underline">
-                        {COMPANY_EMAIL}
-                      </a>{' '}
-                      or include a cloud link in your message.
+                      {sidebar.plansBoxDescription}{' '}
+                      <a href={`mailto:${emailAddress}`} className="font-semibold text-corporate-blue hover:text-orange underline">
+                        {emailAddress}
+                      </a>
                     </p>
-                    <div className="text-[11px] font-medium text-slate-500">
-                      Accepted formats: .dwg, .rvt, .pdf, .zip
-                    </div>
+                    {sidebar.plansBoxFormats && (
+                      <div className="text-[11px] font-medium text-slate-500">
+                        {sidebar.plansBoxFormats}
+                      </div>
+                    )}
                   </div>
 
-                  {/* consultation faq */}
+                  {/* Pre-Consultation FAQs */}
                   <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4">
-                    <h4 className="text-base font-bold text-slate-900 mb-2">Frequently Asked</h4>
-                    
-                    <div>
-                      <h5 className="text-xs font-bold text-corporate-blue mb-1">How fast is proposal turnaround?</h5>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Standard proposals are delivered within 24 to 48 business hours after receiving your scope details and architectural backgrounds.
-                      </p>
-                    </div>
+                    <h4 className="text-base font-bold text-slate-900 mb-2">
+                      {sidebar.faqHeading}
+                    </h4>
 
-                    <div className="pt-3 border-t border-slate-100">
-                      <h5 className="text-xs font-bold text-corporate-blue mb-1">Do you handle fast-track deadlines?</h5>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Yes. We routinely coordinate expedited tenant improvement and renovation sets for retail, restaurant, and commercial spaces.
-                      </p>
-                    </div>
-
-                    <div className="pt-3 border-t border-slate-100">
-                      <h5 className="text-xs font-bold text-corporate-blue mb-1">Are all drawings stamped by a licensed P.E.?</h5>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Yes. All final construction documents are sealed by licensed Professional Engineers conforming to Texas municipal building codes.
-                      </p>
-                    </div>
+                    {(sidebar.faqs || []).map((faqItem, idx) => (
+                      <div key={idx} className={idx > 0 ? 'pt-3 border-t border-slate-100' : ''}>
+                        <h5 className="text-xs font-bold text-corporate-blue mb-1">
+                          {faqItem.question}
+                        </h5>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          {faqItem.answer}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-
                 </div>
               )}
-
             </div>
           </main>
         )}
-
       </div>
     </>
   );

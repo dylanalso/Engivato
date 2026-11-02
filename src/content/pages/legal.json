@@ -1,0 +1,39 @@
+{
+  "privacy": {
+    "enabled": true,
+    "metaTitle": "Privacy Policy | Engivato PLLC",
+    "metaDescription": "Read the Privacy Policy for Engivato PLLC regarding how we collect, use, and protect your personal information.",
+    "heading": "Privacy Policy",
+    "paragraphs": [
+      "At Engivato, we are committed to protecting your privacy and handling your data responsibly. This Privacy Policy describes how we collect, use, disclose, and protect your personal information when you visit our website, engivato.com.",
+      "By using our website, you agree to the terms of this Privacy Policy. We may update this policy from time to time, and we will notify you of any changes by posting the new policy on this page with an updated effective date.",
+      "For the purposes of this policy, “personal information” means any information that identifies you, directly or indirectly, as an individual."
+    ]
+  },
+  "termsOfService": {
+    "enabled": true,
+    "metaTitle": "Terms of Service | Engivato PLLC",
+    "metaDescription": "Terms of Service for Engivato PLLC website and engineering information.",
+    "heading": "Terms of Service",
+    "paragraphs": [
+      "Learn more about our mechanical, electrical, and plumbing engineering solutions."
+    ]
+  },
+  "accessibility": {
+    "enabled": true,
+    "metaTitle": "Accessibility Statement | Engivato PLLC",
+    "metaDescription": "Engivato PLLC is committed to digital accessibility and WCAG AA standards.",
+    "heading": "Accessibility",
+    "introParagraph1": "At Engivato, we are dedicated to ensuring our website is usable by people with different abilities. We are continually evaluating our platform to ensure both our current and future digital content aligns with WCAG AA accessibility standards. To achieve this, our team actively implements readable fonts, sufficient color contrast, alternative text for images, clearly labeled form fields, and keyboard-friendly navigation.",
+    "introParagraph2": "A key part of this accessibility effort is maintaining broad browser compatibility. The engivato.com website is optimized for viewing on:",
+    "supportedBrowsers": [
+      "Chrome",
+      "Edge",
+      "Firefox",
+      "Safari",
+      "Opera"
+    ],
+    "closingParagraph": "We want to ensure that all visitors have an excellent experience when accessing our website, regardless of their device or any functional limitations. If you experience any difficulties accessing our content or have suggestions for improving our website's accessibility, please reach out and contact us. We appreciate your feedback and are committed to making engivato.com accessible to everyone."
+  }
+}
+

@@ -3,7 +3,17 @@
 import { useState } from 'react';
 import { COMPANY_EMAIL } from '../lib/constants';
 
-export default function Form() {
+export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) {
+  const {
+    eyebrow = 'Fast-Track Consultation',
+    heading = 'Request an Engineering Proposal',
+    description = 'Fill out the details below to discuss your project scope, turnaround timeline, or stamped plan requirements.',
+    submitButtonText = 'Send Project Inquiry',
+    privacyNote = 'Submissions are transmitted securely and routed to our principal engineering team.',
+    successHeading = 'Message Sent Successfully!',
+    successMessage = 'Thank you for reaching out to Engivato PLLC. We have received your inquiry and will review your project requirements within 1 business day.',
+  } = formConfig;
+
   const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -17,14 +27,8 @@ export default function Form() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // if access key is set in environment, append it
-    if (accessKey) {
-      formData.set('access_key', accessKey);
-    } else {
-      // in-development fallback, if no key is configured yet
-      formData.set('access_key', 'ff5a0044-6692-41cf-84d4-ca3971cc45d4');
-    }
-
+    // Configure Web3Forms access key and submission metadata
+    formData.set('access_key', accessKey || 'ff5a0044-6692-41cf-84d4-ca3971cc45d4');
     formData.set('subject', `New Project Inquiry from ${formData.get('name') || 'Engivato Site'}`);
     formData.set('from_name', 'Engivato PLLC Website');
 
@@ -45,10 +49,10 @@ export default function Form() {
           data.message || 'Unable to submit the form. Please check your information or try again.'
         );
       }
-    } catch (err) {
+    } catch {
       setStatus('error');
       setErrorMessage(
-        `Network error submitting form. Please email us directly at ${COMPANY_EMAIL}.`
+        `Network error submitting form. Please email us directly at ${emailAddress}.`
       );
     }
   };
@@ -61,10 +65,10 @@ export default function Form() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Sent Successfully!</h3>
+        <h3 className="text-2xl font-bold text-slate-900 mb-2">{successHeading}</h3>
         <p className="text-slate-600 text-sm max-w-md mx-auto mb-6 leading-relaxed">
-          Thank you for reaching out to Engivato PLLC. We have received your inquiry at{' '}
-          <strong className="text-slate-800">{COMPANY_EMAIL}</strong> and will review your project requirements within 1 business day.
+          {successMessage} (Direct contact:{' '}
+          <strong className="text-slate-800">{emailAddress}</strong>)
         </p>
         <button
           type="button"
@@ -80,13 +84,17 @@ export default function Form() {
   return (
     <div className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm">
       <div className="mb-8">
-        <span className="text-orange font-semibold tracking-wider uppercase text-xs mb-2 block">
-          Fast-Track Consultation
-        </span>
-        <h3 className="text-2xl font-bold text-slate-900 mb-2">Request an Engineering Proposal</h3>
-        <p className="text-slate-600 text-sm">
-          Fill out the details below to discuss your project scope, turnaround timeline, or stamped plan requirements.
-        </p>
+        {eyebrow && (
+          <span className="text-orange font-semibold tracking-wider uppercase text-xs mb-2 block">
+            {eyebrow}
+          </span>
+        )}
+        <h3 className="text-2xl font-bold text-slate-900 mb-2">{heading}</h3>
+        {description && (
+          <p className="text-slate-600 text-sm">
+            {description}
+          </p>
+        )}
       </div>
 
       {status === 'error' && (
@@ -97,10 +105,10 @@ export default function Form() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        {/* honeypot */}
+        {/* Spam Prevention Honeypot */}
         <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
-        {/* row 1: name and email */}
+        {/* Contact Name & Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
@@ -131,7 +139,7 @@ export default function Form() {
           </div>
         </div>
 
-        {/* row 2: phone and company */}
+        {/* Phone Number & Organization */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
@@ -160,7 +168,7 @@ export default function Form() {
           </div>
         </div>
 
-        {/* row 3: engineering discipline and location */}
+        {/* Engineering Discipline & Project Location */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
@@ -197,7 +205,7 @@ export default function Form() {
           </div>
         </div>
 
-        {/* row 4: message and scope */}
+        {/* Project Scope & Details */}
         <div>
           <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
             Project Overview & Scope Details <span className="text-orange">*</span>
@@ -212,7 +220,7 @@ export default function Form() {
           ></textarea>
         </div>
 
-        {/* submit button */}
+        {/* Submit Action */}
         <div>
           <button
             type="submit"
@@ -229,16 +237,18 @@ export default function Form() {
               </>
             ) : (
               <>
-                <span>Send Project Inquiry</span>
+                <span>{submitButtonText}</span>
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </>
             )}
           </button>
-          <p className="text-center text-[11px] text-slate-500 mt-3">
-            Submissions are transmitted securely and routed to our principal engineering team.
-          </p>
+          {privacyNote && (
+            <p className="text-center text-[11px] text-slate-500 mt-3">
+              {privacyNote}
+            </p>
+          )}
         </div>
       </form>
     </div>

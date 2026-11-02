@@ -4,20 +4,48 @@ import Image from 'next/image';
 import logo from '../img/logoIdea2.svg';
 import { COMPANY_EMAIL } from '../lib/constants';
 
+const DEFAULT_FEATURE_CARDS = [
+  {
+    badge: '01',
+    title: 'MEP Engineering',
+    desc: 'Precision mechanical, electrical, and plumbing engineering designed for constructibility.',
+  },
+  {
+    badge: '02',
+    title: 'Consulting & Review',
+    desc: 'MEP coordination, 3D clash-resolution support, constructability design reviews, and quality assurance.',
+  },
+  {
+    badge: '03',
+    title: 'Commercial Fit-Outs',
+    desc: 'Agile turnarounds for restaurants, commercial office finish-outs, and multifamily projects across Texas.',
+  },
+];
+
 export default function UnderConstruction({ settings = {} }) {
   const {
     heading = 'Engineering High-Performance Solutions That Perform',
     subheading = 'Website Under Construction • Launching Soon',
     description = 'We are currently building our full digital platform. Engivato PLLC delivers licensed Mechanical, Electrical, and Plumbing (MEP) consulting, stamped permit drawings, and fast-track tenant fit-out engineering across Texas.',
     showFeatureCards = true,
+    featureCards = DEFAULT_FEATURE_CARDS,
     showContactCard = true,
+    contactCardHeading = 'Have an active project or RFP?',
+    contactCardDescription = 'Our engineering team is actively accepting project inquiries and architectural drawings for review.',
+    contactCardButtonText = 'Email Our Engineering Team',
+    footerNote = 'Licensed Engineering Consultation in Texas',
   } = settings;
+
+  const cardsToDisplay =
+    Array.isArray(featureCards) && featureCards.length > 0
+      ? featureCards
+      : DEFAULT_FEATURE_CARDS;
 
   return (
     <div className="min-h-screen bg-slate-950 text-white flex flex-col justify-between relative overflow-hidden font-sans selection:bg-orange selection:text-white">
       {/* Background Decorative Grids and Gradients */}
-      <div 
-        className="absolute inset-0 opacity-15 pointer-events-none bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" 
+      <div
+        className="absolute inset-0 opacity-15 pointer-events-none bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]"
       />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] bg-corporate-blue/30 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[18rem] h-[18rem] bg-orange/15 rounded-full blur-2xl pointer-events-none" />
@@ -83,35 +111,18 @@ export default function UnderConstruction({ settings = {} }) {
         {/* Feature Highlights Grid */}
         {showFeatureCards && (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl mb-10 text-left">
-            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm hover:border-orange/40 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-bold text-sm mb-3">
-                01
+            {cardsToDisplay.map((card, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm hover:border-orange/40 transition-colors"
+              >
+                <div className="w-8 h-8 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-bold text-sm mb-3">
+                  {card.badge || String(idx + 1).padStart(2, '0')}
+                </div>
+                <h2 className="font-semibold text-white text-base mb-1">{card.title}</h2>
+                <p className="text-xs text-slate-400 leading-relaxed">{card.desc}</p>
               </div>
-              <h2 className="font-semibold text-white text-base mb-1">MEP Engineering</h2>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Precision mechanical, electrical, and plumbing engineering designed for constructibility.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm hover:border-orange/40 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-bold text-sm mb-3">
-                02
-              </div>
-              <h2 className="font-semibold text-white text-base mb-1">Consulting &amp; Review</h2>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                MEP coordination, 3D clash-resolution support, constructability design reviews, and quality assurance.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm hover:border-orange/40 transition-colors">
-              <div className="w-8 h-8 rounded-lg bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-bold text-sm mb-3">
-                03
-              </div>
-              <h2 className="font-semibold text-white text-base mb-1">Commercial Fit-Outs</h2>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Agile turnarounds for restaurants, commercial office finish-outs, and multifamily projects across Texas.
-              </p>
-            </div>
+            ))}
           </div>
         )}
 
@@ -119,11 +130,13 @@ export default function UnderConstruction({ settings = {} }) {
         {showContactCard && (
           <div className="w-full max-w-xl bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/15 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl">
             <h2 className="text-lg sm:text-xl font-bold text-white mb-2">
-              Have an active project or RFP?
+              {contactCardHeading}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 mb-6">
-              Our engineering team is actively accepting project inquiries and architectural drawings for review.
-            </p>
+            {contactCardDescription && (
+              <p className="text-xs sm:text-sm text-slate-300 mb-6">
+                {contactCardDescription}
+              </p>
+            )}
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
@@ -133,11 +146,14 @@ export default function UnderConstruction({ settings = {} }) {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span>Email Our Engineering Team</span>
+                <span>{contactCardButtonText}</span>
               </a>
 
               <div className="text-xs text-slate-400">
-                <span className="hidden sm:inline">•</span> <a href={`mailto:${COMPANY_EMAIL}`} className="underline hover:text-white">{COMPANY_EMAIL}</a>
+                <span className="hidden sm:inline">•</span>{' '}
+                <a href={`mailto:${COMPANY_EMAIL}`} className="underline hover:text-white">
+                  {COMPANY_EMAIL}
+                </a>
               </div>
             </div>
           </div>
@@ -147,9 +163,11 @@ export default function UnderConstruction({ settings = {} }) {
       {/* Footer */}
       <footer className="relative z-10 w-full max-w-7xl mx-auto px-6 py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
         <p>© {new Date().getFullYear()} Engivato PLLC. All rights reserved.</p>
-        <p className="flex items-center gap-2">
-          <span>Licensed Engineering Consultation in Texas</span>
-        </p>
+        {footerNote && (
+          <p className="flex items-center gap-2">
+            <span>{footerNote}</span>
+          </p>
+        )}
       </footer>
     </div>
   );

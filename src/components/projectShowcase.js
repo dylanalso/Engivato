@@ -36,12 +36,10 @@ export default function ProjectShowcase({ initialProjects = [] }) {
   }, [initialProjects, selectedCategory, searchQuery]);
 
   return (
-    
     <div className="w-full">
-
-      {/* filter tabs and search bar */}
+      {/* Category Filters & Search Controls */}
       <div className="mb-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-        {/* category pills */}
+        {/* Sector Category Filter Buttons */}
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => {
             const isActive = selectedCategory === category;
@@ -62,7 +60,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
           })}
         </div>
 
-        {/* search input */}
+        {/* Keyword Search Input */}
         <div className="relative min-w-[260px] md:min-w-[320px]">
           <input
             type="text"
@@ -90,7 +88,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
         </div>
       </div>
 
-      {/* results header count */}
+      {/* Active Filter Summary */}
       <div className="flex items-center justify-between mb-8 pb-3 border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider">
         <span>
           Showing {filteredProjects.length} {filteredProjects.length === 1 ? 'Project' : 'Projects'}
@@ -101,7 +99,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
         )}
       </div>
 
-      {/* projects grid */}
+      {/* Project Case Study Cards Grid */}
       {filteredProjects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, idx) => (
@@ -109,7 +107,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
               key={idx}
               className="group bg-white rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-corporate-blue/40 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
             >
-              {/* subtle architectural grid / isometric decoration */}
+              {/* Decorative Grid Accent */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity pointer-events-none overflow-hidden">
                 <svg className="w-full h-full text-corporate-blue" viewBox="0 0 100 100" fill="currentColor">
                   <path d="M0 0h20v20H0zm40 0h20v20H40zm40 0h20v20H80zM20 20h20v20H20zm40 0h20v20H60zm-60 20h20v20H0zm40 0h20v20H40zm40 0h20v20H80zM20 60h20v20H20zm40 0h20v20H60zm-60 20h20v20H0zm40 0h20v20H40zm40 0h20v20H80z" />
@@ -117,7 +115,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
               </div>
 
               <div>
-                {/* meta badge row */}
+                {/* Sector Category & Year */}
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-corporate-blue px-3 py-1 bg-corporate-light rounded-full">
                     {project.category || 'Engineering'}
@@ -129,7 +127,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
                   )}
                 </div>
 
-                {/* project image thumbnail or blueprint banner */}
+                {/* Project Thumbnail or Placeholder Banner */}
                 {project.image ? (
                   <div className="relative w-full h-44 mb-5 rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-100">
                     <img
@@ -150,12 +148,12 @@ export default function ProjectShowcase({ initialProjects = [] }) {
                   </div>
                 )}
 
-                {/* project title */}
+                {/* Project Title */}
                 <h3 className="text-xl font-bold text-slate-900 group-hover:text-corporate-blue transition-colors mb-3 leading-snug">
                   {project.title}
                 </h3>
 
-                {/* location pill */}
+                {/* Project Location */}
                 {project.location && (
                   <div className="flex items-center text-xs text-slate-500 mb-3 font-medium">
                     <svg className="w-3.5 h-3.5 mr-1 text-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +164,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
                   </div>
                 )}
 
-                {/* scope tag */}
+                {/* Engineering Scope Summary */}
                 {project.scope && (
                   <div className="mb-4">
                     <span className="inline-block text-[11px] font-semibold text-slate-700 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200">
@@ -175,13 +173,13 @@ export default function ProjectShowcase({ initialProjects = [] }) {
                   </div>
                 )}
 
-                {/* description */}
+                {/* Project Description */}
                 <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   {project.desc}
                 </p>
               </div>
 
-              {/* action link */}
+              {/* Consultation Inquiry Link */}
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold">
                 <Link
                   href="/contact"
@@ -197,7 +195,7 @@ export default function ProjectShowcase({ initialProjects = [] }) {
           ))}
         </div>
       ) : (
-        /* empty filter state */
+        /* Empty Filter State */
         <div className="text-center py-16 px-4 bg-white rounded-3xl border border-dashed border-slate-300">
           <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-xl">
             🔍

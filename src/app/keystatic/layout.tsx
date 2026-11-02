@@ -7,9 +7,5 @@ export default function Layout() {
   if (!isDev) {
     notFound();
   }
-  return (
-    <div className="fixed inset-0 z-[100] bg-white">
-      <KeystaticApp />
-    </div>
-  );
+  return <KeystaticApp />;
 }

@@ -1,7 +1,15 @@
 export interface Project {
+  enabled?: boolean;
   title: string;
   desc: string;
-  category?: 'Commercial & Retail' | 'Restaurant & Hospitality' | 'Industrial & Warehouse' | 'Healthcare & Medical' | 'Corporate Office' | 'Multi-Family Residential' | string;
+  category?:
+    | 'Commercial & Retail'
+    | 'Restaurant & Hospitality'
+    | 'Industrial & Warehouse'
+    | 'Healthcare & Medical'
+    | 'Corporate Office'
+    | 'Multi-Family Residential'
+    | string;
   image?: string | null;
   location?: string;
   scope?: string;
@@ -9,11 +17,12 @@ export interface Project {
 }
 
 export interface Service {
+  enabled?: boolean;
   title: string;
+  badge?: string;
+  tagline?: string;
   desc: string;
-}
-
-export interface Post {
-  title: string;
-  content: any;
+  anchor?: string;
+  deliverables?: string[];
+  order?: number;
 }

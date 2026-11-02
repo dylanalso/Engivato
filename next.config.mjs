@@ -4,7 +4,7 @@ const nextConfig = {
     output: isDev ? undefined : 'export',
     allowedDevOrigins: ['127.0.0.1'],
 
-    //github repo routing
+    // Trailing slashes and unoptimized images required for static export hosting
     trailingSlash: true,
     images: {
         unoptimized: true,

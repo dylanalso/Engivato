@@ -1,0 +1,97 @@
+{
+  "seo": {
+    "metaTitle": "Engivato PLLC | Texas MEP Engineering Firm",
+    "metaDescription": "Engivato PLLC is a Texas-based engineering firm providing practical, innovative, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions across Dallas-Fort Worth and Texas."
+  },
+  "hero": {
+    "enabled": true,
+    "badge": "Texas MEP Engineering Firm",
+    "headingLine1": "Innovating the Future of",
+    "headingHighlight": "Your Infrastructure",
+    "subtitle": "We provide innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions to help clients develop high-performing, efficient, and sustainable building systems.",
+    "primaryCtaText": "Start Your Project",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaText": "Learn More",
+    "secondaryCtaHref": "/whoWeServe"
+  },
+  "overview": {
+    "enabled": true,
+    "heading": "Driving Innovation Through Intelligent Engineering",
+    "paragraph1": "Engivato PLLC is a Texas-based engineering firm focused on providing innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions. Our goal is to help clients develop high-performing, efficient, and sustainable building systems through technical expertise, thoughtful design, and effective project coordination.",
+    "paragraph2": "Our company name reflects our commitment to combining engineering expertise with innovation and modern technology. We aim to build a forward-thinking engineering practice that understands not only the technical requirements of a project but also its operational, financial, and construction challenges.",
+    "imageAlt": "Engivato PLLC - MEP Engineering Design Workstation with 3D BIM coordination and construction blueprints",
+    "imageCaptionLeft": "3D BIM & Construction Documents",
+    "imageCaptionRight": "PE-Stamped Precision"
+  },
+  "servicesSection": {
+    "enabled": true,
+    "eyebrow": "Core Engineering Disciplines",
+    "heading": "Our Services",
+    "description": "Innovative, practical, and reliable mechanical, electrical, and plumbing engineering solutions along with dedicated project consulting support.",
+    "bottomCalloutText": "Need 3D Revit BIM clash detection, COMcheck energy compliance, or tenant improvements?",
+    "bottomCalloutLinkText": "Explore All Services & Specialized Capabilities →"
+  },
+  "process": {
+    "enabled": true,
+    "heading": "How We Work",
+    "description": "We combine engineering knowledge, practical problem-solving, and modern digital workflows to deliver coordinated, constructible MEP designs on schedule.",
+    "steps": [
+      {
+        "title": "1. Technical Assessment & Discovery",
+        "desc": "We evaluate project requirements, architectural backgrounds, and site parameters to identify technical, operational, and municipal code requirements early."
+      },
+      {
+        "title": "2. Coordinated Design & Optimization",
+        "desc": "We develop coordinated mechanical, electrical, and plumbing engineering systems, leveraging 3D clash resolution and value engineering to optimize design."
+      },
+      {
+        "title": "3. Constructible Delivery & Support",
+        "desc": "We produce clear, permit-ready construction documents and provide responsive engineering support, constructability reviews, and project coordination through completion."
+      }
+    ]
+  },
+  "whyUs": {
+    "enabled": true,
+    "heading": "Why Partner With Engivato?",
+    "description": "Engivato's competitive advantage is built around the combination of engineering knowledge, practical problem-solving, business awareness, and a modern approach to project delivery. We recognize that clients must balance performance, schedule, budget, operational reliability, and long-term value.",
+    "bulletPoints": [
+      "Engineering-Led Problem-Solving",
+      "Practical and Constructible Design",
+      "Technology and Modern Workflows",
+      "Business-Minded Engineering",
+      "Responsive Client Relationships"
+    ],
+    "imageAlt": "Why Partner with Engivato"
+  },
+  "partners": {
+    "enabled": true,
+    "eyebrow": "Collaboration Across Built Environments",
+    "heading": "Built for Texas Project Teams",
+    "description": "We deliver responsive, principal-led MEP engineering tailored to the constructability demands, operating schedules, and municipal permitting timelines of our project partners.",
+    "cards": [
+      {
+        "title": "General Contractors",
+        "subtitle": "Design-Build & Bid-Build",
+        "desc": "Clear, constructible 3D coordinated drawings, fast RFI turnaround, and practical engineering solutions to field conditions."
+      },
+      {
+        "title": "Architects & Designers",
+        "subtitle": "Seamless Integration",
+        "desc": "Early MEP system coordination that respects architectural aesthetics, ceiling geometries, and stringent Texas energy codes."
+      },
+      {
+        "title": "Developers & Owners",
+        "subtitle": "Lifecycle Value & ROI",
+        "desc": "Cost-effective systems balancing capital investment, long-term energy efficiency, reliable performance, and expedited permit reviews."
+      },
+      {
+        "title": "Facility & Property Managers",
+        "subtitle": "Upgrades & Modernization",
+        "desc": "Dependable engineering for commercial tenant finish-outs, HVAC packaged RTU replacements, and building system upgrades."
+      }
+    ],
+    "ctaText": "Explore all client & partner capabilities",
+    "ctaHref": "/whoWeServe"
+  }
+}
+

@@ -3,6 +3,7 @@ import { reader } from '../lib/keystatic';
 
 const DEFAULT_SERVICES = [
   {
+    enabled: true,
     title: 'Mechanical Engineering (HVAC)',
     badge: 'Discipline 01',
     tagline: 'HVAC design & load calculations',
@@ -12,6 +13,7 @@ const DEFAULT_SERVICES = [
     order: 1,
   },
   {
+    enabled: true,
     title: 'Electrical Engineering',
     badge: 'Discipline 02',
     tagline: 'Power distribution & lighting design',
@@ -21,6 +23,7 @@ const DEFAULT_SERVICES = [
     order: 2,
   },
   {
+    enabled: true,
     title: 'Plumbing Engineering',
     badge: 'Discipline 03',
     tagline: 'Domestic water & sanitary drainage',
@@ -30,6 +33,7 @@ const DEFAULT_SERVICES = [
     order: 3,
   },
   {
+    enabled: true,
     title: 'Engineering Consulting & Project Support',
     badge: 'Discipline 04',
     tagline: 'Design review & clash coordination',
@@ -42,7 +46,7 @@ const DEFAULT_SERVICES = [
 
 function getDisciplineIcon(anchor = '', title = '') {
   const normalized = (anchor || title).toLowerCase();
-  
+
   if (normalized.includes('mech') || normalized.includes('hvac')) {
     return (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,13 +82,23 @@ function getDisciplineIcon(anchor = '', title = '') {
   );
 }
 
-export default async function Services() {
+export default async function Services({ sectionData = {} }) {
+  const {
+    eyebrow = 'Core Engineering Disciplines',
+    heading = 'Our Services',
+    description = 'Innovative, practical, and reliable mechanical, electrical, and plumbing engineering solutions along with dedicated project consulting support.',
+    bottomCalloutText = 'Need 3D Revit BIM clash detection, COMcheck energy compliance, or tenant improvements?',
+    bottomCalloutLinkText = 'Explore All Services & Specialized Capabilities →',
+  } = sectionData;
+
   let displayServices = DEFAULT_SERVICES;
 
   try {
     const servicesData = await reader.collections.services.all();
     if (servicesData && servicesData.length > 0) {
-      const parsed = servicesData.map((s) => s.entry);
+      const parsed = servicesData
+        .map((s) => s.entry)
+        .filter((s) => s.enabled !== false);
       parsed.sort((a, b) => (a.order || 99) - (b.order || 99));
       displayServices = parsed;
     }
@@ -95,28 +109,35 @@ export default async function Services() {
   return (
     <section id="services" className="py-16 px-4 bg-slate-50 relative border-t border-slate-200 font-sans" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto">
-
-        {/* section header */}
+        {/* Section Header */}
         <div className="text-center mb-10 max-w-2xl mx-auto">
-          <span className="text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
-            Core Engineering Disciplines
-          </span>
+          {eyebrow && (
+            <span className="text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
+              {eyebrow}
+            </span>
+          )}
           <h2 id="services-heading" className="text-3xl md:text-4xl font-bold tracking-tight text-corporate-blue mb-3">
-            Our Services
+            {heading}
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Innovative, practical, and reliable mechanical, electrical, and plumbing engineering solutions along with dedicated project consulting support.
-          </p>
+          {description && (
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              {description}
+            </p>
+          )}
         </div>
 
-        {/* 4-column card grid */}
+        {/* Discipline Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {displayServices.map((service, index) => {
-            const anchor = service.anchor || (
-              service.title.toLowerCase().includes('mech') ? 'mechanical' :
-              service.title.toLowerCase().includes('elec') ? 'electrical' :
-              service.title.toLowerCase().includes('plumb') ? 'plumbing' : 'consulting'
-            );
+            const anchor =
+              service.anchor ||
+              (service.title.toLowerCase().includes('mech')
+                ? 'mechanical'
+                : service.title.toLowerCase().includes('elec')
+                ? 'electrical'
+                : service.title.toLowerCase().includes('plumb')
+                ? 'plumbing'
+                : 'consulting');
             const badge = service.badge || `Discipline ${String(index + 1).padStart(2, '0')}`;
             const targetUrl = `/services#${anchor}`;
 
@@ -126,7 +147,7 @@ export default async function Services() {
                 className="group bg-white p-6 rounded-2xl border border-slate-200/90 hover:border-corporate-blue/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
               >
                 <div>
-                  {/* icon & badge header */}
+                  {/* Card Header: Icon & Discipline Badge */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 rounded-xl bg-corporate-light flex items-center justify-center text-corporate-blue group-hover:bg-orange/10 group-hover:text-orange transition-colors flex-shrink-0">
                       {getDisciplineIcon(anchor, service.title)}
@@ -136,12 +157,12 @@ export default async function Services() {
                     </span>
                   </div>
 
-                  {/* title */}
+                  {/* Discipline Title */}
                   <h3 className="text-lg font-bold text-corporate-blue mb-1 leading-snug min-h-[3.25rem] flex items-start">
                     {service.title}
                   </h3>
 
-                  {/* tagline */}
+                  {/* Discipline Tagline */}
                   {service.tagline ? (
                     <p className="text-xs font-semibold text-orange mb-2.5 min-h-[1.25rem] flex items-center">
                       {service.tagline}
@@ -150,12 +171,12 @@ export default async function Services() {
                     <div className="mb-2.5 min-h-[1.25rem]" />
                   )}
 
-                  {/* description */}
+                  {/* Discipline Summary */}
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 min-h-[4.25rem]">
                     {service.desc}
                   </p>
 
-                  {/* scope tags */}
+                  {/* Key Deliverable Tags */}
                   {service.deliverables && service.deliverables.length > 0 && (
                     <div className="pt-3 border-t border-slate-100 mb-4 flex flex-col gap-1.5">
                       {service.deliverables.slice(0, 3).map((item, dIdx) => (
@@ -170,7 +191,7 @@ export default async function Services() {
                   )}
                 </div>
 
-                {/* footer link */}
+                {/* Section Anchor Link */}
                 <div className="pt-3 border-t border-slate-100 mt-auto flex items-center justify-between">
                   <Link
                     href={targetUrl}
@@ -187,19 +208,22 @@ export default async function Services() {
           })}
         </div>
 
-        {/* link to full services page */}
-        <div className="mt-8 text-center">
-          <p className="text-xs sm:text-sm text-slate-600">
-            Need 3D Revit BIM clash detection, COMcheck energy compliance, or tenant improvements?{' '}
-            <Link
-              href="/services"
-              className="text-corporate-blue font-semibold hover:text-orange underline underline-offset-4 ml-1 transition-colors"
-            >
-              Explore All Services &amp; Specialized Capabilities &rarr;
-            </Link>
-          </p>
-        </div>
-
+        {/* Full Services Page Callout */}
+        {(bottomCalloutText || bottomCalloutLinkText) && (
+          <div className="mt-8 text-center">
+            <p className="text-xs sm:text-sm text-slate-600">
+              {bottomCalloutText}{' '}
+              {bottomCalloutLinkText && (
+                <Link
+                  href="/services"
+                  className="text-corporate-blue font-semibold hover:text-orange underline underline-offset-4 ml-1 transition-colors"
+                >
+                  {bottomCalloutLinkText}
+                </Link>
+              )}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

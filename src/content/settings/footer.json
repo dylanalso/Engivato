@@ -1,0 +1,17 @@
+{
+  "ctaBanner": {
+    "enabled": true,
+    "eyebrow": "Ready to Collaborate?",
+    "heading": "Let's Build Systems That Perform",
+    "description": "Send us your architectural plans or RFP. Our engineering team will review your scope and provide a detailed proposal and timeline.",
+    "primaryCtaText": "Contact Our Engineering Team",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaText": "See Who We Serve",
+    "secondaryCtaHref": "/whoWeServe"
+  },
+  "bottomBar": {
+    "enabled": true,
+    "copyrightText": "Engivato PLLC. All rights reserved."
+  }
+}
+
