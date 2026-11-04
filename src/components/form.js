@@ -28,7 +28,7 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
     const formData = new FormData(form);
 
     // Configure Web3Forms access key and submission metadata
-    formData.set('access_key', accessKey || 'ff5a0044-6692-41cf-84d4-ca3971cc45d4');
+    formData.set('access_key', accessKey || 'fbe4089c-21b2-493d-b09a-4372148e2a50');
     formData.set('subject', `New Project Inquiry from ${formData.get('name') || 'Engivato Site'}`);
     formData.set('from_name', 'Engivato PLLC Website');
 
