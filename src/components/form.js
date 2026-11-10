@@ -1,9 +1,20 @@
 'use client';
 
-import { useState } from 'react';
-import { COMPANY_EMAIL } from '../lib/constants';
+import { useState, useRef, useEffect } from 'react';
+import {
+  COMPANY_EMAIL,
+  COMPANY_PHONE,
+  formatPhoneDisplay,
+  formatPhoneHref,
+} from '../lib/constants';
 
-export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) {
+const MIN_SUBMIT_TIME_MS = 2500;
+
+export default function Form({
+  formConfig = {},
+  emailAddress = COMPANY_EMAIL,
+  phoneNumber = COMPANY_PHONE,
+}) {
   const {
     eyebrow = 'Fast-Track Consultation',
     heading = 'Request an Engineering Proposal',
@@ -16,8 +27,18 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
 
   const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
+  const loadedAtRef = useRef(0);
+  const hasInteractedRef = useRef(false);
+
+  useEffect(() => {
+    loadedAtRef.current = Date.now();
+  }, []);
 
   const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '';
+
+  const markInteracted = () => {
+    hasInteractedRef.current = true;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +47,25 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    // Evaluate honeypots, minimum fill duration, and human interaction gate
+    const elapsedMs = Date.now() - (loadedAtRef.current || 0);
+    const decoyWebsite = String(formData.get('company_website') || '').trim();
+    const botCheckbox = formData.get('botcheck');
+
+    if (
+      decoyWebsite ||
+      botCheckbox ||
+      !hasInteractedRef.current ||
+      elapsedMs < MIN_SUBMIT_TIME_MS
+    ) {
+      setStatus('success');
+      form.reset();
+      return;
+    }
+
+    // Strip decoy field so it does not appear in the email notification
+    formData.delete('company_website');
 
     // Configure Web3Forms access key and submission metadata
     formData.set('access_key', accessKey || 'fbe4089c-21b2-493d-b09a-4372148e2a50');
@@ -52,7 +92,7 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
     } catch {
       setStatus('error');
       setErrorMessage(
-        `Network error submitting form. Please email us directly at ${emailAddress}.`
+        `Network error submitting form. Please call us at ${formatPhoneDisplay(phoneNumber)} or email us directly at ${emailAddress}.`
       );
     }
   };
@@ -68,11 +108,18 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
         <h3 className="text-2xl font-bold text-slate-900 mb-2">{successHeading}</h3>
         <p className="text-slate-600 text-sm max-w-md mx-auto mb-6 leading-relaxed">
           {successMessage} (Direct contact:{' '}
-          <strong className="text-slate-800">{emailAddress}</strong>)
+          <a href={formatPhoneHref(phoneNumber)} className="font-bold text-corporate-blue hover:text-orange">
+            {formatPhoneDisplay(phoneNumber)}
+          </a>{' '}
+          | <strong className="text-slate-800">{emailAddress}</strong>)
         </p>
         <button
           type="button"
-          onClick={() => setStatus('idle')}
+          onClick={() => {
+            loadedAtRef.current = Date.now();
+            hasInteractedRef.current = false;
+            setStatus('idle');
+          }}
           className="inline-flex items-center justify-center px-6 py-2.5 bg-corporate-blue hover:bg-blue-900 text-white text-xs font-semibold rounded-full transition-colors"
         >
           Send Another Message
@@ -84,11 +131,19 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
   return (
     <div className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm">
       <div className="mb-8">
-        {eyebrow && (
-          <span className="text-orange font-semibold tracking-wider uppercase text-xs mb-2 block">
-            {eyebrow}
+        <div className="flex items-center justify-between gap-2 mb-2">
+          {eyebrow && (
+            <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs block">
+              {eyebrow}
+            </span>
+          )}
+          <span
+            aria-hidden="true"
+            className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase"
+          >
+            DWG NO. RFP-01 // REV 01
           </span>
-        )}
+        </div>
         <h3 className="text-2xl font-bold text-slate-900 mb-2">{heading}</h3>
         {description && (
           <p className="text-slate-600 text-sm">
@@ -104,9 +159,36 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-5">
-        {/* Spam Prevention Honeypot */}
-        <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+      <form
+        onSubmit={handleSubmit}
+        onFocus={markInteracted}
+        onInput={markInteracted}
+        className="space-y-5 relative"
+      >
+        {/* Primary Checkbox Honeypot */}
+        <input
+          type="checkbox"
+          name="botcheck"
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          style={{ display: 'none' }}
+        />
+
+        {/* Secondary Off-Screen Text Honeypot */}
+        <div
+          aria-hidden="true"
+          className="absolute -left-full w-px h-px overflow-hidden opacity-0 pointer-events-none"
+        >
+          <label htmlFor="company_website">Company Website</label>
+          <input
+            type="text"
+            id="company_website"
+            name="company_website"
+            tabIndex={-1}
+            autoComplete="new-password"
+          />
+        </div>
 
         {/* Contact Name & Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -225,7 +307,7 @@ export default function Form({ formConfig = {}, emailAddress = COMPANY_EMAIL }) 
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full bg-orange hover:bg-orange-dark text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="w-full bg-orange hover:bg-orange-dark text-white font-semibold py-3.5 px-6 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 text-sm animate-slow-ping disabled:animate-none disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {status === 'loading' ? (
               <>

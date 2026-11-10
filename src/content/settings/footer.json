@@ -9,9 +9,14 @@
     "secondaryCtaText": "See Who We Serve",
     "secondaryCtaHref": "/whoWeServe"
   },
+  "contactBar": {
+    "enabled": true,
+    "phone": "2147894783",
+    "email": "admin@engivato.com",
+    "businessHours": "Monday - Friday, 8:00 AM - 5:00 PM CST"
+  },
   "bottomBar": {
     "enabled": true,
     "copyrightText": "Engivato PLLC. All rights reserved."
   }
 }
-

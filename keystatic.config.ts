@@ -46,14 +46,14 @@ export default config({
             metaTitle: fields.text({
               label: 'SEO Page Title (<title>)',
               description:
-                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results, browser tabs, and social previews. Ideal length: 50–60 characters. Include primary keywords ("Texas MEP Engineering Firm") and "Engivato PLLC".',
+                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results, browser tabs, and social previews. Ideal length: 50-60 characters. Include primary keywords ("Texas MEP Engineering Firm") and "Engivato PLLC".',
               defaultValue: 'Engivato PLLC | Texas MEP Engineering Firm',
             }),
             metaDescription: fields.text({
               label: 'SEO Meta Description',
               multiline: true,
               description:
-                '🔍 SEO CRITICAL (Meta Description): Snippet displayed below your title in search results. Ideal length: 120–160 characters. Mention Mechanical, Electrical, Plumbing (MEP) and Dallas-Fort Worth / Texas.',
+                '🔍 SEO CRITICAL (Meta Description): Snippet displayed below your title in search results. Ideal length: 120-160 characters. Mention Mechanical, Electrical, Plumbing (MEP) and Dallas-Fort Worth / Texas.',
               defaultValue:
                 'Engivato PLLC is a Texas-based engineering firm providing practical, innovative, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions across Dallas-Fort Worth and Texas.',
             }),
@@ -78,13 +78,13 @@ export default config({
               defaultValue: 'Texas MEP Engineering Firm',
             }),
             headingLine1: fields.text({
-              label: 'Main Headline — Line 1 (H1)',
+              label: 'Main Headline - Line 1 (H1)',
               description:
                 '🔍 SEO CRITICAL (H1 Heading): First line of the main H1 heading on the Home page. Search engines weight H1 text heavily.',
               defaultValue: 'Innovating the Future of',
             }),
             headingHighlight: fields.text({
-              label: 'Main Headline — Highlighted Line 2 (H1)',
+              label: 'Main Headline - Highlighted Line 2 (H1)',
               description:
                 '🔍 SEO CRITICAL (H1 Heading): Gradient-highlighted second part of the H1 heading.',
               defaultValue: 'Your Infrastructure',
@@ -93,7 +93,7 @@ export default config({
               label: 'Hero Subtitle / Introductory Copy',
               multiline: true,
               description:
-                '🔍 SEO HIGH: Primary introductory paragraph directly beneath the H1. Keep core keywords like "Mechanical, Electrical, and Plumbing (MEP) engineering solutions" here.',
+                '🔍 SEO HIGH: Primary introductory paragraph anchored at the bottom of the Hero section. Keep core keywords like "Mechanical, Electrical, and Plumbing (MEP) engineering solutions" here.',
               defaultValue:
                 'We provide innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions to help clients develop high-performing, efficient, and sustainable building systems.',
             }),
@@ -236,7 +236,7 @@ export default config({
                 }),
               }),
               {
-                label: 'Process Steps (1–3)',
+                label: 'Process Steps (1-3)',
                 itemLabel: (props) => props.fields.title.value || 'Process Step',
               }
             ),
@@ -354,14 +354,14 @@ export default config({
             metaTitle: fields.text({
               label: 'SEO Page Title (<title>)',
               description:
-                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50–60 characters.',
+                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50-60 characters.',
               defaultValue: 'About Us | Engivato PLLC - Texas MEP Engineering',
             }),
             metaDescription: fields.text({
               label: 'SEO Meta Description',
               multiline: true,
               description:
-                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120–160 characters.',
+                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120-160 characters.',
               defaultValue:
                 'Learn about Engivato PLLC, a Texas-based engineering firm providing innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) solutions.',
             }),
@@ -451,7 +451,7 @@ export default config({
               label: 'Callout Quote',
               multiline: true,
               defaultValue:
-                '“Engineering is not just about meeting code—it is about designing systems that elevate building longevity and human comfort.”',
+                '"Engineering is not just about meeting code-it is about designing systems that elevate building longevity and human comfort."',
             }),
             manifestoEyebrow: fields.text({
               label: 'Manifesto Card Eyebrow',
@@ -547,7 +547,7 @@ export default config({
                 }),
               }),
               {
-                label: 'Guiding Principles (1–4)',
+                label: 'Guiding Principles (1-4)',
                 itemLabel: (props) => props.fields.title.value || 'Principle',
               }
             ),
@@ -600,13 +600,13 @@ export default config({
               defaultValue: 'Principal-Led Practice',
             }),
             bioParagraph1: fields.text({
-              label: 'Bio — Paragraph 1',
+              label: 'Bio - Paragraph 1',
               multiline: true,
               defaultValue:
                 'Hameed founded Engivato PLLC with a clear commitment: delivering practical, constructible, and technically rigorous Mechanical, Electrical, and Plumbing (MEP) engineering solutions with direct principal accountability.',
             }),
             bioParagraph2: fields.text({
-              label: 'Bio — Paragraph 2',
+              label: 'Bio - Paragraph 2',
               multiline: true,
               defaultValue:
                 'Rather than passing drawings through junior staff or corporate bureaucracy, clients work directly with Hameed from project kickoff through permit submittal and construction administration.',
@@ -641,7 +641,7 @@ export default config({
             metaTitle: fields.text({
               label: 'SEO Page Title (<title>)',
               description:
-                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50–60 characters.',
+                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50-60 characters.',
               defaultValue:
                 'MEP Engineering Services | Mechanical, Electrical & Plumbing | Engivato PLLC',
             }),
@@ -649,7 +649,7 @@ export default config({
               label: 'SEO Meta Description',
               multiline: true,
               description:
-                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120–160 characters.',
+                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120-160 characters.',
               defaultValue:
                 'Comprehensive MEP engineering solutions by Engivato PLLC. Specializing in mechanical (HVAC), electrical, plumbing, engineering consulting, energy modeling, and Revit BIM design.',
             }),
@@ -719,7 +719,7 @@ export default config({
             enabled: fields.checkbox({
               label: 'Show Core MEP Disciplines Section',
               description:
-                '⚠️ SEO Impact (Critical): Hiding removes the detailed Mechanical, Electrical, Plumbing, and Consulting scope breakdowns—the highest-ranking keyword content on this page.',
+                '⚠️ SEO Impact (Critical): Hiding removes the detailed Mechanical, Electrical, Plumbing, and Consulting scope breakdowns-the highest-ranking keyword content on this page.',
               defaultValue: true,
             }),
             eyebrow: fields.text({
@@ -828,7 +828,7 @@ export default config({
         process: fields.object(
           {
             enabled: fields.checkbox({
-              label: 'Show Project Delivery Lifecycle (Phases 1–5)',
+              label: 'Show Project Delivery Lifecycle (Phases 1-5)',
               description:
                 '⚠️ SEO Impact (Medium): Hiding removes the 5-phase engineering delivery lifecycle (Schematic Design, DD, CD, Permitting, CA).',
               defaultValue: true,
@@ -861,7 +861,7 @@ export default config({
                 }),
               }),
               {
-                label: 'Lifecycle Phases (1–5)',
+                label: 'Lifecycle Phases (1-5)',
                 itemLabel: (props) =>
                   `${props.fields.step.value || ''} - ${props.fields.title.value || 'Phase'}`,
               }
@@ -957,7 +957,7 @@ export default config({
             metaTitle: fields.text({
               label: 'SEO Page Title (<title>)',
               description:
-                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50–60 characters.',
+                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50-60 characters.',
               defaultValue:
                 'Sector Capabilities & Project Typologies | MEP Engineering | Engivato PLLC',
             }),
@@ -965,9 +965,9 @@ export default config({
               label: 'SEO Meta Description',
               multiline: true,
               description:
-                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120–160 characters.',
+                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120-160 characters.',
               defaultValue:
-                'Explore Engivato PLLC’s MEP engineering capabilities across commercial restaurants, office finish-outs, multifamily developments, retail spaces, and HVAC modernization throughout Texas.',
+                "Explore Engivato PLLC's MEP engineering capabilities across commercial restaurants, office finish-outs, multifamily developments, retail spaces, and HVAC modernization throughout Texas.",
             }),
           },
           { label: '0. SEO & Page Metadata' }
@@ -1024,7 +1024,7 @@ export default config({
               {
                 label: 'Highlight Strip Items (4)',
                 itemLabel: (props) =>
-                  `${props.fields.value.value || ''} — ${props.fields.label.value || ''}`,
+                  `${props.fields.value.value || ''} - ${props.fields.label.value || ''}`,
               }
             ),
           },
@@ -1183,7 +1183,7 @@ export default config({
             metaTitle: fields.text({
               label: 'SEO Page Title (<title>)',
               description:
-                '🔍 SEO CRITICAL (Title Tag): Primary local SEO title targeting Dallas-Fort Worth (DFW). Ideal length: 50–60 characters.',
+                '🔍 SEO CRITICAL (Title Tag): Primary local SEO title targeting Dallas-Fort Worth (DFW). Ideal length: 50-60 characters.',
               defaultValue:
                 'Who We Serve | Dallas-Fort Worth (DFW) MEP Engineering | Engivato PLLC',
             }),
@@ -1191,7 +1191,7 @@ export default config({
               label: 'SEO Meta Description',
               multiline: true,
               description:
-                '🔍 SEO CRITICAL (Meta Description): Local SEO summary for search results. Ideal length: 120–160 characters.',
+                '🔍 SEO CRITICAL (Meta Description): Local SEO summary for search results. Ideal length: 120-160 characters.',
               defaultValue:
                 'Engivato PLLC provides high-performance Mechanical, Electrical, and Plumbing (MEP) engineering solutions across the Dallas-Fort Worth (DFW) metroplex and North Texas.',
             }),
@@ -1204,7 +1204,7 @@ export default config({
             enabled: fields.checkbox({
               label: 'Show Hero Header Section',
               description:
-                '⚠️ SEO Impact (Critical - Local SEO): Hiding removes the primary local SEO H1 heading ("Serving the Dallas–Fort Worth Metroplex & Beyond").',
+                '⚠️ SEO Impact (Critical - Local SEO): Hiding removes the primary local SEO H1 heading ("Serving the Dallas-Fort Worth Metroplex & Beyond").',
               defaultValue: true,
             }),
             eyebrow: fields.text({
@@ -1219,7 +1219,7 @@ export default config({
             headingHighlight: fields.text({
               label: 'Main Heading Highlighted Region (H1)',
               description: '🔍 SEO CRITICAL (H1 Heading): Primary geographic target keyword.',
-              defaultValue: 'Dallas–Fort Worth',
+              defaultValue: 'Dallas-Fort Worth',
             }),
             headingSuffix: fields.text({
               label: 'Main Heading Suffix (H1)',
@@ -1395,7 +1395,7 @@ export default config({
                 }),
               }),
               {
-                label: 'Advantage Cards (1–3)',
+                label: 'Advantage Cards (1-3)',
                 itemLabel: (props) => props.fields.title.value || 'Advantage',
               }
             ),
@@ -1422,7 +1422,7 @@ export default config({
             metaTitle: fields.text({
               label: 'SEO Page Title (<title>)',
               description:
-                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50–60 characters.',
+                '🔍 SEO CRITICAL (Title Tag): Shown in Google search results and browser tabs. Ideal length: 50-60 characters.',
               defaultValue:
                 'Contact Us | MEP Engineering Consultation & Proposals | Engivato PLLC',
             }),
@@ -1430,7 +1430,7 @@ export default config({
               label: 'SEO Meta Description',
               multiline: true,
               description:
-                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120–160 characters.',
+                '🔍 SEO CRITICAL (Meta Description): Summary shown in search results. Ideal length: 120-160 characters.',
               defaultValue:
                 'Connect with Engivato PLLC for expert mechanical, electrical, and plumbing engineering consulting, stamped permit drawings, and fast-track tenant fit-out proposals across Dallas-Fort Worth.',
             }),
@@ -1470,8 +1470,27 @@ export default config({
             enabled: fields.checkbox({
               label: 'Show Direct Communication Channels Strip',
               description:
-                '⚠️ SEO Impact (Medium - Local SEO): Hiding removes visible contact email, service area ("Dallas–Fort Worth & North Texas"), and response time signals.',
+                '⚠️ SEO Impact (Medium - Local SEO): Hiding removes visible contact phone, call schedule, email, and service area ("Dallas-Fort Worth & North Texas") signals.',
               defaultValue: true,
+            }),
+            phoneLabel: fields.text({
+              label: 'Phone Channel Label',
+              defaultValue: 'Direct Phone',
+            }),
+            phoneNumber: fields.text({
+              label: 'Public Contact Phone Number',
+              description:
+                'Enter 10 digits or formatted text - automatically formatted as (214) 789-4783 with a click-to-call link.',
+              defaultValue: '2147894783',
+            }),
+            hoursLabel: fields.text({
+              label: 'Call Schedule / Hours Label',
+              defaultValue: 'Call Schedule & Hours',
+            }),
+            businessHours: fields.text({
+              label: 'Business / Call Hours',
+              description: 'When prospective clients can expect to reach the firm by phone.',
+              defaultValue: 'Monday - Friday, 8:00 AM - 5:00 PM CST',
             }),
             emailLabel: fields.text({
               label: 'Email Channel Label',
@@ -1488,7 +1507,7 @@ export default config({
             coverageValue: fields.text({
               label: 'Coverage Channel Value',
               description: '🔍 SEO Note (Local SEO): Reinforces geographic service area.',
-              defaultValue: 'Dallas–Fort Worth & North Texas',
+              defaultValue: 'Dallas-Fort Worth & North Texas',
             }),
             responseLabel: fields.text({
               label: 'Response Commitment Label',
@@ -1497,6 +1516,23 @@ export default config({
             responseValue: fields.text({
               label: 'Response Commitment Value',
               defaultValue: '< 24 Hour Initial Proposal Review',
+            }),
+            showCallNowButton: fields.checkbox({
+              label: 'Show Pulsing "Call Now" Button in Hero Banner',
+              description:
+                'Displays a high-visibility pulsing orange click-to-call button inside the navy Contact page header.',
+              defaultValue: true,
+            }),
+            callNowText: fields.text({
+              label: '"Call Now" Button Label Prefix',
+              description:
+                '🔍 SEO Note: Combined automatically with the formatted phone number (e.g., "Call Now: (214) 789-4783") for descriptive link context.',
+              defaultValue: 'Call Now',
+            }),
+            callNowSubtext: fields.text({
+              label: '"Call Now" Helper Subtext',
+              defaultValue:
+                'Speak directly with our engineering team • Monday - Friday, 8:00 AM - 5:00 PM CST',
             }),
           },
           { label: '2. Direct Communication Channels Strip' }
@@ -1566,7 +1602,7 @@ export default config({
                 desc: fields.text({ label: 'Step Description', multiline: true }),
               }),
               {
-                label: 'Inquiry Process Steps (1–3)',
+                label: 'Inquiry Process Steps (1-3)',
                 itemLabel: (props) => props.fields.title.value || 'Step',
               }
             ),
@@ -1672,11 +1708,22 @@ export default config({
               defaultValue: 'Terms of Service',
             }),
             paragraphs: fields.array(
-              fields.text({ label: 'Paragraph', multiline: true }),
+              fields.text({ label: 'Introductory Paragraph', multiline: true }),
               {
-                label: 'Terms Paragraphs',
+                label: 'Introductory Paragraphs',
                 itemLabel: (props) =>
                   props.value ? `${props.value.slice(0, 60)}...` : 'Paragraph',
+              }
+            ),
+            sections: fields.array(
+              fields.object({
+                title: fields.text({ label: 'Section Heading (H2)' }),
+                body: fields.text({ label: 'Section Clause Text', multiline: true }),
+              }),
+              {
+                label: 'Terms of Service Sections (1-6)',
+                itemLabel: (props) =>
+                  props.fields.title.value || 'Terms Section',
               }
             ),
           },
@@ -1732,6 +1779,42 @@ export default config({
           },
           { label: '3. Accessibility Statement Page (/accessibility)' }
         ),
+
+        sitemap: fields.object(
+          {
+            enabled: fields.checkbox({
+              label: 'Enable Sitemap Page (Show in Footer & Allow Public Access)',
+              description:
+                '🔍 SEO Note: Unchecking hides "Sitemap" from the footer links, sets "noindex", and displays a friendly "Page Unavailable" notice at /sitemap.',
+              defaultValue: true,
+            }),
+            metaTitle: fields.text({
+              label: 'SEO Page Title (<title>)',
+              defaultValue: 'Sitemap & Website Directory | Engivato PLLC',
+            }),
+            metaDescription: fields.text({
+              label: 'SEO Meta Description',
+              multiline: true,
+              defaultValue:
+                'Complete directory of pages, MEP engineering disciplines, service areas, and legal resources on the Engivato PLLC website.',
+            }),
+            eyebrow: fields.text({
+              label: 'Header Eyebrow Badge',
+              defaultValue: 'Website Directory',
+            }),
+            heading: fields.text({
+              label: 'Page Heading (H1)',
+              defaultValue: 'Sitemap',
+            }),
+            description: fields.text({
+              label: 'Header Introductory Description',
+              multiline: true,
+              defaultValue:
+                'Navigate every page, engineering discipline, and client resource across the Engivato PLLC platform.',
+            }),
+          },
+          { label: '4. Sitemap Page (/sitemap)' }
+        ),
       },
     }),
 
@@ -1784,6 +1867,31 @@ export default config({
           { label: '1. Pre-Footer CTA Banner' }
         ),
 
+        contactBar: fields.object(
+          {
+            enabled: fields.checkbox({
+              label: 'Show Direct Contact & Call Hours Bar in Footer',
+              description:
+                '🔍 SEO Note (Local SEO): Displays clickable phone number, direct email, and call schedule across every page footer.',
+              defaultValue: true,
+            }),
+            phone: fields.text({
+              label: 'Footer Phone Number',
+              description: 'Automatically formatted as (214) 789-4783 with a click-to-call link.',
+              defaultValue: '2147894783',
+            }),
+            email: fields.text({
+              label: 'Footer Contact Email',
+              defaultValue: 'admin@engivato.com',
+            }),
+            businessHours: fields.text({
+              label: 'Footer Call Schedule / Open Hours',
+              defaultValue: 'Monday - Friday, 8:00 AM - 5:00 PM CST',
+            }),
+          },
+          { label: '2. Direct Contact & Call Hours Bar' }
+        ),
+
         bottomBar: fields.object(
           {
             enabled: fields.checkbox({
@@ -1796,7 +1904,7 @@ export default config({
               defaultValue: 'Engivato PLLC. All rights reserved.',
             }),
           },
-          { label: '2. Bottom Copyright & Links Bar' }
+          { label: '3. Bottom Copyright & Links Bar' }
         ),
       },
     }),
@@ -1836,7 +1944,7 @@ export default config({
             'We are currently building our full digital platform. Engivato PLLC delivers licensed Mechanical, Electrical, and Plumbing (MEP) consulting, stamped permit drawings, and fast-track tenant fit-out engineering across Texas.',
         }),
         showFeatureCards: fields.checkbox({
-          label: 'Show 01–03 Feature Highlights Grid',
+          label: 'Show 01-03 Feature Highlights Grid',
           defaultValue: true,
         }),
         featureCards: fields.array(
@@ -1846,13 +1954,13 @@ export default config({
             desc: fields.text({ label: 'Card Description', multiline: true }),
           }),
           {
-            label: 'Feature Highlight Cards (01–03)',
+            label: 'Feature Highlight Cards (01-03)',
             itemLabel: (props) =>
               `${props.fields.badge.value || ''} ${props.fields.title.value || 'Card'}`,
           }
         ),
         showContactCard: fields.checkbox({
-          label: 'Show Direct Email / RFP Action Box',
+          label: 'Show Direct Email & Phone RFP Action Box',
           defaultValue: true,
         }),
         contactCardHeading: fields.text({
@@ -1868,6 +1976,15 @@ export default config({
         contactCardButtonText: fields.text({
           label: 'Contact Box Button Text',
           defaultValue: 'Email Our Engineering Team',
+        }),
+        contactPhone: fields.text({
+          label: 'Direct Phone Number',
+          description: 'Displayed on the Under Construction header and RFP card.',
+          defaultValue: '2147894783',
+        }),
+        businessHours: fields.text({
+          label: 'Call Schedule / Open Hours',
+          defaultValue: 'Monday - Friday, 8:00 AM - 5:00 PM CST',
         }),
         footerNote: fields.text({
           label: 'Footer Tagline',
@@ -1917,7 +2034,7 @@ export default config({
             itemLabel: (props) => props.value || 'Deliverable',
           }
         ),
-        order: fields.integer({ label: 'Display Order (1–4)', defaultValue: 1 }),
+        order: fields.integer({ label: 'Display Order (1-4)', defaultValue: 1 }),
       },
     }),
 

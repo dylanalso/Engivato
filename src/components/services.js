@@ -99,6 +99,15 @@ function getDisciplineLinkLabel(anchor = '', title = '') {
   return `Explore ${title}`;
 }
 
+function getDisciplineDwgCode(anchor = '', index = 0) {
+  const normalized = anchor.toLowerCase();
+  if (normalized.includes('mech') || normalized.includes('hvac')) return 'DWG NO. M-101';
+  if (normalized.includes('elec') || normalized.includes('power')) return 'DWG NO. E-201';
+  if (normalized.includes('plumb') || normalized.includes('pip')) return 'DWG NO. P-301';
+  if (normalized.includes('consult')) return 'DWG NO. C-401';
+  return `DWG NO. S-${index + 1}01`;
+}
+
 export default async function Services({ sectionData = {} }) {
   const {
     eyebrow = 'Core Engineering Disciplines',
@@ -124,12 +133,12 @@ export default async function Services({ sectionData = {} }) {
   }
 
   return (
-    <section id="services" className="py-16 px-4 bg-slate-50 relative border-t border-slate-200 font-sans" aria-labelledby="services-heading">
+    <section id="services" className="py-16 px-4 bg-white relative border-t border-slate-200 font-sans" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10 max-w-2xl mx-auto">
           {eyebrow && (
-            <span className="text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
+            <span className="text-orange font-mono font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
               {eyebrow}
             </span>
           )}
@@ -156,12 +165,13 @@ export default async function Services({ sectionData = {} }) {
                 ? 'plumbing'
                 : 'consulting');
             const badge = service.badge || `Discipline ${String(index + 1).padStart(2, '0')}`;
+            const dwgCode = getDisciplineDwgCode(anchor, index);
             const targetUrl = `/services#${anchor}`;
 
             return (
               <div
                 key={service.title || index}
-                className="group bg-white p-6 rounded-2xl border border-slate-200/90 hover:border-corporate-blue/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+                className="group bg-slate-50 bg-drafting-grid p-6 rounded-2xl border border-slate-200/90 hover:border-corporate-blue/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between relative"
               >
                 <div>
                   {/* Card Header: Icon & Discipline Badge */}
@@ -169,9 +179,14 @@ export default async function Services({ sectionData = {} }) {
                     <div className="w-12 h-12 rounded-xl bg-corporate-light flex items-center justify-center text-corporate-blue group-hover:bg-orange/10 group-hover:text-orange transition-colors shrink-0">
                       {getDisciplineIcon(anchor, service.title)}
                     </div>
-                    <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider px-2.5 py-1 bg-slate-100 rounded-full font-mono">
-                      {badge}
-                    </span>
+                    <div className="text-right">
+                      <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider px-2.5 py-1 bg-white border border-slate-200/80 rounded-full font-mono block">
+                        {badge}
+                      </span>
+                      <span aria-hidden="true" className="text-[9px] font-mono text-slate-400 tracking-widest uppercase mt-1 block">
+                        {dwgCode}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Discipline Title */}
@@ -181,7 +196,7 @@ export default async function Services({ sectionData = {} }) {
 
                   {/* Discipline Tagline */}
                   {service.tagline ? (
-                    <p className="text-xs font-semibold text-orange mb-2.5 min-h-5 flex items-center">
+                    <p className="text-xs font-mono font-semibold text-orange mb-2.5 min-h-5 flex items-center">
                       {service.tagline}
                     </p>
                   ) : (
@@ -189,36 +204,41 @@ export default async function Services({ sectionData = {} }) {
                   )}
 
                   {/* Discipline Summary */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 min-h-17">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
                     {service.desc}
                   </p>
+                </div>
 
+                <div className="mt-auto">
                   {/* Key Deliverable Tags */}
                   {service.deliverables && service.deliverables.length > 0 && (
-                    <div className="pt-3 border-t border-slate-100 mb-4 flex flex-col gap-1.5">
+                    <div className="pt-3 border-t border-slate-200/70 mb-4 flex flex-col gap-1.5">
                       {service.deliverables.slice(0, 3).map((item, dIdx) => (
                         <span
                           key={dIdx}
-                          className="text-[11px] font-medium text-slate-600 bg-slate-50 border border-slate-200/80 px-2.5 py-0.5 rounded w-fit"
+                          className="text-[11px] font-mono font-medium text-slate-600 bg-white border border-slate-200/80 px-2.5 py-0.5 rounded w-fit"
                         >
                           {item}
                         </span>
                       ))}
                     </div>
                   )}
-                </div>
 
-                {/* Section Anchor Link */}
-                <div className="pt-3 border-t border-slate-100 mt-auto flex items-center justify-between">
-                  <Link
-                    href={targetUrl}
-                    className="inline-flex items-center text-sm font-semibold text-corporate-blue group-hover:text-orange transition-colors"
-                  >
-                    <span>{getDisciplineLinkLabel(anchor, service.title)}</span>
-                    <svg className="w-4 h-4 ml-1 shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
+                  {/* Section Anchor Link */}
+                  <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between">
+                    <Link
+                      href={targetUrl}
+                      className="inline-flex items-center text-sm font-semibold text-corporate-blue group-hover:text-orange transition-colors"
+                    >
+                      <span>{getDisciplineLinkLabel(anchor, service.title)}</span>
+                      <svg className="w-4 h-4 ml-1 shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                    <span aria-hidden="true" className="text-[9px] font-mono text-slate-400 uppercase tracking-widest hidden xl:inline">
+                      N.T.S.
+                    </span>
+                  </div>
                 </div>
               </div>
             );

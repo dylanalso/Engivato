@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import Hero from '../components/hero.js';
 import Services from '../components/services.js';
+import DraftingStrip from '../components/DraftingStrip.js';
 import Image from 'next/image';
 import UnderConstruction from '../components/UnderConstruction.js';
 import { getHomePage, getSiteSettings } from '../lib/settings.js';
-import partnerImage from '../img/Why_Partner_With_Engivato_Custom.jpg';
+import { SITE_URL, COMPANY_EMAIL, COMPANY_PHONE, formatPhoneSchema } from '../lib/constants.js';
+import RevitBimViewer from '../components/RevitBimViewer.js';
 import workstationImage from '../img/mep_engineer_workstation.jpg';
 
 const PARTNER_ICONS = [
@@ -48,7 +50,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: 'https://dylanalso.github.io/Engivato',
+      url: SITE_URL,
       siteName: 'Engivato PLLC',
       type: 'website',
     },
@@ -83,7 +85,17 @@ export default async function Home() {
     description:
       homeData.seo?.metaDescription ||
       'Engivato PLLC is a Texas-based engineering firm providing practical, innovative, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions.',
-    url: 'https://dylanalso.github.io/Engivato',
+    url: SITE_URL,
+    telephone: formatPhoneSchema(siteSettings.contactPhone || COMPANY_PHONE),
+    email: COMPANY_EMAIL,
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '17:00',
+      },
+    ],
     sameAs: ['https://www.linkedin.com/company/engivato'],
   };
 
@@ -108,12 +120,17 @@ export default async function Home() {
 
       {hero?.enabled !== false && <Hero data={hero} />}
 
-      {/* Company Overview Section */}
+      <DraftingStrip dwg="DWG NO. M-101 // MEP-OVERVIEW" scale="SCALE: N.T.S." rev="REV 01" zone="GRID: DFW-TX" />
+
+      {/* Section 1: Company Overview Section */}
       {overview?.enabled !== false && (
-        <section className="bg-white py-24 font-sans selection:bg-corporate-blue selection:text-white" aria-labelledby="overview-heading">
+        <section className="bg-slate-50 bg-drafting-grid py-24 font-sans selection:bg-corporate-blue selection:text-white" aria-labelledby="overview-heading">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="md:w-1/2">
+                <span aria-hidden="true" className="text-orange font-mono text-xs font-semibold tracking-widest uppercase block mb-2">
+                  // SEC 01 - FIRM PROFILE
+                </span>
                 <h2 id="overview-heading" className="text-3xl md:text-4xl font-bold tracking-tight text-corporate-blue mb-6">
                   {overview.heading}
                 </h2>
@@ -142,7 +159,7 @@ export default async function Home() {
                   <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-center justify-between text-white text-xs z-10 backdrop-blur-md bg-slate-950/40 p-3 rounded-2xl border border-white/10">
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-orange animate-pulse" />
-                      <span className="font-semibold text-slate-100 tracking-wide">
+                      <span className="font-mono font-semibold text-slate-100 tracking-wide">
                         {overview.imageCaptionLeft}
                       </span>
                     </div>
@@ -159,73 +176,101 @@ export default async function Home() {
 
       {servicesSection?.enabled !== false && <Services sectionData={servicesSection} />}
 
-      {/* Engineering Workflow Section */}
-      {processSection?.enabled !== false && (
-        <section className="py-24 bg-white text-slate-900 font-sans border-t border-slate-100" aria-labelledby="process-heading">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-16 text-center md:text-left max-w-3xl">
-              <h2 id="process-heading" className="text-3xl md:text-4xl font-bold tracking-tight text-corporate-blue">
-                {processSection.heading}
-              </h2>
-              {processSection.description && (
-                <p className="mt-4 text-lg text-slate-600">
-                  {processSection.description}
-                </p>
-              )}
-            </div>
+      <DraftingStrip dwg="DWG NO. G-002 // WORKFLOW-SEQ" scale="SCALE: N.T.S." rev="REV 01" zone="STD: TBPELS" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-              {(processSection.steps || []).map((step, idx) => (
-                <div key={idx} className="bg-slate-50 rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{step.desc}</p>
+      {/* Section 3 & 4: Engineering Workflow & Why Partner With Engivato over shared Drafting Grid */}
+      {(processSection?.enabled !== false || whyUs?.enabled !== false) && (
+        <div className="bg-slate-50 bg-drafting-grid border-b border-slate-200 font-sans">
+          {processSection?.enabled !== false && (
+            <section
+              className={`pt-24 ${whyUs?.enabled !== false ? 'pb-16' : 'pb-24'} text-slate-900`}
+              aria-labelledby="process-heading"
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="mb-16 text-center md:text-left max-w-3xl">
+                  <span aria-hidden="true" className="text-orange font-mono text-xs font-semibold tracking-widest uppercase block mb-2">
+                    // SEC 03 - DELIVERY PROTOCOL
+                  </span>
+                  <h2 id="process-heading" className="text-3xl md:text-4xl font-bold tracking-tight text-corporate-blue">
+                    {processSection.heading}
+                  </h2>
+                  {processSection.description && (
+                    <p className="mt-4 text-lg text-slate-600">
+                      {processSection.description}
+                    </p>
+                  )}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
-      {/* Value Proposition & Differentiators Section */}
-      {whyUs?.enabled !== false && (
-        <section className="py-24 bg-corporate-blue text-white font-sans" aria-labelledby="why-us-heading">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 id="why-us-heading" className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  {whyUs.heading}
-                </h2>
-                {whyUs.description && (
-                  <p className="text-lg text-slate-200 leading-relaxed mb-8">
-                    {whyUs.description}
-                  </p>
-                )}
-                <ul className="space-y-4">
-                  {(whyUs.bulletPoints || []).map((item, idx) => (
-                    <li key={idx} className="flex items-center text-slate-100">
-                      <svg className="w-6 h-6 text-orange mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      <span>{item}</span>
-                    </li>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                  {(processSection.steps || []).map((step, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:border-corporate-blue/30 hover:shadow-md transition-all relative"
+                    >
+                      <div
+                        aria-hidden="true"
+                        className="flex items-center justify-between font-mono text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4 pb-3 border-b border-slate-100"
+                      >
+                        <span className="text-orange font-bold">PHASE 0{idx + 1}</span>
+                        <span>DWG P-0{idx + 1} // REV 01</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
+                      <p className="text-slate-600 leading-relaxed">{step.desc}</p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
-              <div className="relative h-96 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center overflow-hidden shadow-xl">
-                <Image src={partnerImage} alt={whyUs.imageAlt || 'Why Partner with Engivato'} fill className="object-cover" />
+            </section>
+          )}
+
+          {/* Section 4: Value Proposition & Differentiators Container */}
+          {whyUs?.enabled !== false && (
+            <section
+              className={`${processSection?.enabled !== false ? 'pt-0 pb-24' : 'py-24'} relative`}
+              aria-labelledby="why-us-heading"
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="bg-corporate-blue text-white rounded-3xl p-8 md:p-12 shadow-lg border border-blue-800/50">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div>
+                      <span aria-hidden="true" className="text-orange font-mono text-[10px] font-semibold tracking-widest uppercase block mb-2">
+                        + DWG NO. QA-104 // SCALE: N.T.S.
+                      </span>
+                      <h2 id="why-us-heading" className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        {whyUs.heading}
+                      </h2>
+                      {whyUs.description && (
+                        <p className="text-base md:text-lg text-slate-200 leading-relaxed mb-8">
+                          {whyUs.description}
+                        </p>
+                      )}
+                      <ul className="space-y-4">
+                        {(whyUs.bulletPoints || []).map((item, idx) => (
+                          <li key={idx} className="flex items-center text-slate-100">
+                            <svg className="w-6 h-6 text-orange mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <RevitBimViewer />
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+          )}
+        </div>
       )}
 
-      {/* Project Partners & Client Segments Section */}
+      {/* Section 5: Project Partners & Client Segments Section */}
       {partners?.enabled !== false && (
-        <section className="py-24 bg-slate-50 font-sans border-b border-slate-200" aria-labelledby="partners-heading">
+        <section className="py-24 bg-white font-sans border-b border-slate-200" aria-labelledby="partners-heading">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               {partners.eyebrow && (
-                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                <span className="text-orange font-mono font-semibold tracking-wider uppercase text-sm mb-2 block">
                   {partners.eyebrow}
                 </span>
               )}
@@ -243,14 +288,19 @@ export default async function Home() {
               {(partners.cards || []).map((partner, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-7 rounded-2xl shadow-sm border border-slate-200 hover:border-corporate-blue/40 hover:shadow-md transition-all flex flex-col justify-between"
+                  className="bg-slate-50 bg-drafting-grid p-7 rounded-2xl shadow-sm border border-slate-200/80 hover:border-corporate-blue/40 hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center mb-5">
-                      {PARTNER_ICONS[idx % PARTNER_ICONS.length]}
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center">
+                        {PARTNER_ICONS[idx % PARTNER_ICONS.length]}
+                      </div>
+                      <span aria-hidden="true" className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">
+                        SEC 0{idx + 1}
+                      </span>
                     </div>
                     {partner.subtitle && (
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-corporate-blue px-2.5 py-0.5 bg-corporate-light rounded-full inline-block mb-3">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-corporate-blue px-2.5 py-0.5 bg-corporate-light rounded-full inline-block mb-3">
                         {partner.subtitle}
                       </span>
                     )}

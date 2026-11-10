@@ -7,16 +7,43 @@
     "paragraphs": [
       "At Engivato, we are committed to protecting your privacy and handling your data responsibly. This Privacy Policy describes how we collect, use, disclose, and protect your personal information when you visit our website, engivato.com.",
       "By using our website, you agree to the terms of this Privacy Policy. We may update this policy from time to time, and we will notify you of any changes by posting the new policy on this page with an updated effective date.",
-      "For the purposes of this policy, “personal information” means any information that identifies you, directly or indirectly, as an individual."
+      "For the purposes of this policy, \"personal information\" means any information that identifies you, directly or indirectly, as an individual."
     ]
   },
   "termsOfService": {
     "enabled": true,
-    "metaTitle": "Terms of Service | Engivato PLLC",
-    "metaDescription": "Terms of Service for Engivato PLLC website and engineering information.",
+    "metaTitle": "Terms of Service | Legal & Engineering Terms | Engivato PLLC",
+    "metaDescription": "Read the Terms of Service for Engivato PLLC covering website usage, MEP engineering proposals, intellectual property, Instruments of Service, and Texas governing law.",
     "heading": "Terms of Service",
     "paragraphs": [
-      "Learn more about our mechanical, electrical, and plumbing engineering solutions."
+      "Welcome to the digital platform of Engivato PLLC. These Terms of Service govern your access to and use of our website, inquiry forms, and informational resources regarding our Mechanical, Electrical, and Plumbing (MEP) engineering services.",
+      "Please review these terms carefully before submitting project inquiries or architectural documents. For information on how we handle personal and contact data, please also review our Privacy Policy."
+    ],
+    "sections": [
+      {
+        "title": "1. Acceptance of Terms & Website Scope",
+        "body": "By accessing or using the Engivato PLLC website, you agree to be bound by these Terms of Service and all applicable state and federal laws. All content published on this platform is provided for general informational purposes regarding our Mechanical, Electrical, and Plumbing (MEP) engineering services across Dallas-Fort Worth and the State of Texas."
+      },
+      {
+        "title": "2. No Engineer-Client Relationship From Website Use",
+        "body": "Viewing this website, requesting general information, or transmitting project details, Request for Proposal (RFP) documents, or architectural files through our online contact form or email does not create a formal Professional Engineer (P.E.)-client relationship or bind Engivato PLLC to any project schedule. A formal engineering engagement begins only upon the mutual execution of a written Engineering Services Agreement or signed proposal defining project scope, deliverables, fee structure, and Texas Board of Professional Engineers and Land Surveyors (TBPELS) compliance responsibilities."
+      },
+      {
+        "title": "3. Engineering Drawings, BIM Models & Instruments of Service",
+        "body": "All website text, graphics, branding, and layout elements are the intellectual property of Engivato PLLC. Furthermore, all engineering calculations, load analyses, CAD drawings, 3D Revit BIM models, specifications, and P.E.-sealed construction documents prepared by Engivato PLLC constitute protected Instruments of Service. Unless explicitly stated otherwise in a signed project contract, such drawings and specifications may only be utilized for the specific facility, site, and scope for which they were engineered."
+      },
+      {
+        "title": "4. Proposals, Submittals & Client-Provided Information",
+        "body": "Engineering proposals, turnaround estimates, and fee quotes are based on the architectural backgrounds, existing condition reports, and scope parameters supplied by the client at the time of inquiry. When submitting CAD (.dwg), Revit (.rvt), or PDF plans for proposal evaluation, you represent that you are authorized to share those materials with Engivato PLLC for engineering review."
+      },
+      {
+        "title": "5. Disclaimer of Technical Warranties & Limitation of Liability",
+        "body": "Information presented on this website is general in nature and does not constitute site-specific engineering advice, municipal code certification, or construction authorization without a formal project evaluation sealed by a licensed Texas Professional Engineer. Website content is provided \"as is\" without warranties of any kind. To the fullest extent permitted by Texas law, Engivato PLLC shall not be liable for any direct, indirect, or consequential damages arising from reliance on general website content."
+      },
+      {
+        "title": "6. Governing Law & Venue (State of Texas)",
+        "body": "These Terms of Service and any dispute arising out of your use of this website shall be governed by and construed in accordance with the laws of the State of Texas, together with applicable rules of the Texas Board of Professional Engineers and Land Surveyors (TBPELS), without regard to conflict-of-law principles."
+      }
     ]
   },
   "accessibility": {
@@ -34,6 +61,13 @@
       "Opera"
     ],
     "closingParagraph": "We want to ensure that all visitors have an excellent experience when accessing our website, regardless of their device or any functional limitations. If you experience any difficulties accessing our content or have suggestions for improving our website's accessibility, please reach out and contact us. We appreciate your feedback and are committed to making engivato.com accessible to everyone."
+  },
+  "sitemap": {
+    "enabled": true,
+    "metaTitle": "Sitemap & Website Directory | Engivato PLLC",
+    "metaDescription": "Complete directory of pages, MEP engineering disciplines, service areas, and legal resources on the Engivato PLLC website.",
+    "eyebrow": "Website Directory",
+    "heading": "Sitemap",
+    "description": "Navigate every page, engineering discipline, and client resource across the Engivato PLLC platform."
   }
 }
-

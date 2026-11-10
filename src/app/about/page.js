@@ -1,5 +1,7 @@
 import { getAboutPage } from '../../lib/settings';
+import { SITE_URL } from '../../lib/constants';
 import PageUnavailable from '../../components/PageUnavailable';
+import DraftingStrip from '../../components/DraftingStrip';
 
 const HIGHLIGHT_ICONS = [
   <svg key="h1" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +57,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: 'https://dylanalso.github.io/Engivato/about',
+      url: `${SITE_URL}/about`,
       siteName: 'Engivato PLLC',
       type: 'website',
     },
@@ -83,7 +85,7 @@ export default async function About() {
     publisher: {
       '@type': 'EngineeringBusiness',
       name: 'Engivato PLLC',
-      url: 'https://dylanalso.github.io/Engivato',
+      url: SITE_URL,
     },
   };
 
@@ -100,7 +102,7 @@ export default async function About() {
           <section className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="about-hero-title">
             <div className="max-w-6xl mx-auto text-center relative z-10">
               {hero.eyebrow && (
-                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                <span className="text-orange font-mono font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
                   {hero.eyebrow}
                 </span>
               )}
@@ -136,11 +138,16 @@ export default async function About() {
           </section>
         )}
 
-        {/* Company Overview & Practice Manifesto */}
+        <DraftingStrip dwg="DWG NO. A-101 // FIRM-MANIFESTO" scale="SCALE: N.T.S." rev="REV 01" zone="STD: TBPELS" />
+
+        {/* Section 1: Company Overview & Practice Manifesto */}
         {story?.enabled !== false && (
-          <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="story-title">
+          <section className="py-24 px-4 bg-slate-50 bg-drafting-grid border-b border-slate-200" aria-labelledby="story-title">
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
+                <span aria-hidden="true" className="text-orange font-mono text-xs font-semibold tracking-widest uppercase block mb-2">
+                  // SEC 01 - PRACTICE OVERVIEW
+                </span>
                 <h2 id="story-title" className="text-3xl md:text-4xl font-bold text-corporate-blue mb-6">
                   {story.heading}
                 </h2>
@@ -155,7 +162,7 @@ export default async function About() {
                   </p>
                 )}
                 {story.quote && (
-                  <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-orange text-slate-700 italic">
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/80 border-l-4 border-l-orange text-slate-700 italic shadow-xs">
                     {story.quote}
                   </div>
                 )}
@@ -164,11 +171,16 @@ export default async function About() {
               {/* Practice Manifesto Card */}
               <div className="relative rounded-3xl bg-linear-to-br from-corporate-blue to-blue-950 text-white p-8 md:p-10 shadow-lg border border-blue-900/40 overflow-hidden">
                 <div className="relative z-10">
-                  {story.manifestoEyebrow && (
-                    <span className="text-orange font-semibold tracking-wider uppercase text-xs mb-3 inline-block">
-                      {story.manifestoEyebrow}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    {story.manifestoEyebrow && (
+                      <span className="text-orange font-mono font-semibold tracking-wider uppercase text-xs inline-block">
+                        {story.manifestoEyebrow}
+                      </span>
+                    )}
+                    <span aria-hidden="true" className="text-[10px] font-mono text-blue-200/70 tracking-widest uppercase">
+                      DWG NO. M-101 // REV 01
                     </span>
-                  )}
+                  </div>
                   <h3 className="text-2xl font-bold mb-4">
                     {story.manifestoHeading}
                   </h3>
@@ -186,24 +198,28 @@ export default async function About() {
                       </div>
                     ))}
                   </div>
-                </div>
 
-                {/* Decorative Grid Watermark */}
-                <div className="absolute -right-8 -bottom-8 w-48 h-48 opacity-10 pointer-events-none">
-                  <svg className="w-full h-full text-white" viewBox="0 0 100 100" fill="currentColor">
-                    <path d="M0 0h20v20H0zm40 0h20v20H40zm40 0h20v20H80zM20 20h20v20H20zm40 0h20v20H60zm-60 20h20v20H0zm40 0h20v20H40zm40 0h20v20H80z" />
-                  </svg>
+                  <div
+                    aria-hidden="true"
+                    className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-blue-200/60 tracking-widest uppercase"
+                  >
+                    <span>SCALE: N.T.S.</span>
+                    <span>SHEET 01 OF 01</span>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
         )}
 
-        {/* Core MEP Engineering Disciplines */}
+        {/* Section 2: Core MEP Engineering Disciplines */}
         {disciplines?.enabled !== false && (
-          <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="disciplines-title">
+          <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="disciplines-title">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
+                <span aria-hidden="true" className="text-orange font-mono text-xs font-semibold tracking-widest uppercase block mb-2">
+                  // SEC 02 - DISCIPLINE MATRIX
+                </span>
                 <h2 id="disciplines-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                   {disciplines.heading}
                 </h2>
@@ -216,9 +232,14 @@ export default async function About() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {(disciplines.items || []).map((item, idx) => (
-                  <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6">
-                      {DISCIPLINE_ICONS[idx % DISCIPLINE_ICONS.length]}
+                  <div key={idx} className="bg-slate-50 bg-drafting-grid p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center">
+                        {DISCIPLINE_ICONS[idx % DISCIPLINE_ICONS.length]}
+                      </div>
+                      <span aria-hidden="true" className="font-mono text-[10px] text-slate-400 tracking-widest uppercase">
+                        DWG 0{idx + 1}
+                      </span>
                     </div>
                     <h3 className="text-xl font-bold text-corporate-blue mb-3">{item.title}</h3>
                     <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
@@ -229,9 +250,9 @@ export default async function About() {
           </section>
         )}
 
-        {/* Guiding Principles & Core Values */}
+        {/* Section 3: Guiding Principles & Core Values */}
         {values?.enabled !== false && (
-          <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="values-title">
+          <section className="py-24 px-4 bg-slate-50 bg-drafting-grid border-b border-slate-200" aria-labelledby="values-title">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <h2 id="values-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -246,9 +267,9 @@ export default async function About() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {(values.items || []).map((val, idx) => (
-                  <div key={idx} className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                  <div key={idx} className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm">
                     <span className="text-orange font-mono text-sm font-bold block mb-2">
-                      {String(idx + 1).padStart(2, '0')}
+                      {String(idx + 1).padStart(2, '0')} // SPEC
                     </span>
                     <h3 className="text-lg font-bold text-slate-900 mb-2">{val.title}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">{val.desc}</p>
@@ -259,13 +280,13 @@ export default async function About() {
           </section>
         )}
 
-        {/* Principal Leadership Spotlight */}
+        {/* Section 4: Principal Leadership Spotlight */}
         {team?.enabled !== false && (
-          <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="team-title">
+          <section className="py-24 px-4 bg-white border-b border-slate-200" aria-labelledby="team-title">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 {team.eyebrow && (
-                  <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                  <span className="text-orange font-mono font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
                     {team.eyebrow}
                   </span>
                 )}
@@ -279,24 +300,24 @@ export default async function About() {
                 )}
               </div>
 
-              <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-8 md:p-12 hover:shadow-md transition-shadow">
+              <div className="max-w-4xl mx-auto bg-slate-50 bg-drafting-grid rounded-3xl border border-slate-200/80 shadow-sm p-8 md:p-12 hover:shadow-md transition-shadow">
                 <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                  <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl bg-slate-100 border-2 border-corporate-blue/20 flex flex-col items-center justify-center shrink-0 text-center p-4">
+                  <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl bg-white border-2 border-corporate-blue/20 flex flex-col items-center justify-center shrink-0 text-center p-4 shadow-xs">
                     <div className="w-14 h-14 rounded-full bg-corporate-blue text-white flex items-center justify-center font-bold text-xl mb-2 shadow-inner">
                       {team.leaderInitials}
                     </div>
                     <span className="text-xs font-bold text-corporate-blue">{team.leaderName}</span>
-                    <span className="text-[11px] text-slate-500 font-medium">{team.leaderShortRole}</span>
+                    <span className="text-[11px] font-mono text-slate-500 font-medium">{team.leaderShortRole}</span>
                   </div>
 
                   <div className="grow text-center md:text-left">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
                       <div>
                         <h3 className="text-2xl font-bold text-slate-900">{team.leaderName}</h3>
-                        <p className="text-orange font-semibold text-sm">{team.leaderRole}</p>
+                        <p className="text-orange font-mono font-semibold text-sm">{team.leaderRole}</p>
                       </div>
                       {team.leaderBadge && (
-                        <span className="inline-flex items-center self-center md:self-auto px-3.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        <span className="inline-flex items-center self-center md:self-auto px-3.5 py-1 rounded-full text-xs font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
                           {team.leaderBadge}
                         </span>
                       )}

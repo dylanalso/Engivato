@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { reader } from '../../lib/keystatic';
 import ProjectShowcase from '../../components/projectShowcase';
 import { getProjectsPage } from '../../lib/settings';
+import { SITE_URL } from '../../lib/constants';
 import PageUnavailable from '../../components/PageUnavailable';
+import DraftingStrip from '../../components/DraftingStrip';
 
 const SECTOR_ICONS = [
   <svg key="s1" className="w-7 h-7 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,7 +31,7 @@ export async function generateMetadata() {
     'Sector Capabilities & Project Typologies | MEP Engineering | Engivato PLLC';
   const description =
     projectsData.seo?.metaDescription ||
-    'Explore Engivato PLLC’s MEP engineering capabilities across commercial restaurants, office finish-outs, multifamily developments, retail spaces, and HVAC modernization throughout Texas.';
+    "Explore Engivato PLLC's MEP engineering capabilities across commercial restaurants, office finish-outs, multifamily developments, retail spaces, and HVAC modernization throughout Texas.";
 
   return {
     title,
@@ -47,7 +49,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: 'https://dylanalso.github.io/Engivato/projects',
+      url: `${SITE_URL}/projects`,
       siteName: 'Engivato PLLC',
       type: 'website',
     },
@@ -84,11 +86,11 @@ export default async function Projects() {
     description:
       projectsPageData.seo?.metaDescription ||
       'Mechanical, Electrical, and Plumbing engineering sector capabilities and project typologies by Engivato PLLC.',
-    url: 'https://dylanalso.github.io/Engivato/projects',
+    url: `${SITE_URL}/projects`,
     publisher: {
       '@type': 'EngineeringBusiness',
       name: 'Engivato PLLC',
-      url: 'https://dylanalso.github.io/Engivato',
+      url: SITE_URL,
     },
   };
 
@@ -99,13 +101,13 @@ export default async function Projects() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
+      <div className="min-h-screen bg-slate-50 bg-drafting-grid text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         {/* Page Header */}
         {hero?.enabled !== false && (
           <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="projects-hero-title">
             <div className="max-w-6xl mx-auto text-center relative z-10">
               {hero.eyebrow && (
-                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 inline-block">
                   {hero.eyebrow}
                 </span>
               )}
@@ -121,7 +123,7 @@ export default async function Projects() {
                 {hero.primaryCtaText && (
                   <Link
                     href="/contact"
-                    className="bg-orange hover:bg-orange-dark text-white px-8 py-3.5 rounded-full font-semibold text-base shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 transition-all duration-300"
+                    className="bg-orange hover:bg-orange-dark text-white px-8 py-3.5 rounded-full font-semibold text-base hover:-translate-y-0.5 transition-all duration-300 animate-slow-ping"
                   >
                     {hero.primaryCtaText}
                   </Link>
@@ -146,10 +148,10 @@ export default async function Projects() {
             <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {(highlights.items || []).map((item, idx) => (
                 <div key={idx} className="p-3">
-                  <div className="text-2xl md:text-3xl font-extrabold text-corporate-blue mb-1">
+                  <div className="font-heading text-2xl md:text-3xl font-extrabold text-corporate-blue mb-1">
                     {item.value}
                   </div>
-                  <div className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
+                  <div className="font-mono text-xs font-semibold text-slate-600 uppercase tracking-wide">
                     {item.label}
                   </div>
                 </div>
@@ -158,13 +160,20 @@ export default async function Projects() {
           </section>
         )}
 
+        <DraftingStrip
+          dwg="DWG NO. PRJ-200 // SECTOR-INDEX"
+          scale="SCALE: N.T.S."
+          rev="REV 01"
+          zone="GRID: TX-COMM"
+        />
+
         {/* Interactive Project Case Studies Showcase */}
         {showcase?.enabled && (
           <section className="py-20 px-4 border-b border-slate-200" aria-labelledby="showcase-heading">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 {showcase.eyebrow && (
-                  <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                  <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                     {showcase.eyebrow}
                   </span>
                 )}
@@ -191,7 +200,7 @@ export default async function Projects() {
                 <>
                   <div className="text-center mb-16">
                     {sectors.eyebrow && (
-                      <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                      <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                         {sectors.eyebrow}
                       </span>
                     )}
@@ -214,17 +223,21 @@ export default async function Projects() {
                       >
                         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-between">
                           <div className="lg:w-7/12">
-                            <div className="flex items-center gap-3 mb-4">
+                            <div className="flex flex-wrap items-center gap-3 mb-4">
                               <div className="w-12 h-12 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
                                 {SECTOR_ICONS[idx % SECTOR_ICONS.length]}
                               </div>
                               {sector.badge && (
-                                <div>
-                                  <span className="text-xs font-bold uppercase tracking-wider text-corporate-blue px-3 py-1 bg-corporate-light rounded-full inline-block">
-                                    {sector.badge}
-                                  </span>
-                                </div>
+                                <span className="font-mono text-xs font-bold uppercase tracking-wider text-corporate-blue px-3 py-1 bg-corporate-light rounded-full inline-block">
+                                  {sector.badge}
+                                </span>
                               )}
+                              <span
+                                aria-hidden="true"
+                                className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase px-2.5 py-1 border border-slate-200 rounded-md bg-slate-50"
+                              >
+                                SEC-{String(idx + 1).padStart(2, '0')} // REV 01
+                              </span>
                             </div>
 
                             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -236,7 +249,7 @@ export default async function Projects() {
 
                             {sector.idealFor && (
                               <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 mb-6">
-                                <span className="text-xs font-bold uppercase tracking-wide text-corporate-blue block mb-1">
+                                <span className="font-mono text-xs font-bold uppercase tracking-wide text-corporate-blue block mb-1">
                                   {sectors.applicationsLabel || 'Typical Applications'}
                                 </span>
                                 <p className="text-xs md:text-sm text-slate-600">
@@ -247,16 +260,24 @@ export default async function Projects() {
                           </div>
 
                           <div className="lg:w-5/12 w-full bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                            <h4 className="text-sm font-bold uppercase tracking-wider text-corporate-blue mb-4 flex items-center gap-2">
-                              <svg className="w-4 h-4 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                              </svg>
-                              {sectors.deliverablesHeading || 'Key Engineering Deliverables'}
-                            </h4>
+                            <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-200/80">
+                              <h4 className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-corporate-blue flex items-center gap-2">
+                                <svg className="w-4 h-4 text-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                {sectors.deliverablesHeading || 'Key Engineering Deliverables'}
+                              </h4>
+                              <span
+                                aria-hidden="true"
+                                className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase shrink-0"
+                              >
+                                N.T.S.
+                              </span>
+                            </div>
                             <ul className="space-y-3 mb-6">
                               {(sector.scopes || []).map((scope, sIdx) => (
                                 <li key={sIdx} className="flex items-start text-xs md:text-sm text-slate-700">
-                                  <span className="text-orange font-bold mr-2.5 shrink-0">•</span>
+                                  <span className="font-mono text-orange font-bold mr-2.5 shrink-0">+</span>
                                   <span>{scope}</span>
                                 </li>
                               ))}
@@ -278,10 +299,10 @@ export default async function Projects() {
 
               {/* Sample Drawing Packages & Confidentiality Callout */}
               {confidentialityCallout?.enabled !== false && (
-                <div className="mt-16 bg-linear-to-br from-corporate-blue to-blue-900 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div className="mt-16 bg-linear-to-br from-corporate-blue to-blue-900 text-white rounded-3xl p-8 md:p-12 relative overflow-hidden border border-blue-800/50">
                   <div className="max-w-3xl relative z-10">
                     {confidentialityCallout.eyebrow && (
-                      <span className="text-orange font-semibold tracking-wider uppercase text-xs mb-2 block">
+                      <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs mb-2 block">
                         {confidentialityCallout.eyebrow}
                       </span>
                     )}
@@ -296,7 +317,7 @@ export default async function Projects() {
                     {confidentialityCallout.ctaText && (
                       <Link
                         href="/contact"
-                        className="inline-block bg-orange hover:bg-orange-dark text-white px-7 py-3 rounded-full font-semibold text-sm shadow-md transition-all duration-300"
+                        className="inline-block bg-orange hover:bg-orange-dark text-white px-7 py-3 rounded-full font-semibold text-sm hover:-translate-y-0.5 transition-all duration-300 animate-slow-ping"
                       >
                         {confidentialityCallout.ctaText}
                       </Link>

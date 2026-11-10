@@ -36,7 +36,7 @@
     "heading": "Our Story & Commitment",
     "paragraph1": "Engivato PLLC is a Texas-based engineering firm focused on providing innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions. Our goal is to help clients develop high-performing, efficient, and sustainable building systems through technical expertise, thoughtful design, and effective project coordination.",
     "paragraph2": "Our company name reflects our commitment to combining engineering expertise with innovation and modern technology. We partner with general contractors, commercial developers, architects, and property managers to deliver forward-thinking engineering that solves real-world operational and construction challenges.",
-    "quote": "“Engineering is not just about meeting code—it is about designing systems that elevate building longevity and human comfort.”",
+    "quote": "\"Engineering is not just about meeting code-it is about designing systems that elevate building longevity and human comfort.\"",
     "manifestoEyebrow": "The Engivato Standard",
     "manifestoHeading": "Practical Engineering Driven by Modern Delivery",
     "manifestoDescription": "We believe engineering consulting should be direct, transparent, and aligned with constructibility. Every calculation and layout is designed to help contractors build efficiently and owners maximize operational value.",
@@ -88,7 +88,7 @@
       },
       {
         "title": "Responsive Relationships",
-        "desc": "We value clear communication, accountability, collaboration, and an understanding of each client’s specific schedule and operational needs."
+        "desc": "We value clear communication, accountability, collaboration, and an understanding of each client's specific schedule and operational needs."
       }
     ]
   },
@@ -112,4 +112,3 @@
     ]
   }
 }
-

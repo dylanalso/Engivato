@@ -8,7 +8,7 @@
     "enabled": true,
     "eyebrow": "Regional Engineering Leadership",
     "headingPrefix": "Serving the",
-    "headingHighlight": "Dallas–Fort Worth",
+    "headingHighlight": "Dallas-Fort Worth",
     "headingSuffix": "Metroplex & Beyond",
     "description": "Engivato PLLC provides specialized Mechanical, Electrical, and Plumbing (MEP) engineering solutions for architects, contractors, and owners navigating North Texas's dynamic building landscape."
   },
@@ -22,22 +22,46 @@
     "regions": [
       {
         "county": "Dallas County",
-        "cities": ["Dallas", "Irving", "Richardson", "Garland", "Grand Prairie"],
+        "cities": [
+          "Dallas",
+          "Irving",
+          "Richardson",
+          "Garland",
+          "Grand Prairie"
+        ],
         "desc": "Comprehensive engineering for urban redevelopments, commercial towers, healthcare clinics, and dynamic tenant spaces across Dallas."
       },
       {
         "county": "Tarrant County",
-        "cities": ["Fort Worth", "Arlington", "Grapevine", "Southlake", "Keller"],
+        "cities": [
+          "Fort Worth",
+          "Arlington",
+          "Grapevine",
+          "Southlake",
+          "Keller"
+        ],
         "desc": "Tailored MEP solutions supporting the rapid industrial, cultural, and commercial development throughout Fort Worth and the mid-cities."
       },
       {
         "county": "Collin County",
-        "cities": ["Plano", "Frisco", "McKinney", "Allen", "Prosper"],
+        "cities": [
+          "Plano",
+          "Frisco",
+          "McKinney",
+          "Allen",
+          "Prosper"
+        ],
         "desc": "High-performance building systems for corporate headquarters, cutting-edge retail centers, and modern educational and mixed-use campuses."
       },
       {
         "county": "Denton County",
-        "cities": ["Denton", "Lewisville", "Carrollton", "Flower Mound", "Little Elm"],
+        "cities": [
+          "Denton",
+          "Lewisville",
+          "Carrollton",
+          "Flower Mound",
+          "Little Elm"
+        ],
         "desc": "Scalable infrastructure consulting for booming residential corridors, distribution centers, and commercial business parks."
       }
     ]
@@ -100,4 +124,3 @@
     ]
   }
 }
-

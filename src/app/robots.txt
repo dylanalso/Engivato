@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://dylanalso.github.io/Engivato/sitemap.xml
+Sitemap: https://engivato.com/sitemap.xml

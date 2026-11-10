@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { getServicesPage } from '../../lib/settings';
+import { SITE_URL } from '../../lib/constants';
 import PageUnavailable from '../../components/PageUnavailable';
+import DraftingStrip from '../../components/DraftingStrip';
+
+const DISCIPLINE_DWG_CODES = ['DWG NO. M-101', 'DWG NO. E-201', 'DWG NO. P-301', 'DWG NO. C-401'];
 
 const DISCIPLINE_ICONS = [
   <svg key="mech" className="w-8 h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +69,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: 'https://dylanalso.github.io/Engivato/services',
+      url: `${SITE_URL}/services`,
       siteName: 'Engivato PLLC',
       type: 'website',
     },
@@ -90,7 +94,7 @@ export default async function Services() {
     provider: {
       '@type': 'EngineeringBusiness',
       name: 'Engivato PLLC',
-      url: 'https://dylanalso.github.io/Engivato',
+      url: SITE_URL,
     },
     areaServed: {
       '@type': 'State',
@@ -122,7 +126,7 @@ export default async function Services() {
           <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="services-hero-title">
             <div className="max-w-6xl mx-auto text-center relative z-10">
               {hero.eyebrow && (
-                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 inline-block">
                   {hero.eyebrow}
                 </span>
               )}
@@ -138,7 +142,7 @@ export default async function Services() {
                 {hero.primaryCtaText && (
                   <Link
                     href="/contact"
-                    className="bg-orange hover:bg-orange-dark text-white px-8 py-3.5 rounded-full font-semibold text-base shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 transition-all duration-300"
+                    className="bg-orange hover:bg-orange-dark text-white px-8 py-3.5 rounded-full font-semibold text-base hover:-translate-y-0.5 transition-all duration-300 animate-slow-ping"
                   >
                     {hero.primaryCtaText}
                   </Link>
@@ -166,10 +170,10 @@ export default async function Services() {
                   key={idx}
                   className="p-3 sm:p-4 rounded-xl bg-slate-50/70 md:bg-transparent border border-slate-100 md:border-0 flex flex-col justify-center min-w-0"
                 >
-                  <div className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold text-corporate-blue mb-1 tracking-tight wrap-break-word">
+                  <div className="font-heading text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold text-corporate-blue mb-1 tracking-tight wrap-break-word">
                     {item.title}
                   </div>
-                  <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-slate-600 uppercase tracking-wider leading-snug">
+                  <div className="font-mono text-[10px] sm:text-xs font-semibold text-slate-600 uppercase tracking-wider leading-snug">
                     {item.desc}
                   </div>
                 </div>
@@ -178,14 +182,21 @@ export default async function Services() {
           </section>
         )}
 
+        <DraftingStrip
+          dwg="DWG NO. MEP-100 // MASTER-SPEC"
+          scale="SCALE: N.T.S."
+          rev="REV 01"
+          zone="STD: IBC / IECC"
+        />
+
         {/* Core MEP Engineering Disciplines */}
         <main>
           {disciplines?.enabled !== false && (
-            <section id="mep-disciplines" className="py-24 px-4 bg-slate-50" aria-labelledby="disciplines-heading">
+            <section id="mep-disciplines" className="py-24 px-4 bg-slate-50 bg-drafting-grid" aria-labelledby="disciplines-heading">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                   {disciplines.eyebrow && (
-                    <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                    <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                       {disciplines.eyebrow}
                     </span>
                   )}
@@ -208,21 +219,27 @@ export default async function Services() {
                     >
                       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
                         <div className="lg:w-1/2">
-                          <div className="flex items-center gap-3 mb-4">
+                          <div className="flex flex-wrap items-center gap-3 mb-4">
                             <div className="p-3 bg-corporate-light rounded-xl">
                               {DISCIPLINE_ICONS[idx % DISCIPLINE_ICONS.length]}
                             </div>
                             {discipline.badge && (
-                              <span className="text-xs font-bold tracking-widest text-corporate-blue uppercase px-3 py-1 bg-corporate-light rounded-full">
+                              <span className="font-mono text-xs font-bold tracking-widest text-corporate-blue uppercase px-3 py-1 bg-corporate-light rounded-full">
                                 {discipline.badge}
                               </span>
                             )}
+                            <span
+                              aria-hidden="true"
+                              className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase px-2.5 py-1 border border-slate-200 rounded-md bg-slate-50"
+                            >
+                              {DISCIPLINE_DWG_CODES[idx % DISCIPLINE_DWG_CODES.length]} // REV 01
+                            </span>
                           </div>
                           <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                             {discipline.title}
                           </h3>
                           {discipline.tagline && (
-                            <p className="text-orange font-medium mb-4 text-base">
+                            <p className="font-mono text-orange font-semibold mb-4 text-xs sm:text-sm uppercase tracking-wider">
                               {discipline.tagline}
                             </p>
                           )}
@@ -241,9 +258,17 @@ export default async function Services() {
                         </div>
 
                         <div className="lg:w-1/2 w-full bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-200">
-                          <h4 className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-4">
-                            {disciplines.deliverablesHeading || 'Key Scope & Deliverables'}
-                          </h4>
+                          <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-200/80">
+                            <h4 className="font-mono text-xs font-bold tracking-widest text-slate-500 uppercase">
+                              {disciplines.deliverablesHeading || 'Key Scope & Deliverables'}
+                            </h4>
+                            <span
+                              aria-hidden="true"
+                              className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase"
+                            >
+                              SCALE: N.T.S.
+                            </span>
+                          </div>
                           <ul className="space-y-3">
                             {(discipline.features || []).map((feature, fIdx) => (
                               <li key={fIdx} className="flex items-start text-sm text-slate-700">
@@ -269,7 +294,7 @@ export default async function Services() {
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                   {capabilities.eyebrow && (
-                    <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                    <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                       {capabilities.eyebrow}
                     </span>
                   )}
@@ -290,8 +315,16 @@ export default async function Services() {
                       className="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-corporate-blue/40 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
                     >
                       <div>
-                        <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-6 shadow-sm">
-                          {CAPABILITY_ICONS[sIdx % CAPABILITY_ICONS.length]}
+                        <div className="flex items-center justify-between mb-6">
+                          <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm">
+                            {CAPABILITY_ICONS[sIdx % CAPABILITY_ICONS.length]}
+                          </div>
+                          <span
+                            aria-hidden="true"
+                            className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase"
+                          >
+                            SPEC-{String(sIdx + 1).padStart(2, '0')} // N.T.S.
+                          </span>
                         </div>
                         <h3 className="text-xl font-bold text-slate-900 mb-3">
                           {service.title}
@@ -309,11 +342,11 @@ export default async function Services() {
 
           {/* Project Delivery Lifecycle */}
           {processSection?.enabled !== false && (
-            <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="process-heading">
+            <section className="py-24 px-4 bg-slate-50 bg-drafting-grid border-b border-slate-200" aria-labelledby="process-heading">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                   {processSection.eyebrow && (
-                    <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                    <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                       {processSection.eyebrow}
                     </span>
                   )}
@@ -334,7 +367,7 @@ export default async function Services() {
                       className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300"
                     >
                       <div>
-                        <div className="text-xs font-bold text-orange tracking-widest uppercase mb-2">
+                        <div className="font-mono text-xs font-bold text-orange tracking-widest uppercase mb-2">
                           {stage.step}
                         </div>
                         <h3 className="text-base font-bold text-slate-900 mb-3">
@@ -344,8 +377,9 @@ export default async function Services() {
                           {stage.summary}
                         </p>
                       </div>
-                      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-corporate-blue">
+                      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between font-mono text-[11px] font-semibold text-corporate-blue">
                         <span>Milestone {idx + 1}</span>
+                        <span aria-hidden="true" className="text-slate-400">REV 01</span>
                       </div>
                     </div>
                   ))}
@@ -358,10 +392,10 @@ export default async function Services() {
           {standards?.enabled !== false && (
             <section className="py-16 px-4 bg-white border-b border-slate-200" aria-label="Codes & Standards">
               <div className="max-w-6xl mx-auto text-center">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
                   {standards.heading}
                 </h3>
-                <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 text-xs md:text-sm font-semibold text-slate-700">
+                <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 font-mono text-xs font-semibold text-slate-700">
                   {(standards.badges || []).map((badge, bIdx) => (
                     <span
                       key={bIdx}
@@ -377,11 +411,11 @@ export default async function Services() {
 
           {/* Frequently Asked Questions */}
           {faq?.enabled !== false && (
-            <section className="py-24 px-4 bg-slate-50" aria-labelledby="faq-heading">
+            <section className="py-24 px-4 bg-slate-50 bg-drafting-grid" aria-labelledby="faq-heading">
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
                   {faq.eyebrow && (
-                    <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                    <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                       {faq.eyebrow}
                     </span>
                   )}

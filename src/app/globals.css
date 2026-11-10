@@ -5,11 +5,42 @@
   --color-corporate-light: #e6ebf5;
   --color-orange: #f97316;
   --color-orange-dark: #ea580c;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-space-grotesk), "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --animate-slow-ping: slow-ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-slow-ping-circle: slow-ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+
+  @keyframes slow-ping {
+    0% {
+      box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3), 0 0 0 0 rgba(249, 115, 22, 0.7);
+    }
+    60% {
+      box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3), 0 0 0 14px rgba(249, 115, 22, 0);
+    }
+    100% {
+      box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3), 0 0 0 14px rgba(249, 115, 22, 0);
+    }
+  }
 }
 
 @layer base {
   body {
     @apply bg-slate-50 text-slate-900 antialiased;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Subtle 16px engineering drafting grid in deep slate for light surfaces */
+.bg-drafting-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 16px 16px;
 }

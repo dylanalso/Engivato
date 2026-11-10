@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { getWhoWeServePage } from '../../lib/settings';
+import { SITE_URL, COMPANY_EMAIL, COMPANY_PHONE, formatPhoneSchema } from '../../lib/constants';
 import PageUnavailable from '../../components/PageUnavailable';
+import DraftingStrip from '../../components/DraftingStrip';
 
 const CLIENT_ICONS = [
   <svg key="cl1" className="w-8 h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +50,7 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: 'https://dylanalso.github.io/Engivato/whoWeServe',
+      url: `${SITE_URL}/whoWeServe`,
       siteName: 'Engivato PLLC',
       type: 'website',
     },
@@ -73,7 +75,17 @@ export default async function WhoWeServe() {
     description:
       pageData.seo?.metaDescription ||
       'Mechanical, Electrical, and Plumbing engineering services across Dallas, Fort Worth, Arlington, Plano, Frisco, and the North Texas region.',
-    url: 'https://dylanalso.github.io/Engivato/whoWeServe',
+    url: `${SITE_URL}/whoWeServe`,
+    telephone: formatPhoneSchema(COMPANY_PHONE),
+    email: COMPANY_EMAIL,
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '17:00',
+      },
+    ],
     areaServed: [
       { '@type': 'City', name: 'Dallas' },
       { '@type': 'City', name: 'Fort Worth' },
@@ -96,34 +108,42 @@ export default async function WhoWeServe() {
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-corporate-blue selection:text-white">
         {/* Page Header */}
         {hero?.enabled !== false && (
-          <section className="pt-36 pb-20 bg-white border-b border-slate-200 px-4 relative overflow-hidden" aria-labelledby="whoweserve-hero-title">
+          <header className="pt-36 pb-20 bg-corporate-blue text-white px-4 relative overflow-hidden" aria-labelledby="whoweserve-hero-title">
             <div className="max-w-6xl mx-auto text-center relative z-10">
               {hero.eyebrow && (
-                <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-3 inline-block">
+                <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 inline-block">
                   {hero.eyebrow}
                 </span>
               )}
-              <h1 id="whoweserve-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
-                {hero.headingPrefix}{' '}
-                <span className="text-corporate-blue">{hero.headingHighlight}</span>{' '}
-                {hero.headingSuffix}
+              <h1 id="whoweserve-hero-title" className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                {[hero.headingPrefix, hero.headingHighlight, hero.headingSuffix]
+                  .filter(Boolean)
+                  .join(' ')}
               </h1>
               {hero.description && (
-                <p className="text-slate-600 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+                <p className="text-slate-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
                   {hero.description}
                 </p>
               )}
             </div>
-          </section>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent pointer-events-none" />
+          </header>
         )}
+
+        <DraftingStrip
+          dwg="DWG NO. GEO-300 // DFW-COVERAGE"
+          scale="SCALE: N.T.S."
+          rev="REV 01"
+          zone="GRID: NORTH-TX"
+        />
 
         {/* Regional Service Coverage & Municipalities */}
         {coverage?.enabled !== false && (
-          <section className="py-24 px-4 bg-slate-50 border-b border-slate-200" aria-labelledby="territory-title">
+          <section className="py-24 px-4 bg-slate-50 bg-drafting-grid border-b border-slate-200" aria-labelledby="territory-title">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 {coverage.eyebrow && (
-                  <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                  <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                     {coverage.eyebrow}
                   </span>
                 )}
@@ -140,22 +160,30 @@ export default async function WhoWeServe() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {(coverage.regions || []).map((region, idx) => (
                   <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-4">
-                      <h3 className="text-2xl font-bold text-corporate-blue">{region.county}</h3>
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-4 border-b border-slate-100 pb-4">
+                      <div>
+                        <span
+                          aria-hidden="true"
+                          className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase block mb-0.5"
+                        >
+                          ZONE-{String(idx + 1).padStart(2, '0')} // REV 01
+                        </span>
+                        <h3 className="text-2xl font-bold text-corporate-blue">{region.county}</h3>
+                      </div>
                       {coverage.statusBadge && (
-                        <span className="text-xs font-semibold px-3 py-1 bg-orange/10 text-orange rounded-full">
+                        <span className="font-mono text-xs font-semibold px-3 py-1 bg-orange/10 text-orange rounded-full">
                           {coverage.statusBadge}
                         </span>
                       )}
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed mb-6">{region.desc}</p>
                     <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                      <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                         {coverage.municipalitiesLabel || 'Key Municipalities'}
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {(region.cities || []).map((city, cIdx) => (
-                          <span key={cIdx} className="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-md">
+                          <span key={cIdx} className="font-mono text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-md border border-slate-200/70">
                             {city}
                           </span>
                         ))}
@@ -167,8 +195,14 @@ export default async function WhoWeServe() {
 
               {/* Municipal Code Compliance Callout */}
               {complianceCallout?.enabled !== false && (
-                <div className="mt-12 bg-corporate-blue text-white rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="mt-12 bg-corporate-blue text-white rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8 border border-blue-800/50">
                   <div className="max-w-2xl">
+                    <div
+                      aria-hidden="true"
+                      className="font-mono text-[10px] font-semibold tracking-widest text-orange uppercase mb-2"
+                    >
+                      + DWG NO. AHJ-101 // CODE COMPLIANCE
+                    </div>
                     <h3 className="text-2xl font-bold mb-3">{complianceCallout.heading}</h3>
                     <p className="text-slate-300 text-sm md:text-base leading-relaxed">
                       {complianceCallout.description}
@@ -177,7 +211,7 @@ export default async function WhoWeServe() {
                   {complianceCallout.ctaText && (
                     <Link
                       href="/contact"
-                      className="whitespace-nowrap bg-orange text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-orange/90 transition-all duration-300 shadow-md"
+                      className="whitespace-nowrap bg-orange hover:bg-orange-dark text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:-translate-y-0.5 transition-all duration-300 animate-slow-ping"
                     >
                       {complianceCallout.ctaText}
                     </Link>
@@ -194,7 +228,7 @@ export default async function WhoWeServe() {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 {clientTypes.eyebrow && (
-                  <span className="text-orange font-semibold tracking-wider uppercase text-sm mb-2 block">
+                  <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2 block">
                     {clientTypes.eyebrow}
                   </span>
                 )}
@@ -211,8 +245,16 @@ export default async function WhoWeServe() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {(clientTypes.items || []).map((client, idx) => (
                   <div key={idx} className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-corporate-blue/30 hover:bg-white transition-all duration-300 shadow-sm flex flex-col">
-                    <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center mb-6 shrink-0">
-                      {CLIENT_ICONS[idx % CLIENT_ICONS.length]}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-14 h-14 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
+                        {CLIENT_ICONS[idx % CLIENT_ICONS.length]}
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase"
+                      >
+                        CL-{String(idx + 1).padStart(2, '0')} // N.T.S.
+                      </span>
                     </div>
                     <h3 className="text-xl font-bold text-corporate-blue mb-3">{client.title}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed grow">{client.desc}</p>
@@ -225,7 +267,7 @@ export default async function WhoWeServe() {
 
         {/* Regional Competitive Advantages */}
         {advantage?.enabled !== false && (
-          <section className="py-24 px-4 bg-slate-50" aria-labelledby="why-dfw-title">
+          <section className="py-24 px-4 bg-slate-50 bg-drafting-grid" aria-labelledby="why-dfw-title">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <h2 id="why-dfw-title" className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -241,8 +283,16 @@ export default async function WhoWeServe() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {(advantage.items || []).map((adv, idx) => (
                   <div key={idx} className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                    <div className="text-orange text-2xl font-extrabold mb-3">
-                      {String(idx + 1).padStart(2, '0')}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="font-mono text-orange text-2xl font-bold">
+                        {String(idx + 1).padStart(2, '0')}
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        className="font-mono text-[10px] font-semibold tracking-widest text-slate-400 uppercase"
+                      >
+                        REV 01
+                      </span>
                     </div>
                     <h3 className="text-xl font-bold text-corporate-blue mb-2">{adv.title}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">{adv.desc}</p>

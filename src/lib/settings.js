@@ -152,6 +152,7 @@ export async function getNavigationVisibility() {
     privacy: legal.privacy?.enabled !== false,
     termsOfService: legal.termsOfService?.enabled !== false,
     accessibility: legal.accessibility?.enabled !== false,
+    sitemap: legal.sitemap?.enabled !== false,
   };
 }
 

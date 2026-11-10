@@ -15,7 +15,10 @@ export default function Hero({ data = {} }) {
   } = data;
 
   return (
-    <main className="relative flex flex-col justify-center items-center text-center min-h-screen px-4 overflow-hidden">
+    <section
+      aria-label="Hero"
+      className="relative flex flex-col justify-between items-center text-center min-h-screen pt-28 pb-10 md:pt-32 md:pb-14 px-4 overflow-hidden"
+    >
       {/* Background Visual Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -27,35 +30,34 @@ export default function Hero({ data = {} }) {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+      {/* Bottom White-to-Transparent Contrast Gradient */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 sm:h-64 md:h-72 z-10 bg-linear-to-t from-white via-white/90 to-transparent" />
+
+      {/* Centered Headline & Call-to-Action Group */}
+      <div className="relative z-20 max-w-4xl mx-auto my-auto py-8 flex flex-col items-center">
         {/* Eyebrow Badge */}
         {badge && (
-          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-corporate-blue/20 bg-corporate-light text-xs font-medium text-corporate-blue uppercase tracking-widest shadow-sm">
-            {badge}
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-corporate-blue/25 bg-corporate-light text-xs font-mono font-semibold text-corporate-blue uppercase tracking-widest shadow-sm">
+            <span aria-hidden="true" className="text-orange font-bold">+</span>
+            <span>{badge}</span>
+            <span aria-hidden="true" className="text-corporate-blue/40 hidden sm:inline">// REV 01</span>
           </div>
         )}
 
         {/* Primary Headline */}
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-slate-900 drop-shadow-sm">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-10 leading-tight text-slate-900 drop-shadow-sm">
           {headingLine1} <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-linear-to-r from-corporate-blue to-blue-700">
             {headingHighlight}
           </span>
         </h1>
 
-        {/* Introductory Copy */}
-        {subtitle && (
-          <p className="text-lg md:text-xl font-medium text-slate-900 mb-10 max-w-2xl leading-relaxed tracking-tight">
-            {subtitle}
-          </p>
-        )}
-
         {/* Call-to-Action Buttons */}
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full sm:w-auto">
           {primaryCtaText && (
             <Link
               href={primaryCtaHref || '/contact'}
-              className="inline-block px-8 py-4 bg-orange hover:bg-orange-dark text-white rounded-lg font-bold shadow-lg shadow-orange/30 hover:shadow-orange/50 hover:-translate-y-1 transition-all duration-300"
+              className="inline-block px-8 py-4 bg-orange hover:bg-orange-dark text-white rounded-lg font-bold hover:-translate-y-1 transition-all duration-300 animate-slow-ping"
             >
               {primaryCtaText}
             </Link>
@@ -71,6 +73,15 @@ export default function Hero({ data = {} }) {
           )}
         </div>
       </div>
-    </main>
+
+      {/* Bottom-Anchored Introductory Copy */}
+      {subtitle && (
+        <div className="relative z-20 max-w-3xl mx-auto pt-8 px-2">
+          <p className="text-base sm:text-lg md:text-xl font-medium text-slate-800 leading-relaxed tracking-tight">
+            {subtitle}
+          </p>
+        </div>
+      )}
+    </section>
   );
 }

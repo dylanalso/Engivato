@@ -12,12 +12,19 @@
   },
   "channels": {
     "enabled": true,
+    "phoneLabel": "Direct Phone",
+    "phoneNumber": "2147894783",
+    "hoursLabel": "Call Schedule & Hours",
+    "businessHours": "Monday - Friday, 8:00 AM - 5:00 PM CST",
     "emailLabel": "Direct Inquiries",
     "emailAddress": "admin@engivato.com",
     "coverageLabel": "Service Coverage",
-    "coverageValue": "Dallas–Fort Worth & North Texas",
+    "coverageValue": "Dallas-Fort Worth & North Texas",
     "responseLabel": "Response Commitment",
-    "responseValue": "< 24 Hour Initial Proposal Review"
+    "responseValue": "< 24 Hour Initial Proposal Review",
+    "showCallNowButton": true,
+    "callNowText": "Call Now",
+    "callNowSubtext": "Speak directly with our engineering team • Monday - Friday, 8:00 AM - 5:00 PM CST"
   },
   "formSection": {
     "enabled": true,
