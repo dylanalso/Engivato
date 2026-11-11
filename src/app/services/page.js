@@ -42,6 +42,54 @@ const CAPABILITY_ICONS = [
   </svg>,
 ];
 
+const STANDARD_METADATA = {
+  'autodesk revit mep': {
+    href: 'https://www.autodesk.com/products/revit/mep',
+    note: '3D BIM modeling, multi-discipline routing & clash detection',
+  },
+  autocad: {
+    href: 'https://www.autodesk.com/products/autocad/overview',
+    note: '2D CAD drafting, one-line schematics & permit detail sheets',
+  },
+  'ashrae 90.1 / 62.1': {
+    href: 'https://www.ashrae.org/technical-resources/bookstore/standard-90-1',
+    note: 'Commercial building energy efficiency & indoor ventilation standards',
+  },
+  'international building code (ibc)': {
+    href: 'https://codes.iccsafe.org/codes/i-codes',
+    note: 'Life-safety, occupancy classification & mechanical shaft compliance',
+  },
+  'international energy conservation code (iecc)': {
+    href: 'https://codes.iccsafe.org/codes/i-codes',
+    note: 'Texas municipal commercial & residential energy code compliance',
+  },
+  'national electrical code (nec / nfpa 70)': {
+    href: 'https://www.nfpa.org/codes-and-standards/nfpa-70-standard-development/70',
+    note: 'Electrical power distribution, feeder sizing & overcurrent protection',
+  },
+  'uniform plumbing code (upc / ipc)': {
+    href: 'https://uniformcodes.org/plumbing-codes/#ipc-vs-upc',
+    note: 'Sanitary waste, vent, domestic water & grease interceptor sizing',
+  },
+  'nfpa 13 / 14 / 20 / 72': {
+    href: 'https://www.nfpa.org/for-professionals/codes-and-standards',
+    note: 'Fire protection coordination, standpipes, fire pumps & life-safety',
+  },
+  'comcheck & rescheck': {
+    href: 'https://www.energycodes.gov/comcheck',
+    note: 'U.S. DOE energy compliance documentation for city permit submittals',
+  },
+  'trace 3d plus': {
+    href: 'https://www.trane.com/commercial/north-america/us/en/products-systems/design-and-analysis-tools/trane-design-tools/trace-3d-plus.html',
+    note: 'Hourly thermal load calculations & HVAC energy simulation',
+  },
+};
+
+function getStandardInfo(badge = '') {
+  const key = badge.trim().toLowerCase();
+  return STANDARD_METADATA[key] || null;
+}
+
 export async function generateMetadata() {
   const servicesData = await getServicesPage();
   const title =
@@ -360,29 +408,91 @@ export default async function Services() {
                   )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-                  {(processSection.phases || []).map((stage, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300"
-                    >
-                      <div>
-                        <div className="font-mono text-xs font-bold text-orange tracking-widest uppercase mb-2">
-                          {stage.step}
+                {/* Alternating Vertical Timeline */}
+                <div className="relative max-w-4xl mx-auto">
+                  {/* Central Spine Line (Left-aligned on mobile, centered on md+) */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute top-6 bottom-6 left-5 md:left-1/2 md:-translate-x-1/2 w-0.5 bg-slate-300"
+                  />
+
+                  <div className="space-y-8 md:space-y-0">
+                    {(processSection.phases || []).map((stage, idx) => {
+                      const isEven = idx % 2 === 0;
+                      return (
+                        <div
+                          key={idx}
+                          className={`relative flex items-center md:justify-between ${
+                            idx > 0 ? 'md:-mt-20' : ''
+                          } ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                        >
+                          {/* Square Phase Card Wrapper */}
+                          <div
+                            className={`w-full pl-14 md:pl-0 md:w-[calc(50%-2.75rem)] flex ${
+                              isEven ? 'md:justify-end' : 'md:justify-start'
+                            }`}
+                          >
+                            <div className="group w-full max-w-[290px] aspect-square bg-white p-6 rounded-2xl border border-slate-200/90 hover:border-corporate-blue/50 shadow-sm hover:shadow-md relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300">
+                              {/* Horizontal Connector Line (Mobile: Left to Spine | Desktop: Card Edge to Center Node) */}
+                              <span
+                                aria-hidden="true"
+                                className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-0.5 w-6 bg-slate-300 group-hover:bg-orange transition-colors ${
+                                  isEven ? '-right-6' : '-left-6'
+                                }`}
+                              />
+                              <span
+                                aria-hidden="true"
+                                className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-orange ring-2 ring-white ${
+                                  isEven ? '-right-1' : '-left-1'
+                                }`}
+                              />
+
+                              <div>
+                                <div className="flex items-center justify-between gap-2 mb-2">
+                                  <span className="font-mono text-xs font-bold text-orange tracking-widest uppercase">
+                                    {stage.step}
+                                  </span>
+                                  <span
+                                    aria-hidden="true"
+                                    className="font-mono text-[10px] font-semibold text-slate-400 tracking-widest uppercase"
+                                  >
+                                    DWG P-{String(idx + 1).padStart(2, '0')}
+                                  </span>
+                                </div>
+                                <h3 className="text-base font-bold text-corporate-blue mb-2.5 leading-snug">
+                                  {stage.title}
+                                </h3>
+                                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                                  {stage.summary}
+                                </p>
+                              </div>
+
+                              <div className="pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-[11px] font-semibold text-corporate-blue">
+                                <span>Milestone {idx + 1}</span>
+                                <span aria-hidden="true" className="text-slate-400">
+                                  REV 01
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Center Spine Node + Mobile Horizontal Connector */}
+                          <div
+                            aria-hidden="true"
+                            className="absolute left-5 md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                          >
+                            <div className="relative w-10 h-10 rounded-xl bg-corporate-blue text-white border-2 border-white shadow-md flex items-center justify-center font-mono text-xs font-bold tracking-wider">
+                              {String(idx + 1).padStart(2, '0')}
+                              <span className="md:hidden absolute left-full top-1/2 -translate-y-1/2 h-0.5 w-4 bg-slate-300" />
+                            </div>
+                          </div>
+
+                          {/* Spacer for Opposite Side on Desktop */}
+                          <div className="hidden md:block md:w-[calc(50%-2.75rem)]" />
                         </div>
-                        <h3 className="text-base font-bold text-slate-900 mb-3">
-                          {stage.title}
-                        </h3>
-                        <p className="text-xs text-slate-600 leading-relaxed">
-                          {stage.summary}
-                        </p>
-                      </div>
-                      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between font-mono text-[11px] font-semibold text-corporate-blue">
-                        <span>Milestone {idx + 1}</span>
-                        <span aria-hidden="true" className="text-slate-400">REV 01</span>
-                      </div>
-                    </div>
-                  ))}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </section>
@@ -396,14 +506,60 @@ export default async function Services() {
                   {standards.heading}
                 </h3>
                 <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 font-mono text-xs font-semibold text-slate-700">
-                  {(standards.badges || []).map((badge, bIdx) => (
-                    <span
-                      key={bIdx}
-                      className="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:border-corporate-blue hover:text-corporate-blue transition-colors"
-                    >
-                      {badge}
-                    </span>
-                  ))}
+                  {(standards.badges || []).map((badge, bIdx) => {
+                    const info = getStandardInfo(badge);
+                    if (!info) {
+                      return (
+                        <span
+                          key={bIdx}
+                          className="px-4 py-2 rounded-full bg-slate-50 border border-slate-200"
+                        >
+                          {badge}
+                        </span>
+                      );
+                    }
+
+                    return (
+                      <a
+                        key={bIdx}
+                        href={info.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 hover:border-corporate-blue hover:bg-corporate-light/40 hover:text-corporate-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corporate-blue transition-all"
+                      >
+                        <span>{badge}</span>
+                        <svg
+                          aria-hidden="true"
+                          className="w-3 h-3 text-slate-400 group-hover:text-orange group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+
+                        {/* Hover / Focus CAD Spec Tooltip */}
+                        <span
+                          role="tooltip"
+                          className="pointer-events-none opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200 absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 w-60 p-2.5 rounded-xl bg-corporate-blue text-white font-sans text-[11px] font-normal leading-snug shadow-xl border border-white/15 z-20 text-center"
+                        >
+                          <span className="block font-mono text-[9px] text-orange uppercase tracking-widest font-semibold mb-0.5">
+                            Official Standard / Tool ↗
+                          </span>
+                          {info.note}
+                          <span
+                            aria-hidden="true"
+                            className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-corporate-blue"
+                          />
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </section>

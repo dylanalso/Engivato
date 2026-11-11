@@ -11,7 +11,7 @@ export default function Hero({ data = {} }) {
     primaryCtaText = 'Start Your Project',
     primaryCtaHref = '/contact',
     secondaryCtaText = 'See Who We Serve',
-    secondaryCtaHref = '/whoWeServe',
+    secondaryCtaHref = '/who-we-serve',
   } = data;
 
   return (
@@ -65,7 +65,7 @@ export default function Hero({ data = {} }) {
 
           {secondaryCtaText && (
             <Link
-              href={secondaryCtaHref || '/whoWeServe'}
+              href={secondaryCtaHref || '/who-we-serve'}
               className="inline-block px-8 py-4 bg-white text-corporate-blue rounded-lg font-bold border border-corporate-blue/30 hover:bg-corporate-light hover:-translate-y-1 transition-all duration-300 shadow-sm"
             >
               {secondaryCtaText}

@@ -314,7 +314,7 @@ export default async function Home() {
             {partners.ctaText && (
               <div className="text-center">
                 <Link
-                  href={partners.ctaHref || '/whoWeServe'}
+                  href={partners.ctaHref || '/who-we-serve'}
                   className="inline-flex items-center gap-2 text-corporate-blue hover:text-orange font-semibold text-sm transition-colors duration-200"
                 >
                   <span>{partners.ctaText}</span>

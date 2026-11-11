@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { href: '/about', label: 'About', key: 'about' },
   { href: '/projects', label: 'Projects', key: 'projects' },
   { href: '/services', label: 'Services', key: 'services' },
-  { href: '/whoWeServe', label: 'Who We Serve', key: 'whoWeServe' },
+  { href: '/who-we-serve', label: 'Who We Serve', key: 'whoWeServe' },
 ];
 
 export default function Navbar({ isUnderConstruction = false, pageVisibility = {} }) {
@@ -77,7 +77,9 @@ export default function Navbar({ isUnderConstruction = false, pageVisibility = {
           <Image
             className={`h-auto transition-all duration-300 ${isScrolled ? 'w-8' : 'w-10'}`}
             src={logo}
-            alt=""
+            alt="Company Logo"
+            width={40}
+            height={40}
             priority
           />
           <span

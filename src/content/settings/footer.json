@@ -7,7 +7,7 @@
     "primaryCtaText": "Contact Our Engineering Team",
     "primaryCtaHref": "/contact",
     "secondaryCtaText": "See Who We Serve",
-    "secondaryCtaHref": "/whoWeServe"
+    "secondaryCtaHref": "/who-we-serve"
   },
   "contactBar": {
     "enabled": true,

@@ -16,8 +16,8 @@ const DEFAULT_SERVICES = [
     enabled: true,
     title: 'Electrical Engineering',
     badge: 'Discipline 02',
-    tagline: 'Power distribution & lighting design',
-    desc: 'Electrical power distribution design, lighting and lighting controls, load calculations, and cross-system equipment coordination.',
+    tagline: 'Power & lighting via licensed partners',
+    desc: 'Coordinated and delivered through trusted licensed electrical engineering partners, covering power distribution design, lighting and controls, load calculations, and cross-system equipment coordination.',
     anchor: 'electrical',
     deliverables: ['Power Distribution Design', 'Lighting & Controls', 'Load Calculations & Coordination'],
     order: 2,
@@ -26,8 +26,8 @@ const DEFAULT_SERVICES = [
     enabled: true,
     title: 'Plumbing Engineering',
     badge: 'Discipline 03',
-    tagline: 'Domestic water & sanitary drainage',
-    desc: 'Domestic water distribution, sanitary waste and vent systems, fixture and equipment selection, plumbing layouts, and construction documents.',
+    tagline: 'Water & sanitary via licensed partners',
+    desc: 'Coordinated and delivered through trusted licensed plumbing engineering partners, covering domestic water distribution, sanitary waste and vent systems, fixture selection, and construction documents.',
     anchor: 'plumbing',
     deliverables: ['Domestic Water Systems', 'Sanitary Waste & Vent', 'Plumbing Calculations & Layouts'],
     order: 3,
@@ -171,7 +171,7 @@ export default async function Services({ sectionData = {} }) {
             return (
               <div
                 key={service.title || index}
-                className="group bg-slate-50 bg-drafting-grid p-6 rounded-2xl border border-slate-200/90 hover:border-corporate-blue/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between relative"
+                className="group bg-slate-50 bg-drafting-grid px-5 py-6 rounded-2xl border border-slate-200/90 hover:border-corporate-blue/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between relative"
               >
                 <div>
                   {/* Card Header: Icon & Discipline Badge */}
@@ -196,11 +196,11 @@ export default async function Services({ sectionData = {} }) {
 
                   {/* Discipline Tagline */}
                   {service.tagline ? (
-                    <p className="text-xs font-mono font-semibold text-orange mb-2.5 min-h-5 flex items-center">
+                    <p className="text-xs font-mono font-semibold text-orange mb-2.5 min-h-8 flex items-start">
                       {service.tagline}
                     </p>
                   ) : (
-                    <div className="mb-2.5 min-h-5" />
+                    <div className="mb-2.5 min-h-8" />
                   )}
 
                   {/* Discipline Summary */}
@@ -216,7 +216,7 @@ export default async function Services({ sectionData = {} }) {
                       {service.deliverables.slice(0, 3).map((item, dIdx) => (
                         <span
                           key={dIdx}
-                          className="text-[11px] font-mono font-medium text-slate-600 bg-white border border-slate-200/80 px-2.5 py-0.5 rounded w-fit"
+                          className="text-[10.5px] tracking-tight font-mono font-medium text-slate-600 bg-white border border-slate-200/80 px-2 py-0.5 rounded w-fit whitespace-nowrap"
                         >
                           {item}
                         </span>
@@ -228,16 +228,13 @@ export default async function Services({ sectionData = {} }) {
                   <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between">
                     <Link
                       href={targetUrl}
-                      className="inline-flex items-center text-sm font-semibold text-corporate-blue group-hover:text-orange transition-colors"
+                      className="inline-flex items-center text-sm font-semibold text-corporate-blue group-hover:text-orange transition-colors whitespace-nowrap"
                     >
                       <span>{getDisciplineLinkLabel(anchor, service.title)}</span>
                       <svg className="w-4 h-4 ml-1 shrink-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
                     </Link>
-                    <span aria-hidden="true" className="text-[9px] font-mono text-slate-400 uppercase tracking-widest hidden xl:inline">
-                      N.T.S.
-                    </span>
                   </div>
                 </div>
               </div>

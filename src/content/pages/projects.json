@@ -69,7 +69,7 @@
         "desc": "Tenant improvements require rapid turnaround times, constructible layouts, and flexible power and HVAC zoning to meet aggressive move-in schedules and local energy codes.",
         "scopes": [
           "Complete MEP tenant improvement construction drawings",
-          "Title 24 / IECC automated lighting controls and occupancy sensors",
+          "IECC automated lighting controls and occupancy sensors",
           "Zoned VAV / VRF thermal comfort and thermostat redistribution",
           "Flexible electrical branch circuit wiring and server room power circuits",
           "Expedited municipal permit turnaround and plan check response"

@@ -35,7 +35,7 @@ export default function Footer({
     primaryCtaText: 'Contact Our Engineering Team',
     primaryCtaHref: '/contact',
     secondaryCtaText: 'See Who We Serve',
-    secondaryCtaHref: '/whoWeServe',
+    secondaryCtaHref: '/who-we-serve',
   };
 
   const contactBar = footerData.contactBar || {
@@ -65,7 +65,7 @@ export default function Footer({
 
   const isHrefEnabled = (href = '') => {
     if (href.startsWith('/contact')) return pageVisibility.contact !== false;
-    if (href.startsWith('/whoWeServe')) return pageVisibility.whoWeServe !== false;
+    if (href.startsWith('/who-we-serve')) return pageVisibility.whoWeServe !== false;
     if (href.startsWith('/services')) return pageVisibility.services !== false;
     if (href.startsWith('/projects')) return pageVisibility.projects !== false;
     if (href.startsWith('/about')) return pageVisibility.about !== false;
@@ -110,9 +110,9 @@ export default function Footer({
                     {ctaBanner.primaryCtaText}
                   </Link>
                 )}
-                {ctaBanner.secondaryCtaText && isHrefEnabled(ctaBanner.secondaryCtaHref || '/whoWeServe') && (
+                {ctaBanner.secondaryCtaText && isHrefEnabled(ctaBanner.secondaryCtaHref || '/who-we-serve') && (
                   <Link
-                    href={ctaBanner.secondaryCtaHref || '/whoWeServe'}
+                    href={ctaBanner.secondaryCtaHref || '/who-we-serve'}
                     className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-300 backdrop-blur-sm"
                   >
                     {ctaBanner.secondaryCtaText}
@@ -180,7 +180,7 @@ export default function Footer({
               {pageVisibility.termsOfService !== false && (
                 <>
                   <span aria-hidden="true" className="text-white/25">|</span>
-                  <Link href="/termsOfService" className="whitespace-nowrap hover:text-orange transition-colors">
+                  <Link href="/terms-of-service" className="whitespace-nowrap hover:text-orange transition-colors">
                     Terms of Service
                   </Link>
                 </>

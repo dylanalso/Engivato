@@ -113,7 +113,7 @@ export default config({
             }),
             secondaryCtaHref: fields.text({
               label: 'Secondary Button Link',
-              defaultValue: '/whoWeServe',
+              defaultValue: '/who-we-serve',
             }),
           },
           { label: '1. Hero Section' }
@@ -324,12 +324,12 @@ export default config({
             ),
             ctaText: fields.text({
               label: 'Bottom Link Text',
-              description: '🔍 SEO Internal Link Anchor: Descriptive link text to /whoWeServe.',
+              description: '🔍 SEO Internal Link Anchor: Descriptive link text to /who-we-serve.',
               defaultValue: 'Explore all client & partner capabilities',
             }),
             ctaHref: fields.text({
               label: 'Bottom Link URL',
-              defaultValue: '/whoWeServe',
+              defaultValue: '/who-we-serve',
             }),
           },
           { label: '6. Project Partners Section' }
@@ -1175,7 +1175,7 @@ export default config({
         pageEnabled: fields.checkbox({
           label: 'Enable Who We Serve Page (Show in Navigation & Allow Public Access)',
           description:
-            '⚠️ SEO & Navigation Impact (Critical - Local SEO): Unchecking this hides "Who We Serve" from the top navigation menu, sets "noindex" for search engines, and displays a friendly "Page Unavailable" screen if someone visits /whoWeServe directly.',
+            '⚠️ SEO & Navigation Impact (Critical - Local SEO): Unchecking this hides "Who We Serve" from the top navigation menu, sets "noindex" for search engines, and displays a friendly "Page Unavailable" screen if someone visits /who-we-serve directly.',
           defaultValue: true,
         }),
         seo: fields.object(
@@ -1532,7 +1532,7 @@ export default config({
             callNowSubtext: fields.text({
               label: '"Call Now" Helper Subtext',
               defaultValue:
-                'Speak directly with our engineering team • Monday - Friday, 8:00 AM - 5:00 PM CST',
+                'Speak directly with our engineering team | Monday - Friday, 8:00 AM - 5:00 PM CST',
             }),
           },
           { label: '2. Direct Communication Channels Strip' }
@@ -1691,7 +1691,7 @@ export default config({
             enabled: fields.checkbox({
               label: 'Enable Terms of Service Page (Show in Footer & Allow Public Access)',
               description:
-                '⚠️ Trust & Compliance Impact: Unchecking hides "Terms of Service" from the footer links, sets "noindex", and displays a friendly "Page Unavailable" notice at /termsOfService.',
+                '⚠️ Trust & Compliance Impact: Unchecking hides "Terms of Service" from the footer links, sets "noindex", and displays a friendly "Page Unavailable" notice at /terms-of-service.',
               defaultValue: true,
             }),
             metaTitle: fields.text({
@@ -1727,7 +1727,7 @@ export default config({
               }
             ),
           },
-          { label: '2. Terms of Service Page (/termsOfService)' }
+          { label: '2. Terms of Service Page (/terms-of-service)' }
         ),
 
         accessibility: fields.object(
@@ -1861,7 +1861,7 @@ export default config({
             }),
             secondaryCtaHref: fields.text({
               label: 'Secondary Button Link',
-              defaultValue: '/whoWeServe',
+              defaultValue: '/who-we-serve',
             }),
           },
           { label: '1. Pre-Footer CTA Banner' }

@@ -50,12 +50,12 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/whoWeServe`,
+      url: `${SITE_URL}/who-we-serve`,
       siteName: 'Engivato PLLC',
       type: 'website',
     },
     alternates: {
-      canonical: '/whoWeServe',
+      canonical: '/who-we-serve',
     },
     ...(pageData.pageEnabled === false ? { robots: { index: false, follow: false } } : {}),
   };
@@ -75,7 +75,7 @@ export default async function WhoWeServe() {
     description:
       pageData.seo?.metaDescription ||
       'Mechanical, Electrical, and Plumbing engineering services across Dallas, Fort Worth, Arlington, Plano, Frisco, and the North Texas region.',
-    url: `${SITE_URL}/whoWeServe`,
+    url: `${SITE_URL}/who-we-serve`,
     telephone: formatPhoneSchema(COMPANY_PHONE),
     email: COMPANY_EMAIL,
     openingHoursSpecification: [
@@ -306,3 +306,4 @@ export default async function WhoWeServe() {
     </>
   );
 }
+

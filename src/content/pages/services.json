@@ -59,8 +59,8 @@
         "id": "electrical",
         "badge": "Discipline 02",
         "title": "Electrical Engineering",
-        "tagline": "Safe, reliable power distribution, lighting design, and cross-discipline coordination.",
-        "description": "Our electrical engineers deliver safe, scalable, and code-compliant electrical power systems. We provide comprehensive power distribution design, interior and exterior lighting, lighting controls, and thorough coordination with mechanical, plumbing, architectural, and structural building elements.",
+        "tagline": "Safe, reliable power distribution, lighting design, and cross-discipline coordination delivered with our licensed engineering partners.",
+        "description": "Coordinated and delivered in partnership with trusted licensed electrical engineering partners, we provide safe, scalable, and code-compliant electrical power systems. Engivato oversees cross-discipline integration across power distribution design, interior and exterior lighting, lighting controls, and coordination with mechanical, plumbing, architectural, and structural building elements.",
         "features": [
           "Electrical Power Distribution Design & Service Sizing",
           "Lighting Layouts & Intelligent Lighting Controls",
@@ -74,8 +74,8 @@
         "id": "plumbing",
         "badge": "Discipline 03",
         "title": "Plumbing Engineering",
-        "tagline": "Domestic water distribution, sanitary waste systems, and specialized piping.",
-        "description": "We design sanitary, waste, vent, and domestic water systems that ensure public health, water conservation, and long-term operating durability. Our designs cover domestic water distribution, commercial kitchen grease interceptors, natural gas piping, and multi-discipline building coordination.",
+        "tagline": "Domestic water distribution, sanitary waste systems, and specialized piping delivered with our licensed engineering partners.",
+        "description": "Coordinated and delivered in partnership with trusted licensed plumbing engineering partners, we provide sanitary, waste, vent, and domestic water systems that ensure public health, water conservation, and long-term operating durability. Engivato coordinates domestic water distribution, commercial kitchen grease interceptors, natural gas piping, and multi-discipline building integration.",
         "features": [
           "Domestic Water Distribution Systems & Recirculation Loops",
           "Sanitary Waste & Vent Systems Layout & Sizing",
@@ -191,7 +191,7 @@
     "items": [
       {
         "question": "Do you provide stamped and sealed engineering drawings?",
-        "answer": "Yes. All final construction document sets are stamped and sealed by licensed Professional Engineers (PE), meeting the legal permitting criteria for local municipal and state building departments."
+        "answer": "Yes. All final construction document sets are stamped and sealed by Texas-licensed Professional Engineers (P.E.) in full compliance with TBPELS regulations, with mechanical engineering sealed in-house and electrical and plumbing engineering scopes coordinated and sealed through our trusted licensed engineering partners."
       },
       {
         "question": "Can you deliver project models in Autodesk Revit?",

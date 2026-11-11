@@ -12,7 +12,7 @@
     "primaryCtaText": "Start Your Project",
     "primaryCtaHref": "/contact",
     "secondaryCtaText": "See Who We Serve",
-    "secondaryCtaHref": "/whoWeServe"
+    "secondaryCtaHref": "/who-we-serve"
   },
   "overview": {
     "enabled": true,
@@ -91,7 +91,7 @@
       }
     ],
     "ctaText": "Explore all client & partner capabilities",
-    "ctaHref": "/whoWeServe"
+    "ctaHref": "/who-we-serve"
   }
 }
 

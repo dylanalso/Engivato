@@ -24,7 +24,7 @@
     "responseValue": "< 24 Hour Initial Proposal Review",
     "showCallNowButton": true,
     "callNowText": "Call Now",
-    "callNowSubtext": "Speak directly with our engineering team • Monday - Friday, 8:00 AM - 5:00 PM CST"
+    "callNowSubtext": "Speak directly with our engineering team | Monday - Friday, 8:00 AM - 5:00 PM CST"
   },
   "formSection": {
     "enabled": true,
@@ -68,7 +68,7 @@
       },
       {
         "question": "Are all drawings stamped by a licensed P.E.?",
-        "answer": "Yes. All final construction documents are sealed by licensed Professional Engineers conforming to Texas municipal building codes."
+        "answer": "Yes. All final construction documents are sealed by Texas-licensed Professional Engineers conforming to municipal building codes, with mechanical engineering sealed in-house and electrical and plumbing scopes coordinated through our licensed engineering partners."
       }
     ]
   }

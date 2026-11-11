@@ -52,12 +52,12 @@ export async function generateMetadata() {
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/termsOfService`,
+      url: `${SITE_URL}/terms-of-service`,
       siteName: 'Engivato PLLC',
       type: 'website',
     },
     alternates: {
-      canonical: '/termsOfService',
+      canonical: '/terms-of-service',
     },
     ...(termsOfService?.enabled === false ? { robots: { index: false, follow: false } } : {}),
   };
@@ -93,7 +93,7 @@ export default async function TermsOfService() {
     description:
       termsOfService?.metaDescription ||
       'Terms of Service governing the Engivato PLLC website and engineering inquiry submissions.',
-    url: `${SITE_URL}/termsOfService`,
+    url: `${SITE_URL}/terms-of-service`,
     publisher: {
       '@type': 'EngineeringBusiness',
       name: 'Engivato PLLC',
@@ -116,7 +116,7 @@ export default async function TermsOfService() {
           aria-labelledby="tos-hero-title"
         >
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <span className="text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 inline-block">
+            <span className="font-mono text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 inline-block">
               Legal & Professional Terms
             </span>
             <h1
@@ -137,7 +137,7 @@ export default async function TermsOfService() {
           <div className="max-w-4xl mx-auto space-y-10">
             {/* Overview & Introductory Clauses */}
             <section
-              id="termsOfService"
+              id="terms-of-service"
               aria-label="Terms Overview"
               className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200"
             >
@@ -184,7 +184,7 @@ export default async function TermsOfService() {
                   >
                     Call {formatPhoneDisplay(COMPANY_PHONE)}
                   </a>
-                  <span className="text-slate-300">•</span>
+                  <span className="text-slate-300">|</span>
                   <a
                     href={`mailto:${COMPANY_EMAIL}`}
                     className="text-corporate-blue hover:text-orange transition-colors"
@@ -193,7 +193,7 @@ export default async function TermsOfService() {
                   </a>
                   {visibility.privacy && (
                     <>
-                      <span className="text-slate-300">•</span>
+                      <span className="text-slate-300">|</span>
                       <Link
                         href="/privacy"
                         className="text-slate-600 hover:text-corporate-blue underline"
@@ -220,3 +220,4 @@ export default async function TermsOfService() {
     </>
   );
 }
+

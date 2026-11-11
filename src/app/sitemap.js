@@ -25,7 +25,7 @@ export default async function sitemap() {
       enabled: visibility.services,
     },
     {
-      url: `${BASE_URL}/whoWeServe/`,
+      url: `${BASE_URL}/who-we-serve/`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
@@ -67,7 +67,7 @@ export default async function sitemap() {
       enabled: visibility.privacy,
     },
     {
-      url: `${BASE_URL}/termsOfService/`,
+      url: `${BASE_URL}/terms-of-service/`,
       lastModified,
       changeFrequency: 'yearly',
       priority: 0.3,

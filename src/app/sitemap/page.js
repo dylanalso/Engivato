@@ -94,7 +94,7 @@ export default async function SitemapPage() {
       key: 'whoWeServe',
       enabled: visibility.whoWeServe,
       title: 'Who We Serve',
-      href: '/whoWeServe',
+      href: '/who-we-serve',
       badge: 'Clients & DFW Coverage',
       description:
         'How we partner with architects, general contractors, commercial developers, and franchise owners across Dallas-Fort Worth and North Texas.',
@@ -136,7 +136,7 @@ export default async function SitemapPage() {
     {
       enabled: visibility.termsOfService,
       title: 'Terms of Service',
-      href: '/termsOfService',
+      href: '/terms-of-service',
       description: 'Terms and conditions governing the use of the Engivato PLLC website and materials.',
     },
     {
