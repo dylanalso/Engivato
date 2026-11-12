@@ -1,0 +1,32 @@
+{
+  "underConstruction": false,
+  "previewInDev": false,
+  "heading": "Engineering High-Performance Solutions That Perform",
+  "subheading": "Website Under Construction • Launching Soon",
+  "description": "We are currently building our full digital platform. Engivato PLLC delivers licensed Mechanical, Electrical, and Plumbing (MEP) consulting, stamped permit drawings, and fast-track tenant fit-out engineering across Texas.",
+  "showFeatureCards": true,
+  "featureCards": [
+    {
+      "badge": "01",
+      "title": "MEP Engineering",
+      "desc": "Precision mechanical, electrical, and plumbing engineering designed for constructibility."
+    },
+    {
+      "badge": "02",
+      "title": "Consulting & Review",
+      "desc": "MEP coordination, 3D clash-resolution support, constructability design reviews, and quality assurance."
+    },
+    {
+      "badge": "03",
+      "title": "Commercial Fit-Outs",
+      "desc": "Agile turnarounds for restaurants, commercial office finish-outs, and multifamily projects across Texas."
+    }
+  ],
+  "showContactCard": true,
+  "contactCardHeading": "Have an active project or RFP?",
+  "contactCardDescription": "Our engineering team is actively accepting project inquiries and architectural drawings for review.",
+  "contactCardButtonText": "Email Our Engineering Team",
+  "contactPhone": "2147894783",
+  "businessHours": "Monday - Friday, 8:00 AM - 5:00 PM CST",
+  "footerNote": "Licensed Engineering Consultation in Texas"
+}

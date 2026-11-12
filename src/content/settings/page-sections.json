@@ -1,0 +1,45 @@
+{
+  "home": {
+    "showHero": true,
+    "showOverview": true,
+    "showServices": true,
+    "showProcess": true,
+    "showWhyUs": true,
+    "showTestimonials": true
+  },
+  "about": {
+    "showHero": true,
+    "showStory": true,
+    "showDisciplines": true,
+    "showValues": true,
+    "showTeam": true
+  },
+  "services": {
+    "showHero": true,
+    "showValueProps": true,
+    "showDisciplines": true,
+    "showCapabilities": true,
+    "showProcess": true,
+    "showStandards": true,
+    "showFaq": true
+  },
+  "projects": {
+    "showHero": true,
+    "showHighlights": true,
+    "showShowcase": false,
+    "showSectors": true
+  },
+  "whoWeServe": {
+    "showHero": true,
+    "showCoverage": true,
+    "showComplianceCallout": true,
+    "showClientTypes": true,
+    "showAdvantage": true
+  },
+  "contact": {
+    "showHero": true,
+    "showChannels": true,
+    "showForm": true,
+    "showSidebar": true
+  }
+}

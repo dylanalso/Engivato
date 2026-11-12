@@ -1,0 +1,126 @@
+{
+  "pageEnabled": true,
+  "seo": {
+    "metaTitle": "Who We Serve | Dallas-Fort Worth (DFW) MEP Engineering | Engivato PLLC",
+    "metaDescription": "Engivato PLLC provides high-performance Mechanical, Electrical, and Plumbing (MEP) engineering solutions across the Dallas-Fort Worth (DFW) metroplex and North Texas."
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "Regional Engineering Leadership",
+    "headingPrefix": "Serving the",
+    "headingHighlight": "Dallas-Fort Worth",
+    "headingSuffix": "Metroplex & Beyond",
+    "description": "Engivato PLLC provides specialized Mechanical, Electrical, and Plumbing (MEP) engineering solutions for architects, contractors, and owners navigating North Texas's dynamic building landscape."
+  },
+  "coverage": {
+    "enabled": true,
+    "eyebrow": "Local Presence, Proven Expertise",
+    "heading": "Our DFW Service Coverage",
+    "description": "North Texas municipalities each maintain unique permitting processes, local amendments, and energy standards. We ensure your plans pass reviews swiftly.",
+    "statusBadge": "Active Coverage",
+    "municipalitiesLabel": "Key Municipalities",
+    "regions": [
+      {
+        "county": "Dallas County",
+        "cities": [
+          "Dallas",
+          "Irving",
+          "Richardson",
+          "Garland",
+          "Grand Prairie"
+        ],
+        "desc": "Comprehensive engineering for urban redevelopments, commercial towers, healthcare clinics, and dynamic tenant spaces across Dallas."
+      },
+      {
+        "county": "Tarrant County",
+        "cities": [
+          "Fort Worth",
+          "Arlington",
+          "Grapevine",
+          "Southlake",
+          "Keller"
+        ],
+        "desc": "Tailored MEP solutions supporting the rapid industrial, cultural, and commercial development throughout Fort Worth and the mid-cities."
+      },
+      {
+        "county": "Collin County",
+        "cities": [
+          "Plano",
+          "Frisco",
+          "McKinney",
+          "Allen",
+          "Prosper"
+        ],
+        "desc": "High-performance building systems for corporate headquarters, cutting-edge retail centers, and modern educational and mixed-use campuses."
+      },
+      {
+        "county": "Denton County",
+        "cities": [
+          "Denton",
+          "Lewisville",
+          "Carrollton",
+          "Flower Mound",
+          "Little Elm"
+        ],
+        "desc": "Scalable infrastructure consulting for booming residential corridors, distribution centers, and commercial business parks."
+      }
+    ]
+  },
+  "complianceCallout": {
+    "enabled": true,
+    "heading": "Mastery of North Texas Building Codes",
+    "description": "From Dallas Energy Code amendments and IECC standards to City of Fort Worth development guidelines, our team ensures complete plan compliance to expedite plan checks and avoid costly redlines.",
+    "ctaText": "Inquire for Your City"
+  },
+  "clientTypes": {
+    "enabled": true,
+    "eyebrow": "Target Industries & Partners",
+    "heading": "Tailored Solutions for Every Stakeholder",
+    "description": "We engineer customized systems matching the exact constraints and goals of your project team.",
+    "items": [
+      {
+        "title": "General Contractors & Design-Build Firms",
+        "desc": "Responsive engineering support, clash-free construction documents, and practical, buildable solutions to field and design challenges."
+      },
+      {
+        "title": "Architectural Firms",
+        "desc": "A dependable MEP engineering partner to complement your architectural design, communicate effectively, meet project deadlines, and support permit documentation."
+      },
+      {
+        "title": "Commercial Developers & Building Owners",
+        "desc": "Engineering solutions for new construction, renovations, and upgrades that balance performance, schedule, budget, reliability, and long-term operating value."
+      },
+      {
+        "title": "Property Managers & Facility Operators",
+        "desc": "Dedicated engineering support for building renovations, HVAC replacements, system improvements, equipment modernization, and ongoing facility efficiency."
+      },
+      {
+        "title": "Engineering Consulting Partners",
+        "desc": "Supplemental engineering capacity, specialized technical expertise, and project-based MEP design support for fellow consulting and engineering firms."
+      },
+      {
+        "title": "Restaurants, Retail & Tenant Fit-Outs",
+        "desc": "Fast-track MEP engineering for commercial interior renovations, kitchen exhaust and make-up air, grease interceptors, and change-of-use permits."
+      }
+    ]
+  },
+  "advantage": {
+    "enabled": true,
+    "heading": "The Engivato DFW Advantage",
+    "description": "What sets our North Texas engineering practice apart from traditional consulting firms.",
+    "items": [
+      {
+        "title": "Rapid Plan Permitting",
+        "desc": "We know local DFW plan review standards inside out, helping you secure building permits without bureaucratic delays."
+      },
+      {
+        "title": "Direct Access to Principals",
+        "desc": "Work directly with experienced engineers on every project phase, from preliminary load calculations to final punch walks."
+      },
+      {
+        "title": "Cost-Effective Constructibility",
+        "desc": "We design systems that are practical to install in the field, reducing contractor markups and preventing unexpected change orders."
+      }
+    ]
+  }
+}

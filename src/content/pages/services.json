@@ -1,0 +1,211 @@
+{
+  "pageEnabled": true,
+  "seo": {
+    "metaTitle": "MEP Engineering Services | Mechanical, Electrical & Plumbing | Engivato PLLC",
+    "metaDescription": "Comprehensive MEP engineering solutions by Engivato PLLC. Specializing in mechanical (HVAC), electrical, plumbing, engineering consulting, energy modeling, and Revit BIM design."
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "Integrated Engineering Capabilities",
+    "heading": "Full-Spectrum MEP Engineering Solutions",
+    "description": "From initial load calculation through final construction administration, Engivato PLLC delivers innovative, energy-efficient, and constructible mechanical, electrical, and plumbing designs.",
+    "primaryCtaText": "Request a Proposal",
+    "secondaryCtaText": "Explore Disciplines"
+  },
+  "valueProps": {
+    "enabled": true,
+    "items": [
+      {
+        "title": "Engineering-Led",
+        "desc": "Holistic Problem-Solving"
+      },
+      {
+        "title": "Constructible",
+        "desc": "Practical & Build-Ready"
+      },
+      {
+        "title": "Modern BIM",
+        "desc": "3D Clash-Free Workflows"
+      },
+      {
+        "title": "Responsive",
+        "desc": "Collaborative Partnership"
+      }
+    ]
+  },
+  "disciplines": {
+    "enabled": true,
+    "eyebrow": "Core Engineering Services",
+    "heading": "Built on Technical Rigor & Coordination",
+    "description": "Every building system we engineer is tailored to optimize occupant comfort, life-safety protection, and operational sustainability.",
+    "deliverablesHeading": "Key Scope & Deliverables",
+    "items": [
+      {
+        "id": "mechanical",
+        "badge": "Discipline 01",
+        "title": "Mechanical Engineering (HVAC)",
+        "tagline": "Practical HVAC design, heating & cooling load calculations, and energy optimization.",
+        "description": "We engineer heating, ventilation, and air conditioning systems that balance thermal comfort, energy efficiency, and operational constructability. From load calculations and equipment sizing to ductwork and mechanical construction documents, our designs deliver practical, long-term performance.",
+        "features": [
+          "HVAC System Design & Engineering Layouts",
+          "Heating & Cooling Load Calculations (ASHRAE / Manual N)",
+          "Equipment Selection, Sizing & Performance Specification",
+          "Ductwork & Hydronic Piping System Design & Routing",
+          "Energy Efficiency & System Performance Considerations",
+          "Mechanical Construction Document Preparation & Design Coordination"
+        ]
+      },
+      {
+        "id": "electrical",
+        "badge": "Discipline 02",
+        "title": "Electrical Engineering",
+        "tagline": "Safe, reliable power distribution, lighting design, and cross-discipline coordination delivered with our licensed engineering partners.",
+        "description": "Coordinated and delivered in partnership with trusted licensed electrical engineering partners, we provide safe, scalable, and code-compliant electrical power systems. Engivato oversees cross-discipline integration across power distribution design, interior and exterior lighting, lighting controls, and coordination with mechanical, plumbing, architectural, and structural building elements.",
+        "features": [
+          "Electrical Power Distribution Design & Service Sizing",
+          "Lighting Layouts & Intelligent Lighting Controls",
+          "Electrical Load Calculations & Equipment Coordination",
+          "Coordination with Mechanical, Plumbing, Architectural & Structural Systems",
+          "Emergency Power, Standby Generators & Automatic Transfer Switches",
+          "Low-Voltage Infrastructure & Code-Compliant Panelboard Schedules"
+        ]
+      },
+      {
+        "id": "plumbing",
+        "badge": "Discipline 03",
+        "title": "Plumbing Engineering",
+        "tagline": "Domestic water distribution, sanitary waste systems, and specialized piping delivered with our licensed engineering partners.",
+        "description": "Coordinated and delivered in partnership with trusted licensed plumbing engineering partners, we provide sanitary, waste, vent, and domestic water systems that ensure public health, water conservation, and long-term operating durability. Engivato coordinates domestic water distribution, commercial kitchen grease interceptors, natural gas piping, and multi-discipline building integration.",
+        "features": [
+          "Domestic Water Distribution Systems & Recirculation Loops",
+          "Sanitary Waste & Vent Systems Layout & Sizing",
+          "Plumbing Fixture & Commercial Equipment Selection",
+          "Plumbing Hydraulic Calculations, Isometrics & Construction Documents",
+          "Commercial Grease Interceptors, Sand-Oil Separators & Gas Piping",
+          "Multi-Discipline Building Systems Coordination & Utility Connections"
+        ]
+      },
+      {
+        "id": "consulting",
+        "badge": "Discipline 04",
+        "title": "Engineering Consulting & Project Support",
+        "tagline": "Design reviews, MEP coordination, clash resolution, and quality assurance.",
+        "description": "We provide specialized engineering consulting, design reviews, and responsive project support to help contractors, architects, and owners solve complex technical challenges. From clash-resolution support to value engineering and quality assurance, we ensure building systems are practical, coordinated, and constructible.",
+        "features": [
+          "Engineering Design Review & Detailed Technical Assessments",
+          "MEP Coordination & 3D Clash-Resolution Support",
+          "Construction Document Review & Quality Assurance (QA/QC)",
+          "Design Optimization & Practical Value Engineering",
+          "Project Coordination & Responsive Technical Problem-Solving",
+          "Additional Design Capacity & Project-Based Partner Support"
+        ]
+      }
+    ]
+  },
+  "capabilities": {
+    "enabled": true,
+    "eyebrow": "Value-Added Expertise",
+    "heading": "Specialized Engineering Capabilities",
+    "description": "Beyond core design, we provide advanced technical evaluations and modeling tools that protect project schedules and bottom lines.",
+    "items": [
+      {
+        "title": "Energy Modeling & Code Compliance",
+        "description": "Comprehensive COMcheck and REScheck reports, ASHRAE 90.1 modeling, and IECC compliance documentation to ensure streamlined permit clearance and energy efficiency incentives."
+      },
+      {
+        "title": "BIM & 3D Clash Detection (Revit)",
+        "description": "Fully coordinated 3D Autodesk Revit models that identify system interferences before breaking ground, virtually eliminating expensive change orders and field RFIs."
+      },
+      {
+        "title": "Tenant Improvements & Interior Fit-Outs",
+        "description": "Agile engineering packages for fast-paced commercial retail, restaurant, medical office, and corporate tenant renovations with tight turnaround deadlines."
+      },
+      {
+        "title": "Facility Condition Assessments & Peer Review",
+        "description": "Thorough evaluations of existing MEP infrastructure, capital replacement forecasting, due diligence surveys, and third-party engineering plan reviews."
+      },
+      {
+        "title": "Value Engineering & Systems Optimization",
+        "description": "Strategic review of MEP equipment selections and distribution topologies to trim unnecessary capital expense without degrading building durability or code adherence."
+      },
+      {
+        "title": "Construction Administration & Field Observation",
+        "description": "Continuous engineering oversight throughout buildout: submittal review, contractor RFI resolution, site walkthrough reports, and punch list verifications."
+      }
+    ]
+  },
+  "process": {
+    "enabled": true,
+    "eyebrow": "Project Delivery Process",
+    "heading": "How We Engineer Every Project",
+    "description": "A transparent, structured workflow designed to align with architectural milestones and contractor construction schedules.",
+    "phases": [
+      {
+        "step": "Phase 01",
+        "title": "Schematic Design & Due Diligence",
+        "summary": "Establishing load benchmarks, assessing existing utilities, and validating equipment spatial footprints alongside the architectural concept."
+      },
+      {
+        "step": "Phase 02",
+        "title": "Design Development & BIM Modeling",
+        "summary": "Selecting primary equipment, routing main ductwork and piping runs, and establishing coordinated 3D BIM models to mitigate spatial conflicts early."
+      },
+      {
+        "step": "Phase 03",
+        "title": "Construction Documents (CD)",
+        "summary": "Finalizing stamped, permit-ready drawings, schedules, one-line diagrams, details, and technical specifications ready for bidding and city submission."
+      },
+      {
+        "step": "Phase 04",
+        "title": "Plan Review & Permitting Support",
+        "summary": "Proactively responding to municipal plan check comments to ensure swift, uninterrupted permit issuance across local building jurisdictions."
+      },
+      {
+        "step": "Phase 05",
+        "title": "Construction Administration (CA)",
+        "summary": "Reviewing shop drawings and submittals, answering contractor RFIs in real time, and performing milestone field inspections through final sign-off."
+      }
+    ]
+  },
+  "standards": {
+    "enabled": true,
+    "heading": "Industry Standards, Codes & Design Tools We Master",
+    "badges": [
+      "Autodesk Revit MEP",
+      "AutoCAD",
+      "ASHRAE 90.1 / 62.1",
+      "International Building Code (IBC)",
+      "International Energy Conservation Code (IECC)",
+      "National Electrical Code (NEC / NFPA 70)",
+      "Uniform Plumbing Code (UPC / IPC)",
+      "NFPA 13 / 14 / 20 / 72",
+      "COMcheck & REScheck",
+      "Trace 3D Plus"
+    ]
+  },
+  "faq": {
+    "enabled": true,
+    "eyebrow": "Common Questions",
+    "heading": "Frequently Asked Questions",
+    "description": "Have questions about our engineering deliverables, licensing, or turnaround times?",
+    "items": [
+      {
+        "question": "Do you provide stamped and sealed engineering drawings?",
+        "answer": "Yes. All final construction document sets are stamped and sealed by Texas-licensed Professional Engineers (P.E.) in full compliance with TBPELS regulations, with mechanical engineering sealed in-house and electrical and plumbing engineering scopes coordinated and sealed through our trusted licensed engineering partners."
+      },
+      {
+        "question": "Can you deliver project models in Autodesk Revit?",
+        "answer": "Absolutely. We develop projects in Autodesk Revit as standard practice, providing fully coordinated 3D BIM models for clash detection alongside traditional 2D AutoCAD deliverables."
+      },
+      {
+        "question": "How quickly can Engivato respond to plan review comments?",
+        "answer": "We treat municipal plan review comments as top priority. Most plan check revisions are addressed within 2 to 4 business days to prevent permitting delays for owners and general contractors."
+      },
+      {
+        "question": "What building sectors and project types do you work on?",
+        "answer": "Our core project focus is on restaurants, commercial office finish-outs, and multifamily developments, alongside retail fit-outs, medical suites, and commercial facility upgrades throughout Texas."
+      }
+    ]
+  }
+}
+

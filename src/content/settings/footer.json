@@ -1,0 +1,22 @@
+{
+  "ctaBanner": {
+    "enabled": true,
+    "eyebrow": "Ready to Collaborate?",
+    "heading": "Let's Build Systems That Perform",
+    "description": "Send us your architectural plans or RFP. Our engineering team will review your scope and provide a detailed proposal and timeline.",
+    "primaryCtaText": "Contact Our Engineering Team",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaText": "See Who We Serve",
+    "secondaryCtaHref": "/who-we-serve"
+  },
+  "contactBar": {
+    "enabled": true,
+    "phone": "2147894783",
+    "email": "admin@engivato.com",
+    "businessHours": "Monday - Friday, 8:00 AM - 5:00 PM CST"
+  },
+  "bottomBar": {
+    "enabled": true,
+    "copyrightText": "Engivato PLLC. All rights reserved."
+  }
+}

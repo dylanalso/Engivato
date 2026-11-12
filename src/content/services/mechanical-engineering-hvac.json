@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "title": "Mechanical Engineering (HVAC)",
+  "badge": "Discipline 01",
+  "tagline": "HVAC design & load calculations",
+  "desc": "Heating and cooling load calculations, equipment selection and sizing, ductwork and piping design, energy efficiency, and coordinated mechanical construction documents.",
+  "anchor": "mechanical",
+  "deliverables": [
+    "HVAC Design & Equipment Sizing",
+    "Heating & Cooling Load Calculations",
+    "Ductwork & Piping System Layouts"
+  ],
+  "order": 1
+}

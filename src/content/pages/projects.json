@@ -1,0 +1,131 @@
+{
+  "pageEnabled": true,
+  "seo": {
+    "metaTitle": "Sector Capabilities & Project Typologies | MEP Engineering | Engivato PLLC",
+    "metaDescription": "Explore Engivato PLLC's MEP engineering capabilities across commercial restaurants, office finish-outs, multifamily developments, retail spaces, and HVAC modernization throughout Texas."
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "Sector Capabilities & Scope Focus",
+    "heading": "MEP Engineering Across Key Sectors",
+    "description": "Practical, code-compliant Mechanical, Electrical, and Plumbing engineering tailored to the unique operational, architectural, and schedule demands of North Texas facilities.",
+    "primaryCtaText": "Discuss Your Project Scope",
+    "secondaryCtaText": "View All Services"
+  },
+  "highlights": {
+    "enabled": true,
+    "items": [
+      {
+        "value": "Direct",
+        "label": "Principal Oversight"
+      },
+      {
+        "value": "Texas",
+        "label": "DFW & Municipal Mastery"
+      },
+      {
+        "value": "Coordinated",
+        "label": "Clash-Free MEP Design"
+      },
+      {
+        "value": "Agile",
+        "label": "Fast RFI Turnaround"
+      }
+    ]
+  },
+  "showcase": {
+    "enabled": false,
+    "eyebrow": "Filter by Industry Sector",
+    "heading": "Selected Works & Case Studies",
+    "description": "Browse our projects across major commercial sectors. Each design reflects our commitment to code compliance, constructability, and energy efficiency."
+  },
+  "sectors": {
+    "enabled": true,
+    "eyebrow": "Targeted Built Environments",
+    "heading": "Engineering Tailored to Your Asset Type",
+    "description": "Every building sector has unique regulatory mandates, utility demands, and spatial constraints. We design constructible MEP systems aligned with contractor workflows.",
+    "deliverablesHeading": "Key Engineering Deliverables",
+    "applicationsLabel": "Typical Applications",
+    "ctaButtonText": "Request Scope Consultation",
+    "items": [
+      {
+        "id": "restaurants",
+        "title": "Restaurants & Commercial Kitchens",
+        "badge": "High-Demand Systems",
+        "desc": "Commercial food service environments demand intense coordination across grease exhaust, makeup air balancing, high-volume gas distribution, and continuous plumbing sanitation.",
+        "scopes": [
+          "Type I & Type II commercial kitchen hood exhaust systems",
+          "Make-Up Air (MUA) interlocks and thermal comfort balancing",
+          "Commercial grease interceptor sizing and dedicated grease waste routing",
+          "High-capacity natural gas piping schematics and pressure regulation",
+          "Health department and municipal fire marshal coordination"
+        ],
+        "idealFor": "Quick-service restaurants, fine dining, commercial ghost kitchens, brewpubs, and food hall conversions."
+      },
+      {
+        "id": "office-finish-outs",
+        "title": "Commercial Office Finish-Outs & Tenant Improvements",
+        "badge": "Fast-Track Turnaround",
+        "desc": "Tenant improvements require rapid turnaround times, constructible layouts, and flexible power and HVAC zoning to meet aggressive move-in schedules and local energy codes.",
+        "scopes": [
+          "Complete MEP tenant improvement construction drawings",
+          "IECC automated lighting controls and occupancy sensors",
+          "Zoned VAV / VRF thermal comfort and thermostat redistribution",
+          "Flexible electrical branch circuit wiring and server room power circuits",
+          "Expedited municipal permit turnaround and plan check response"
+        ],
+        "idealFor": "Corporate headquarters finish-outs, creative agency offices, medical/dental suites, and speculative office suites."
+      },
+      {
+        "id": "multifamily",
+        "title": "Multifamily & Mixed-Use Residential",
+        "badge": "Integrated Density",
+        "desc": "Multifamily and podium developments require coordinated MEP engineering balancing individual dwelling unit comfort, acoustic isolation, centralized utilities, and common amenities.",
+        "scopes": [
+          "Full-scope mechanical, electrical, and plumbing podium design",
+          "Centralized domestic hot water generation and recirculation loops",
+          "Tenant electrical submetering and utility distribution panels",
+          "Amenity clubhouse, fitness center, and co-working space MEP engineering",
+          "Enclosed parking garage carbon monoxide (CO) ventilation design"
+        ],
+        "idealFor": "Apartment communities, podium mixed-use developments, condominium complexes, and senior living facilities."
+      },
+      {
+        "id": "retail-shell",
+        "title": "Commercial Retail & Shell Buildings",
+        "badge": "Flexible Infrastructure",
+        "desc": "Warm shell and vanilla box retail developments require adaptable utility stub-outs and electrical capacity that streamline future tenant fit-outs without costly structural modifications.",
+        "scopes": [
+          "Speculative shell electrical service entrances and switchgear sizing",
+          "Rooftop unit curb coordination and roof penetration plans",
+          "Sanitary waste, domestic water, and natural gas stub-out coordination",
+          "Subdivision of utility metering for multi-tenant strip centers",
+          "Code-compliant exterior and parking lot photometric lighting design"
+        ],
+        "idealFor": "Boutique shopping centers, suburban retail strips, stand-alone commercial pads, and adaptive reuse retail."
+      },
+      {
+        "id": "hvac-modernization",
+        "title": "HVAC Replacements & Building System Modernization",
+        "badge": "Efficiency & Longevity",
+        "desc": "Modernizing aging mechanical equipment extends building life, lowers peak utility costs, and ensures compliance with updated local energy codes and refrigerant standards.",
+        "scopes": [
+          "Packaged Rooftop Unit (RTU) like-for-like and upgraded replacements",
+          "Heating and cooling load calculations (Manual N / ASHRAE standards)",
+          "Ductwork redistribution and static pressure re-balancing",
+          "Smart programmable thermostat and basic BAS integration",
+          "Energy code compliance documentation (COMcheck)"
+        ],
+        "idealFor": "Aging commercial buildings, schools, religious institutions, light industrial warehouses, and community facilities."
+      }
+    ]
+  },
+  "confidentialityCallout": {
+    "enabled": true,
+    "eyebrow": "Confidentiality & Deliverables",
+    "heading": "Sample Drawing Packages & Plan Sets",
+    "description": "In accordance with client non-disclosure agreements and commercial confidentiality, complete stamped MEP drawing sets, single-line schematics, and client references are provided directly upon request during project consultations.",
+    "ctaText": "Request Sample Drawings For Your Sector"
+  }
+}
+

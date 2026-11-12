@@ -1,0 +1,114 @@
+{
+  "pageEnabled": true,
+  "seo": {
+    "metaTitle": "About Us | Engivato PLLC - Texas MEP Engineering",
+    "metaDescription": "Learn about Engivato PLLC, a Texas-based engineering firm providing innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) solutions."
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "About Engivato PLLC",
+    "heading": "Engineering Innovation for Built Environments",
+    "description": "We provide cutting-edge Mechanical, Electrical, and Plumbing (MEP) engineering solutions that balance functionality, efficiency, and architectural vision."
+  },
+  "highlights": {
+    "enabled": true,
+    "items": [
+      {
+        "title": "1-on-1 Principal Access",
+        "desc": "Collaborate directly with the founder on every design phase without junior handoffs."
+      },
+      {
+        "title": "Integrated M - E - P",
+        "desc": "In-house mechanical engineering with partner-coordinated electrical and plumbing under single-point project management."
+      },
+      {
+        "title": "100% Code & Permit Focus",
+        "desc": "Rigorous adherence to Texas and DFW municipal codes to minimize plan-check redlines."
+      },
+      {
+        "title": "Agile & Responsive",
+        "desc": "Direct communication and rapid turnaround on contractor RFIs and design adjustments."
+      }
+    ]
+  },
+  "story": {
+    "enabled": true,
+    "heading": "Our Story & Commitment",
+    "paragraph1": "Engivato PLLC is a Texas-based engineering firm focused on providing innovative, practical, and reliable Mechanical, Electrical, and Plumbing (MEP) engineering solutions. Our goal is to help clients develop high-performing, efficient, and sustainable building systems through technical expertise, thoughtful design, and effective project coordination.",
+    "paragraph2": "Our company name reflects our commitment to combining engineering expertise with innovation and modern technology. We partner with general contractors, commercial developers, architects, and property managers to deliver forward-thinking engineering that solves real-world operational and construction challenges.",
+    "quote": "\"Engineering is not just about meeting code-it is about designing systems that elevate building longevity and human comfort.\"",
+    "manifestoEyebrow": "The Engivato Standard",
+    "manifestoHeading": "Practical Engineering Driven by Modern Delivery",
+    "manifestoDescription": "We believe engineering consulting should be direct, transparent, and aligned with constructibility. Every calculation and layout is designed to help contractors build efficiently and owners maximize operational value.",
+    "manifestoBullets": [
+      "Coordinated MEP delivery with trusted licensed electrical & plumbing partners",
+      "Hands-on Texas municipal permit reviews & RFI support",
+      "Commercial restaurants, office finish-outs & multifamily focus"
+    ]
+  },
+  "disciplines": {
+    "enabled": true,
+    "heading": "Core Engineering Disciplines",
+    "description": "Comprehensive, cross-disciplinary design designed to integrate seamlessly into modern construction.",
+    "items": [
+      {
+        "title": "Mechanical Engineering (HVAC)",
+        "desc": "HVAC system design, heating and cooling load calculations, equipment selection and sizing, ductwork and piping design, energy efficiency, and coordinated mechanical construction documents."
+      },
+      {
+        "title": "Electrical Engineering",
+        "desc": "Coordinated and delivered through trusted licensed electrical engineering partners, covering power distribution design, lighting and lighting controls, load calculations, equipment coordination, and cross-discipline integration."
+      },
+      {
+        "title": "Plumbing Engineering",
+        "desc": "Coordinated and delivered through trusted licensed plumbing engineering partners, covering domestic water distribution, sanitary waste and vent systems, fixture and equipment selection, plumbing calculations, and construction documents."
+      },
+      {
+        "title": "Consulting & Project Support",
+        "desc": "Engineering design review, MEP coordination and clash-resolution support, construction document QA, design optimization, and value engineering."
+      }
+    ]
+  },
+  "values": {
+    "enabled": true,
+    "heading": "Our Guiding Principles",
+    "description": "The standards and values that inform every drawing, calculation, and site inspection we perform.",
+    "items": [
+      {
+        "title": "Engineering-Led Solutions",
+        "desc": "We look beyond individual systems to understand how engineering decisions affect the overall project performance, constructability, and longevity."
+      },
+      {
+        "title": "Practical & Constructible Design",
+        "desc": "We emphasize solutions that are technically sound, well-coordinated, and realistic to implement in the field."
+      },
+      {
+        "title": "Technology & Innovation",
+        "desc": "We leverage modern engineering tools, digital workflows, and data-driven methods to enhance project quality and efficiency."
+      },
+      {
+        "title": "Responsive Relationships",
+        "desc": "We value clear communication, accountability, collaboration, and an understanding of each client's specific schedule and operational needs."
+      }
+    ]
+  },
+  "team": {
+    "enabled": true,
+    "eyebrow": "Principal Leadership",
+    "heading": "Direct Principal Engagement",
+    "description": "Work directly with the founding engineer on every phase of your project, from preliminary design to final permit approval.",
+    "leaderInitials": "HL",
+    "leaderName": "Hameed Lamy",
+    "leaderRole": "Founder & Principal Engineer",
+    "leaderShortRole": "Founder & Principal",
+    "leaderBadge": "Principal-Led Practice",
+    "bioParagraph1": "Hameed founded Engivato PLLC with a clear commitment: delivering practical, constructible, and technically rigorous Mechanical, Electrical, and Plumbing (MEP) engineering solutions with direct principal accountability.",
+    "bioParagraph2": "Rather than passing drawings through junior staff or corporate bureaucracy, clients work directly with Hameed from project kickoff through permit submittal and construction administration.",
+    "highlights": [
+      "Direct 1-on-1 principal collaboration",
+      "Coordinated Mechanical, Electrical & Plumbing",
+      "Texas & DFW local code compliance",
+      "Agile turnaround on RFIs and revisions"
+    ]
+  }
+}
