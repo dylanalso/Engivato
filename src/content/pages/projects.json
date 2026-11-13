@@ -34,7 +34,7 @@
     ]
   },
   "showcase": {
-    "enabled": true,
+    "enabled": false,
     "eyebrow": "Filter by Industry Sector",
     "heading": "Selected Works & Case Studies",
     "description": "Browse our projects across major commercial sectors. Each design reflects our commitment to code compliance, constructability, and energy efficiency."
